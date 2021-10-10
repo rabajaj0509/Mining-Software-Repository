@@ -10,6 +10,9 @@ GITHUB_SEARCH_API = os.getenv('GITHUB_SEARCH_API')
 TRAVIS_ISSUES_PARAMS = os.getenv('TRAVIS_ISSUES_PARAMS')
 TRAVIS_FILE_PARAMS = os.getenv('TRAVIS_FILE_PARAMS')
 GITHUB_REPO_URL = os.getenv('GITHUB_REPO_URL')
+PROJECT_PATH = os.getenv('PROJECT_PATH')
+
+OUTPUT_FILE_PATH = f"{PROJECT_PATH}/repositories.csv"
 
 def send_request(url, gh_token, ignore_token=False, sleep_time=1):
   headers = {}
@@ -35,6 +38,12 @@ def get_repository_name(travis_issues):
       print(f"ERROR: Failed getting .travis.yml file for repo={repository_name}")
   return(repositories)
 
+def create_csv_file_if_necessary(file_path, headers):
+    if not os.path.isfile(file_path):
+        with open(file_path, 'w') as csv_file:
+            writer = csv.DictWriter(csv_file, headers)
+            writer.writeheader()
+
 def main():
   repository_data = list()
   if GITHUB_ACCESS_TOKEN is None:
@@ -44,7 +53,7 @@ def main():
   for repo in repo_names:
     repository_data.append(send_request(GITHUB_REPO_URL+repo, GITHUB_ACCESS_TOKEN))
   pprint(repository_data)
+  create_csv_file_if_necessary(OUTPUT_FILE_PATH, OUTPUT_FILE_FIELD_NAMES)
 
 if __name__ == "__main__":
     main()
-
