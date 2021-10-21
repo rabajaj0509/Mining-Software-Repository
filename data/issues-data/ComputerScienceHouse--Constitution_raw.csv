@@ -1,0 +1,1410 @@
+Repo,Issue-no,Issue-title,Issue-body,Issue-reaction-total-count,Issue-reaction-plus-one,Issue-reaction-minus-one,Issue-comments
+ComputerScienceHouse/Constitution,199,delete travis because rip travis,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+rip travis CI, we should move this to github actions
+",0,0,0,0
+ComputerScienceHouse/Constitution,198,Remove spending committees,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+This PR attempts to address a few things. First and most importantly, the notion of a spending committee is unnecessary bureaucracy that we should trim from the spending process.
+
+## Delete spending committees
+
+Currently, the process is for spending money from a directorship's budget is (roughly) the following:
+1. Get permission from the directorship who's budget the purchase will fall under
+2. Get approval from financials to spend the money
+3. Request approval from RIT (Currently res life, subject to change)
+3b. Wait probably a few days to get approval from RIT (I have a lot of complaints about this part but this is a PR not a discourse post)
+4. If the purchase is between $100-$300, convince 1 4 of quorum (Currently ~10 ish active voting members, which is tough to come by pre-ten weeks) to gather somewhere and say whether or not you're allowed to use your budget
+5. Pick up the pro card from RIT during business hours, or if it's an online purchase hope that you can buy said thing from an RIT approved vendor, otherwise more bureaucracy incoming
+6. Actually go spend money on some purchase
+7. Return the pro card and any relevant receipts to RIT by 2pm the following day (If online purchase, skip this step)
+
+Removing the spending committee would delete step 4 from the process. My argument is that there are already several layers of approval already baked into the process of spending CSH funds and that a spending committee does not accomplish it's goal of preventing directorships for making purchases that they should not be making, and instead is just a big waste of time.
+
+It's also been particularly difficult when attempting to plan events whose cost scales with the number of attendees when we get one number on an interest form and then right before the event a ton of people sign up. It's tough to know which events we'd need to do comittees for and which we wouldn't, and we're discouraged from simply always holding spending committees because of the hassle of organizing them. A point to the contrary is that we could make sign up forms for every event with a deadline and say that anyone who doesn't sign up by the deadline will have to pay for themselves. While there is definitely merit in this idea, it would likely have the direct result of reducing attendance which is something we generally try to avoid as much as possible.
+
+## Define ""single expenditures""
+
+Second, I added a definition to what a `single expenditure` is, as previously we only had a definition for what a group expenditure is. Definitely open to modifying that definition, it just seemed non-obvious to determine what a single expenditure is based on the definition provided.
+
+## Change the $300 limit to a percentage of a directorship's budget
+Third, I changed the value of what the single group expenditures to sort of fill in the gaps of where the spending committee left off. Rather than having a fixed value for the distinction between purchases, I opted to include a percentage of the directorship's' budget. Also, I'm totally down to change the exact values, this post is mostly for discussion so I didn't think too hard about the exact numbers.
+
+Pros of this change:
+* The amount directorships can spend will change from year to year based on our overall budget
+  * While there are some fixed purchases, the vast majority of the purchases we make demonstrate a positive correlation between price and the number of active members. Opcomm will have to buy less hard drives if there's less members making minecraft servers, socials will have to spend less money on welcome back if there's less people eating burgers, etc
+* Larger directorships will have higher limits than smaller directorships
+  * If smaller budgets like PR are spending more than $40, we probably should know about it. On the other hand, it's hard for socials to make a purchase without spending over $40, and they probably shouldn't have to ask house every time they want to spend money
+* While at the end of the day it's still an arbitrary percentage, saying ""don't spend more than 10% of your budget in one go"" has a pretty clear rationality behind it as opposed to saying ""don't spend above the magic number $100 or else,"" which can be frustrating to members
+
+Cons of this change:
+* I'm biased
+  * The socials budget is the largest budget, and these changes would make it easier for larger budgets and potentially more restrictive for smaller budgets
+* The amount directorships can spend will change from year to year based on our overall budget
+  * I definitely think this is more a pro than a con, but there are definitely some fixed costs that we have. Our app store license is always $100 a year regardless of how many members we have(idk if we even pay for that anymore but you get the idea)
+  * ""Active"" members who participate a bunch in csh does not always equal active members who pay dues.
+    * The proportion of active alumni to active members can sometimes fluctuate pretty heavily, so having a percentaged based off of the total budget (which consists solely of dues afaik) might not be the best metric
+* Directorships would need to be aware of their individual limits and would not just be able to determine if they need a vote on something if it's >$300
+
+tl;dr is spending committees mostly just hinder members trying to do the right thing and in reality don't do anything to prevent directorships from abusing the system if they're so inclined, so we should just get rid of it. Also, having a fixed value be the distinction between needing to vote on a purchase or not sorta sucks and should be replaced with a percentage. ",0,0,0,3
+ComputerScienceHouse/Constitution,197,Outdated,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Outdated",0,0,0,1
+ComputerScienceHouse/Constitution,196,allow honorary and advisory members accounts without completion of packet,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s): It's dumb that honorary members need to complete packet so this changes that.
+
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,195,Rough draft of redefining dues exemptions,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+This is a semantic change and expansion based on clarifying the process where a Financial Director can provide an extension to a member for paying dues. I've expanded the section to allow the Financial Director (or eboard) to go through a series of possible solutions for active members who are having trouble paying dues.
+
+Hit me with some critiques, this is just a rough draft and my first semantic change.
+",0,0,0,1
+ComputerScienceHouse/Constitution,194,Added fullstop to line 360,"Check one:
+- [  ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Added a fullstop to line 360 to make sure it's clear that it's two sentences.
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,193,Return auto pass to the written constitution,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+We originally introduced auto-pass in #163, which was brought up to vote, and passed.
+It seems that when the documents were merged in #172, this addition was lost.
+
+This PR introduces the same wording, in the same sub section. This is exactly the same change as #163, and I believe current practice as of last year.
+
+The original wording of #163 was:
+```
+All members who have completed all of their requirements will automatically pass their Membership Evaluation.
+```
+",0,0,0,1
+ComputerScienceHouse/Constitution,192,Adding chairperson debate section,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+There is now a debate that must be held between candidates for Chairperson so that we can cultivate an even more stressful (or fun!) election cycle
+",0,0,0,2
+ComputerScienceHouse/Constitution,191,Adds the ability for eboard or the evaluations director to remove a m…,"…ember from the list of required signatures (5.D.2.A.2)
+
+Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,2
+ComputerScienceHouse/Constitution,190,Updated README,"…ken links
+
+Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Changed wording to reflect that there is only one document and fixed broken links
+",0,0,0,2
+ComputerScienceHouse/Constitution,189,Update number of on-floors + recalculate yearly budget,"Check one:
+- [x] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+
+Since dropping Fish from on-floor housing, the max number of on-floor members has dropped from 72 to 55. This should be reflected in section 5.D.1.C ""Breakdown of Dues for Directorship Budgets"" where the new suggested total budget should be $8800.
+
+We used this budget number for 2019 20, but the change was never reflected constitutionally.",1,1,0,0
+ComputerScienceHouse/Constitution,188,Reword ambiguous membership evaluation,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Reduce ambiguity in the membership eval voting section by being more specific.
+",0,0,0,3
+ComputerScienceHouse/Constitution,187,removed requirement for failed intro + active members to move off-floor,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Removed reference to failed active and intro members being required to move off-floor. 
+
+This is something house currently does not do and something the SIH reviewers were concerned about.",0,0,0,0
+ComputerScienceHouse/Constitution,186,removed requirement for chair and evals to be on floor,"Check one:
+- [X ] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Removed requirement for evaluations director and chair to be on floor in order to qualify for the position.
+",0,0,0,2
+ComputerScienceHouse/Constitution,185,Correct undefined Resignation references,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Resignations -> Executive Board Resignations
+Fixes undefined label warnings at compile time.
+",0,0,0,1
+ComputerScienceHouse/Constitution,184,Correct inconsistency in Intro Period extensions,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+If the Intro Process is extended, that Process's Evaluation may need to occur outside of the 6th and 10th week of the semster.",0,0,0,1
+ComputerScienceHouse/Constitution,183,Remove outdated 'Housing Points' and cleanup Housing Priority,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+We use the 'Housing Priority System' and 'Housing Priority Points'. We
+don't need to also define 'Housing Points' in a different place, with a
+conflicting definition.
+
+This PR brings the constitution in line with current practice, and makes the constitution less confusing and self contradictory.
+",0,0,0,1
+ComputerScienceHouse/Constitution,182,"Don't elect OpComm, Ad Hocs, or the Secretary","Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+#181 and #148 would require an election in the event of the resignation of the OpComm Director, the Secretary, or any AdHoc Director. This requires their replacement to be selected via the process we usually use to select that position.
+",0,0,0,3
+ComputerScienceHouse/Constitution,181,Elections are Mandatory,"This has already passed but it needed to be updated.
+
+Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,180,Fixes Active Membership Requirements and Packet,"Active Membership is now awarded upon intro-members if they pass 10-weeks.
+
+Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,179,Add texlive-formats-extra dependency to README for Debian (resolve #171),,0,0,0,1
+ComputerScienceHouse/Constitution,178,Correct Makefile to handle references,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+The makefile needs to build twice so that previous references are understood.
+",0,0,0,1
+ComputerScienceHouse/Constitution,177,Add a missing 'and' to conditional description,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s): The description for a conditional was missing an ""and."" This adds it
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,176,Capitalize Introductory Evaluations,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s): Capitalizing Introductory Evaluations because it's a proper term
+",0,0,0,0
+ComputerScienceHouse/Constitution,175,Make intro members not required to pay dues,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Changes introductory members being required to pay dues. 
+",0,0,0,0
+ComputerScienceHouse/Constitution,174,Rm housing evals,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Deletes bad references to Housing Evals, makes housing points automatic. Also updates constitution to current process.",0,0,0,3
+ComputerScienceHouse/Constitution,173,Clarity for alumni in good standing ,"Check one:
+- [x] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+Section 3.B.7 and 3.C.2 are very vague about what happens when a member goes into alumni status. 
+specifically in 3.C.2 
+
+```Active members who depart house without passing the current operating session’s Membership Evaluations are considered to be Alumni in bad standing.  This may be appealed to the Executive Board in order to pursue a different outcome.```
+
+The current operating session's membership evaluation is a little unclear on when member can become an alumni in good standing. Can this only be done over the summer? I'm not sure if this is the way we've done it in the past, and we should probably rethink it and bring it up to date. ",0,0,0,0
+ComputerScienceHouse/Constitution,172,Merge the bylaws into the articles,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Merge the content of `bylaws.tex` into `articles.tex`, and rename `articles.tex -> constitution.tex`.
+This will fix all of the broken or unclear cross document references.
+It has the nasty side effect of, at the moment, requiring `\asubsubsubsubsection`s, but I'm very open to alternatives.
+
+This change makes the documents simpler to read and removes structures that were made irrelevant by older changes.
+
+The compiled document may be found [here](https:  csh.rit.edu ~mom bylaws-articles-merged.pdf)",0,0,0,0
+ComputerScienceHouse/Constitution,171,Extra dependency needed on Ubuntu,"On Ubuntu, I also needed `texlive-formats-extra` in order to build. Maybe this is the same on Debian. I'm not sure what the equivalent `yum` package is, if needed.
+
+```diff
+diff --git a README.md b README.md
+index 730f79a..4fdffc7 100644
+--- a README.md
++++ b README.md
+@@ -31,7 +31,7 @@ Must have make, and pdflatex installed.
+ 
+ Installing dependencies on debian
+ 
+-`sudo apt install texlive make`
++`sudo apt install texlive texlive-formats-extra make`
+ 
+ Installing depencdencies on fedora
+ 
+```",0,0,0,0
+ComputerScienceHouse/Constitution,170,Use Travis CI to compile documents to PDFs and upload them to S3,"https:  s3.csh.rit.edu uploads articles.pdf
+https:  s3.csh.rit.edu uploads bylaws.pdf
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,169,update hazing note,"Check one:
+- [x] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+
+In section 4.B.1, at the bottom as an additional note, it reads 
+```
+Additional Note:  No hazing shall occur at any time during the Selection Process in accordance with theNew York State Hazing Laws.
+```
+which should probably be expanded upon, and also default to RIT's hazing policy instead of New York state law. Maybe make a new subsection for what is and is not permitted.",0,0,0,0
+ComputerScienceHouse/Constitution,168,Update Eboard's responsibility as mandatory reporters,"Check one:
+- [x] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+In section 4.C.1.h, it says that it is Eboard's responsiblity to 
+
+```To respect the privacy of House members confiding in the Executive Board, barring situations related to endangerment of oneself or others, sexual assault, or in the case of a Judicial Board```
+
+But this year Eboard does act as mandatory reporters, and it would be a good idea to rewrite this to reflect that change. Though it might just stay the same, I want to be very sure that that definition and RIT's definition of a mandatory reporter line up.",0,0,0,0
+ComputerScienceHouse/Constitution,167,Add combined membership agreement and code of conduct,"This PR combines CSH's past [membership agreement] with a new Code of Conduct describing our expectations for members' behaviors. Additionally, it is a step in the direction of consolidating all official CSH documents into this Constitution repository.
+
+[membership agreement]: https:  github.com computersciencehouse membershipagreement
+
+(I'll post a link to the rendered document as soon as I figure it out)",0,0,0,1
+ComputerScienceHouse/Constitution,166,Allow Evaluations Appeals,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+This updates to current practice, and allows all evaluations decisions
+to be appealed.
+",0,0,0,0
+ComputerScienceHouse/Constitution,165,Standardises the spelling of Ad-Hoc,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+It was very inconsistent so now it's `Ad-Hoc` everywhere.",0,0,0,0
+ComputerScienceHouse/Constitution,164,Chairman -> Chair,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,163,Automatically pass All Green at Spring Evals,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+All members who have completed all of their requirements will automatically pass their Membership Evaluation.
+
+This stems from recent conversations, where it has sounded as though we should never not be passing a member who has objectively completed their requirements.",0,0,0,3
+ComputerScienceHouse/Constitution,162,Simplify the requirements for nominations,"By current practice, we don't restrict nomination only to qualified
+members, so we should update that, so we can bring up candidates and
+determine whether their merit should override the qualifications of a
+seat.
+
+Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+This is primarily to update to current practice. If we are going to bring up a candidate who isn't qualified and consider the possibility of an override of the qualifications, we allow them to be nominated before we do discussion and voting. This means we can bring up overrides at a House Meeting before ballots are distributed.
+
+This change removes the requirement to be qualified from nominations and places it instead with the inclusion in ballots and the determination of winners.
+",0,0,0,3
+ComputerScienceHouse/Constitution,161,Spring is Objective,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Make Spring Objective (for reals)
+",0,0,0,0
+ComputerScienceHouse/Constitution,160,Replaced all instances of Chairman with Chairperson,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Makes chairman inclusive!
+",0,0,0,5
+ComputerScienceHouse/Constitution,159,Define amount of freshmen rooms,"Check one:
+- [x] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+
+Housing board selections thing - How many freshmen rooms should be reserved for next year 33%. ",0,0,0,2
+ComputerScienceHouse/Constitution,158,"Revert ""Allow the Secretary to do their job""",Reverts ComputerScienceHouse Constitution#157,0,0,0,0
+ComputerScienceHouse/Constitution,157,Allow the Secretary to do their job,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s): The secretary can't do their job it they aren't in eboard meetings, so this adds the House Secretary to the list of people allowed in closed.
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,156,Merge the by-laws into the articles,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s): Deletes the by-laws and places their content into the articles.
+
+Resolves #147 ",0,0,0,7
+ComputerScienceHouse/Constitution,155,Full semester is not defined,"https:  github.com ComputerScienceHouse Constitution blob 3c28d9535f982426275e921b17e790424a48b907 articles.tex#L451
+https:  github.com ComputerScienceHouse Constitution blob 3c28d9535f982426275e921b17e790424a48b907 articles.tex#L457
+
+A full semester as referred to here is not defined, and could be taken to mean either a contiguous RIT semester or 16 weeks in total.",0,0,0,0
+ComputerScienceHouse/Constitution,154,Remove the notarize reference,"We don't require this per the constitution
+
+Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s): Per the constitution, we no longer need to print, sign, notarize, and place the document in the cabinet. But it's a file change, so it's semantic.
+
+",0,0,0,4
+ComputerScienceHouse/Constitution,153,Capitalise 'standard operating session',"'standard operating session' doesen't refer to the Standard Operating
+Session.
+
+Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Capitalise ‘Standard Operating Session’ so it matches the bylaws.
+",0,0,0,0
+ComputerScienceHouse/Constitution,152,Updating Constitution to match Current RIT Policy,"Check one:
+- [x] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+As is the goal of the new constitution committee, we are moving to update our constitution to fall more in line with current RIT policy and co-opt sections that push us towards more modern expectations. Sections we should work to include start with but are not limited to:
+
+- [ ] Defined policy for practices often covered by Judicial's 
+- [ ] Rights of members (from house and within house)
+- [ ] Clearly defined Anti-Hazing policy
+- [ ] Extension of RIT's policies where applicable
+
+This list can expand and change, but this is the initial list based on recent discussions in house meeting as a starting point.",0,0,0,0
+ComputerScienceHouse/Constitution,151,Fixing Inconsistent Membership Status,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Fixing Inconsistent Membership referencing #52 ",0,0,0,2
+ComputerScienceHouse/Constitution,150,Outdated Housing Points Reference,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+If I'm reading this correctly... this is simply referring to winter evals that doesn't exist anymore.
+",0,0,0,1
+ComputerScienceHouse/Constitution,149,Update Packet Requirement,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Call me crazy, but maybe someone who got 60% of the required should not get an account.
+
+",0,0,0,2
+ComputerScienceHouse/Constitution,148,Elections Must Be Held for the Executive Board,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+We should have a process which requires elections to be held once someone resigns instead of having a possible interim director forever at the discretion of the Executive Board.
+",0,0,0,1
+ComputerScienceHouse/Constitution,147,References to other parts of the Constitution and By-Laws don't specify which document they are referring to,"Check one:
+- [x] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+Constitution 3.A.2 contains ""the selection process as defined in 4.B."" the 4.B is ""linked"" to Section 4.B ""Closed Executive Board"" which is clearly not the selection process. I assume that this 4.B is referring to By-Laws 4.B, which are about the selection process. I propose this ""link"" should be removed or changed to be a link to the By-Laws (if possible).
+
+Similar problems are in the documents as a whole, with both documents using the same numbering system and not specifying which document is being referred to. I propose that there should be some means to differentiating which document is being referred to.",0,0,0,0
+ComputerScienceHouse/Constitution,146,Remove Temporary Amendment 2: Electric Boogaloo,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Removes the Temporary Amendment section entirely (see #143 for additional context), but retains a modified version of the Introductory Process timing change to allow for a larger application window without bringing back full rolling admissions.
+
+Also allows us to have more than one Introductory Evaluations per year. 😂",0,0,0,0
+ComputerScienceHouse/Constitution,145,Allow Evaluations Director to extend an Introductory Packet,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Allows the Evaluations Director to extend an Introductory Packet to accommodate extenuating circumstances. This brings the Constitution up-to-date with the processes we already have in place.",0,0,0,0
+ComputerScienceHouse/Constitution,144,Remove unneccessary enumeration from Introductory Packet requirements,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Removes unnecessary nested enumeration from the Introductory Packet requirements section.",0,0,0,0
+ComputerScienceHouse/Constitution,143,Remove the Temporary Amendment,"The temporary amendment was taken apart bit by bit until all the useful parts of it were gone. All that remained was the ability to make temporary amendment, made the packet percentage to get an account higher, and disallowed intro members from reapplying applying past the first week of each semester. I'd like to propose we don't cause this semester's intro members to go through a half-deconstructed process which we will get rid of entirely at the last HM of the semester. Just end it now.
+
+Check one:
+- [X ] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,143,Remove the Temporary Amendment,"The temporary amendment was taken apart bit by bit until all the useful parts of it were gone. All that remained was the ability to make temporary amendment, made the packet percentage to get an account higher, and disallowed intro members from reapplying applying past the first week of each semester. I'd like to propose we don't cause this semester's intro members to go through a half-deconstructed process which we will get rid of entirely at the last HM of the semester. Just end it now.
+
+Check one:
+- [X ] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,143,Remove the Temporary Amendment,"The temporary amendment was taken apart bit by bit until all the useful parts of it were gone. All that remained was the ability to make temporary amendment, made the packet percentage to get an account higher, and disallowed intro members from reapplying applying past the first week of each semester. I'd like to propose we don't cause this semester's intro members to go through a half-deconstructed process which we will get rid of entirely at the last HM of the semester. Just end it now.
+
+Check one:
+- [X ] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,141,Secretary Responsibilities Update,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+No one knows what this means. 🥇 
+",1,0,0,0
+ComputerScienceHouse/Constitution,140,Updating How Bad Standing Votes Work,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+The way this is written is so bad. Theoretically, people voted to good standing should now be active and given off floor status which is just... bad.",0,0,0,3
+ComputerScienceHouse/Constitution,139,Remove Freshman Project,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+After this year without freshman project, and years of discussing removing it, I believe it is time to remove it altogether with or without the temporary amendment passing at the end of the year.",0,0,0,0
+ComputerScienceHouse/Constitution,138,Grammar.,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+That comma shouldn't be there.",0,0,0,1
+ComputerScienceHouse/Constitution,137,Clarifies Resignation,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Just make it clear they're resigning their board position and not their membership.",0,0,0,0
+ComputerScienceHouse/Constitution,136,Remove Freshman Project. Add Minor Project.,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Remove Freshman project. Add Minor Project.
+Minor Project is a very small project that becomes a part of the ten weeks process. It is handled similarly to a major project, but with significantly smaller expectations. It aims to add a measure of passion and ability to learn to the intro process. Instead of successfully participating in Freshman Project, Introductory members will be expected to pass a minor project for their Introductory Evaluation.
+
+Discussion post: 
+https:  discourse.csh.rit.edu t amendment-remove-freshman-project-add-minor-project 128828",0,0,0,5
+ComputerScienceHouse/Constitution,135,Removes the PR Directorship,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Removes the PR Directorship (7.A.1.D) from the Temporary Amendment Changes to Evals (7.A)",2,2,0,0
+ComputerScienceHouse/Constitution,134,Make a line way more parsable.,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+It's pretty self explanatory.",0,0,0,0
+ComputerScienceHouse/Constitution,133,Remove 'essay' requirement from intro packet,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Removes the ""essay"" requirements from the intro packet. It's antiquated with no real reason to include it that I've heard other than to have a very low hurdle for freshmen. This year we had someone hit 100% on packet but ""fail"" packet because they didn't submit the essay. IMO, if house decides someone is good enough to get 100, that's more than enough proof that them looking at the Calendar and pubsite doesn't change anything.",1,1,0,1
+ComputerScienceHouse/Constitution,132,Update packet signature requirements,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+- Requires signature of **all** active members (both on- and off-floor)
+- Lowers requirement of alumni (non-active members), advisors, and honorary members to 10, since off-floors now count under the active member category",0,0,0,8
+ComputerScienceHouse/Constitution,131,Remove Pedantic Wording,"Judicial Process automatically covers the Temporary Amendment section.
+
+Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Judicials were mentioned as the only source to make changes and interpretation to the temporary amendments section. This is pretty stupid. ",0,0,0,0
+ComputerScienceHouse/Constitution,130,Squash,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Squashed bro",0,0,0,0
+ComputerScienceHouse/Constitution,129,Moving Housing Point Allocation to Spring Evals,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Removing the need for a Housing Points Form and moving the allocation of Housing Points to Spring evals.
+1. To encourage upperclassmen to try on Spring Evals
+2. To remove a need to just distribute points based on the filling out of a from",0,0,0,3
+ComputerScienceHouse/Constitution,128,Changes to Evaluations,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+* PR Directorship Created
+* PR Directorship is given a budget of 5% of total funds
+* Packet % increased to 75% 
+* Packet is delayed a week. 
+* Packets are no longer given out after week 2 and are due by the end of week 3. 
+* Removal of Freshman Project
+* Each semester the process repeats 
+
+With this, some other changes will happen but they aren't constitutional in nature. ",0,0,0,12
+ComputerScienceHouse/Constitution,127,Fixed estimate to account for Fish,"The max number of on-floor members didn't account for Fish.
+
+Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,126,Fix wording in Responsibilities of Directors sections,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Fixes some weird grammar in the first bullet point under ""Responsibilities of the Financial Directory"" regarding the Financial Meeting.
+
+My fix of the grammar may not be the best, feel free to correct it suggest alternatives. :call_me_hand: ",0,0,0,3
+ComputerScienceHouse/Constitution,125,Fix Merge Issues from #122,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Fixing merge conflicts from #122 (which was approved)
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,124,Scale directorship meeting requirement by semester,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Scale the permanent directorship meeting requirement based on how many semesters a member is active for. This moves the requirement in line (more or less) with the requirement for introductory members (one per week).
+
+Things to note:
+* I made the requirement fifteen per semester rather than one per week for a few reasons. The primary reason is that scaling it per week seems too fine-grained to me, and requires considerable extra bookkeeping. Scaling by week also makes the requirements per semester 14, which isn't quite as round a number as I'd like. It also made the wording slightly more cumbersome.
+* I'm not convinced the wording of my change is ideal, so I'd welcome feedback on how to improve that. In particular, I want to make sure it doesn't read as requiring meeting attendance to actually be distributed to 15 per semester - just a total of 30 for the whole year, if you're active both semesters.",0,0,0,13
+ComputerScienceHouse/Constitution,123,Clarify introductory membership terms,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+I'm honestly not sure if you'd describe this as semantic or not - it seems non-semantic to me. We could remove the inconsistency now and then change it later.
+",0,0,0,3
+ComputerScienceHouse/Constitution,122,Clarify membership meeting requirements,"Allow ad-hoc directorship meetings to count towards both
+the introductory evaluations process as well as the spring
+evaluations process
+
+Wording can change need be
+
+Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,121,bylaws: Update standard operating session length,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+RIT now uses a 14-week semester schedule. Update the length of the standard operating session accordingly.
+",0,0,0,2
+ComputerScienceHouse/Constitution,120,Remove Stale Branches,"Check one:
+- [ ] Semantic Issue: something about the meaning of the text is different
+- [x] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+Someone should hit the `delet this` button on the two stale branches in this repo, unless we're keeping them around for some reason",0,0,0,1
+ComputerScienceHouse/Constitution,119,Fix wording inconsistency when describing major projects,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+The Expectations of House Members section refers to major projects two different ways, one of which is ""major House project"". That wording doesn't seam to appear in any other part of the constitution and isn't even consistent with the line following. The major project is well defined in the constitution and as such this is a change for consistency's sake, and doesn't change the meaning of the term.
+",0,0,0,4
+ComputerScienceHouse/Constitution,118,Add table of contents to articles bylaws,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Add a table of contents to the articles and by-laws.
+",0,0,0,1
+ComputerScienceHouse/Constitution,117,Updated Expectations of House Members,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Update Expectations of House Members to reflect current practice",0,0,0,7
+ComputerScienceHouse/Constitution,116,By-Law VI: Use of Intellectual Property,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Adds an intellectual property policy to the By-Laws.",0,0,0,3
+ComputerScienceHouse/Constitution,115,"Addition of rules for the handling of bullying, abuse, and judicial proceedings","Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Improve handling of abuse and bullying claims, how the Judicial occurs for them, and the outcome of the judicial. This is done to prevent the silencing of abuse, and sidelining of bullying issues. Also serves to ensure impartiality and prevent the dropping of cases due to abusers in positions of power.
+
+Change handling of cases where a Judicial occurs involving an e-board member. Needed because it is unlikely e-board can remain impartial when judging another e-board member.
+
+",0,0,0,10
+ComputerScienceHouse/Constitution,114,"Remove RHA, update formal name for ResLife","Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+The Residence Halls Association is no more, so removed the reference to it. Also updated the formal name of ResLife to make is less ambiguous and change ""Department"" to ""Center"" to match their website: http:  www.rit.edu studentaffairs reslife ",0,0,0,5
+ComputerScienceHouse/Constitution,113,ran script to add periods to end of any bullet points,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Ran a python script to add a period to the end of any bullet points or enumerated items that don't have a period at the end. 
+",0,0,0,2
+ComputerScienceHouse/Constitution,112,Add more instructions to readme,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Added more instructions on working with the constitution to the readme.
+",0,0,0,0
+ComputerScienceHouse/Constitution,111,add wiki guide link to readme,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Added link to the wiki page I made in the readme.
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,110,Punctuation on bullet point lists is inconsistent ,"Check one:
+- [ ] Semantic Issue: something about the meaning of the text is different
+- [X] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+Some bullet lists have periods at the end of every list item, some do not.  This is very minor, but could probably be scripted and fixed quickly.
+",0,0,0,1
+ComputerScienceHouse/Constitution,109,Fixed periods and capitalization,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+""introductory members""->""Introductory members""
+Added removed some periods.
+",0,0,0,0
+ComputerScienceHouse/Constitution,108,Fix Git Revision Insertion for Makefile,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,107,Removed all trailing whitespacs from .tex files,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Removed all trailing white spaces from the .tex files.
+",0,0,0,0
+ComputerScienceHouse/Constitution,106,Corrected singular noun used in non voting eboard member section,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Fixed non-voting member list under the executive board section to reflect the fact that more than one ad hoc director can exist at once.
+",0,0,0,0
+ComputerScienceHouse/Constitution,105,Corrected Non-Voting Members section and removed trailing whitespaces,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Changed Non-Voting Members section of the Executive Board to reflect the fact that there can be more than one ad hoc director at a time.
+Also removed ALL trailing whitespaces from .tex files.
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,104,Updated Makefile to fix inter-linking compilation issues,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Fixed the Makefile to correct the inter-article linking issues we were having. (no more ""??"").
+",0,0,0,1
+ComputerScienceHouse/Constitution,103,Issue with References,"Check one:
+- [ ] Semantic Issue: something about the meaning of the text is different
+- [x] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+There are currently 12 issues that aren't properly being displayed. The references need to be fixed. They currently display as `??`
+
+Line | Reference Text
+-------|--------------------
+[159](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L159) | `\ref{Selection Processes}`
+[161](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L161) | `\ref{Expectations of an Introductory Member}`
+[166](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L166) | `\ref{Introductory Evaluation}`
+[184](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L184) | `\ref{Expectations of House Members}`
+[199](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L199) | `\ref{Evaluations Processes}`
+[244](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L244) | `\ref{Selection Process for Honorary Members}`
+[262](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L262) | `\ref{Selection Process for Advisory Members}`
+[339](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L339) | `\ref{Standard Operating Session}`
+[343](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L343) | `\ref{Expectations of House Members}`
+[344](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L344) | `\ref{Membership Evaluation}`
+[347](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L347) | `\ref{Standard Operating Session}`
+[460](https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L460) | `\ref{Operations of the Operational Communications Directorship}`
+
+The issue lies within the Makefile, and that we need there to be existing `.pdf` files in order for the links to properly reference.",0,0,0,4
+ComputerScienceHouse/Constitution,102,collected -> cast,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [ x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Fixed small thing brought up by @nick
+
+",0,0,0,2
+ComputerScienceHouse/Constitution,101,Specify 'Votes Collected',"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Due to wording not being specific enough, some were confused about the meaning of the altered text. With the approval of Executive Board, this text has been modified to more clearly describe how the process works. ",0,0,0,1
+ComputerScienceHouse/Constitution,100,Silly Markdown issue,"Articles and Bylaws links were not being rendered correctly
+
+Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+",0,0,0,1
+ComputerScienceHouse/Constitution,99,Changed Introductory Project Evaluations Process,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Modified introductory project section to grant the Evaluations Director control in deciding and reporting introductory project results for each individual introductory member.
+
+",0,0,0,0
+ComputerScienceHouse/Constitution,98,swapped an apostrophe for one that actually compiles,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+The apostrophe in the changed line in the current version of the constitution doesn't appear in a compiled version. I do not know why. I changed it to a regular single-quote character and it appears to compile as intended. 
+
+Rip spelling mistake in commit
+",0,0,0,3
+ComputerScienceHouse/Constitution,97,Leave of Absence Grammar,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+I noticed that the Section regarding Leave's of Absence was a little long winded. I decided to break it up slightly and fix the wording of ""acclimating"" to ""reacclimate"". 
+Reacclimate: To acclimate again; to reaccustom.
+Acclimating: To become accustomed to a new climate or environment, the act of",0,0,0,0
+ComputerScienceHouse/Constitution,96,Update Makefile,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Testing the jenkins build
+",0,0,0,0
+ComputerScienceHouse/Constitution,95,Various Non Semantic Fixes,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+A collection of non-semantic fixes that mostly deal with whitespace.",0,0,0,5
+ComputerScienceHouse/Constitution,94,Semantic change discussion clarification,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+
+Exactly when house wide discussions of semantic changes should be held is currently vague and unclear.  Currently, we have discussion on amendments one week after their proposal.  The current wording could easily be interpreted as meaning otherwise.  This change would require proposed amendments to be discussed immediately after being proposed, rather than one week later.  This change would prevent members from voting no on an amendment simply because they don't like the wording of the amendment as they would have been able to discuss their issues involving wording and phrasing one week prior to voting.  
+As is, the constitution says that after an amendment's discussion, the amendment creator will have one week to edit and re work the amendment.  Currently, there is absolutely no time for a change to be made to amendment following it's house wide discussion.",2,2,0,4
+ComputerScienceHouse/Constitution,93,Revoke membership of advisors who no longer work for RIT,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Currently, once an Advisor gains Advisory Membership, they keep it indefinitely, unless they explicitly resign. This amendment modifies the Advisory Membership Term section of the Articles to define that if their employment by RIT is terminated _or_ they resign, their membership should be revoked.
+",0,0,0,7
+ComputerScienceHouse/Constitution,92,Moves semantic change discussion from House Meeting to History Discussion,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Moves the amendment discussion from House Meeting to History Discussion instead. It's a more appropriate place to talk about amendments, does not bloat House Meeting unnecessarily, and still leaves the overall process in-tact.  
+
+---
+
+Interestingly, we have also mis-interpreted the constitution this whole time and discussion *is* supposed to take place when an amendment is proposed so that changes can be made ahead of time to the vote (instead of just voting no if you don't like the wording). This amendment would reinforce that this discussion take place at a History Discussion instead and that simply a summary of the discussion would be presented to House.
+
+I still think discussion is key to making quality and useful amendments, I just feel that House Meeting is no longer the best place for them given the quantity and length of discussion needed the past two semesters. History Discussions are well suited specifically for talking about large issues that face House and will allow members who feel passionately about an issue to debate and present findings to House at large.
+
+The timeline for an amendment would look like this:
+
+1. A member creates a GitHub pull request for an amendment and notifies the History Director.
+2. The amendment will be discussed at the next available History Discussion meeting.
+3. The member can either take feedback from the meeting to make appropriate changes leave as is before presenting to House, or they can decide to cancel the amendment altogether if discussion recommends that.
+4. At the following house meeting, the amendment is posted to House along with a summary of the discussion leading up to the amendment. *Ballots are handed out now*.
+5. Normal ballot voting proceeds, and then the amendment either passes or fails.
+
+~~Make House Meetings Great Again~~",0,0,0,9
+ComputerScienceHouse/Constitution,91,Derivation of Directorship Budgets,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Per discussion in Financial a few weeks ago, I want to make it so that at the beginning of every year EBoard sits down and decides on a budget for the year based on historical percentages and forecasted purchases. Also changes the suggested budget to transfer 5% of the budget from R&D to House Improvements. 
+
+",0,0,0,4
+ComputerScienceHouse/Constitution,90,Executive Board appeal to House,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Creates appeals for Executive Board decision.
+
+This is by Sam 👍 
+",0,0,0,6
+ComputerScienceHouse/Constitution,89,Added Simple Majority specification to Evals votes,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Evaluations votes are counted as a simple majority presently, and therefore should be defined as such in the constituition. This simply ammends the simple majority requirement to evals votes wheras it was not presently defined.",0,0,0,6
+ComputerScienceHouse/Constitution,88,New packet,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Introductory members may redo packet before 10 weeks",0,0,0,11
+ComputerScienceHouse/Constitution,87,Update README,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+
+Wrote down an unwritten style rule.
+Renamed a header.",0,0,0,0
+ComputerScienceHouse/Constitution,86,Amendment Proposal to requirements to get account,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+
+Amendment Proposal: If an introductory member fails to meet the requirement to get an account after they have completed the two week packet period, the introductory member may have the Evals Director bring up a vote at one preceding house member to give the introductory member an account. This vote may happen once during the introductory member's 10 week evaluation process. The vote is a simple majority barring meeting Quorum",0,0,0,5
+ComputerScienceHouse/Constitution,85,Failure to Get an Account After Packet is Failure to Complete Introductory Evaluations,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+",0,0,0,7
+ComputerScienceHouse/Constitution,84,Change to qualifications of OpComm Director,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+I think that this is truly a non-semantic change, but I understand that we have to be cautious to the changing of the constitution so this will have to be amended the traditional way.  
+This amendment changes the qualifications of the OpComm Director so that they are more consistent with the rest of the Executive Board's qualifications. 
+",0,0,0,1
+ComputerScienceHouse/Constitution,83,Updated Steps in README.md,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Changes to README.md
+4. Compile the `.tex` files into `.pdf` files.
+6. Announce the amendment at House Meeting.
+",0,0,0,0
+ComputerScienceHouse/Constitution,82,updated typos,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [ X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Fixed typos in by-laws
+line 7: officialized -> finalized
+line 279: made run on sentence into 2 separate sentences to remove comma splice
+",0,0,0,2
+ComputerScienceHouse/Constitution,81,Revised Packet Text,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Made the composition of the packet more specific so freshmen that are given Active Membership after their introductory evaluation are still considered in the same Introductory Members section.
+",0,0,0,3
+ComputerScienceHouse/Constitution,80,Resolving grammar problems in Evaluations Processes,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+House was a little confused about some articles, an indefinite pronoun, consistency over proper names (which is actually a pretty deep rabbit hole that this PR does _not_ seek to address), and tense in the Evaluations Processes section. This PR addresses the non-semantic issues found therein.
+",0,0,0,0
+ComputerScienceHouse/Constitution,79,Remove binary blobs from repo,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+- [X] Repository Change: Update to repo git process.
+
+Summary of change(s):
+Remove the compiled PDF files from the repo and add compiled links to the README.
+",0,0,0,0
+ComputerScienceHouse/Constitution,78,Revised Packet Composition,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Made the composition of the packet more specific so freshmen that are given Active Membership after their introductory evaluation are still considered in the same Introductory Members section.
+",0,0,0,3
+ComputerScienceHouse/Constitution,77,Add clause to allow for non-intro eval repeats,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Adds a optional vote for intro members who have already passed the Introductory Evaluation to skip the Introductory Evaluation in order to bypass requirements that are targeted towards getting familiar with CSH.
+",0,0,0,3
+ComputerScienceHouse/Constitution,76,Add fixed percentage requirements for the different types of signatur…,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+…es on the Intro Packet to obtain an account
+",0,0,0,26
+ComputerScienceHouse/Constitution,75,Remove Freshmen Signatures from Packet,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+- Remove freshmen signatures from packet.
+",1,1,0,17
+ComputerScienceHouse/Constitution,74,On-Floor Status Vote,"Check one:
+- [X] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+During our Introductory Evaluations meeting we seem to automatically go for an On-Floor Status vote. The constitution does not mandate this, and I think we should talk about whether or not we should just stop doing it or an amendment needs to be added. I think house is generally in agreement that the On-Floor Status vote is a waste of time usually. 
+
+Is this how it has always been? Are there any Nth years that remember it being different?
+",0,0,0,3
+ComputerScienceHouse/Constitution,73,Add clause to allow for non-intro eval repeats,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Adds a optional vote for intro members who have already passed the Introductory Evaluation to skip the Introductory Evaluation in order to bypass requirements that are targeted towards getting familiar with CSH.
+",0,0,0,4
+ComputerScienceHouse/Constitution,72,Process for Evals to Disable Accounts after Failure to Pass Evaluations or Resignations,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Evals should notify OpComm about which account need to be disabled after evaluations meetings.
+",0,0,0,12
+ComputerScienceHouse/Constitution,71,Fix pronoun ambiguity loopholes,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+",0,0,0,5
+ComputerScienceHouse/Constitution,70,README updates,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Update the README to include small explanation of the templates and make the markdown more easily editable. Please squash and commit it possible.
+",0,0,0,0
+ComputerScienceHouse/Constitution,69,Add Process for Changes to Code of Conduct,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Defines the Code of Conduct and the process by which changes to the Code
+of Conduct can be make.
+",0,0,0,1
+ComputerScienceHouse/Constitution,68,Add Git Revision to Date,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Add Git Revision for easier tracking of different constitution versions.
+",0,0,0,1
+ComputerScienceHouse/Constitution,67,Fix Cross Reference Locations to Relative Paths,"Check one:
+- [ ] Semantic Change: something about the meaning of the text is different
+- [X] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Cross Reference Paths were broken and didn't account for changing the articles and bylaws at the same time.
+",0,0,0,1
+ComputerScienceHouse/Constitution,66,Removing Housing evals,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+(See title)
+",0,0,0,4
+ComputerScienceHouse/Constitution,65,Text for Amendment 'Remove Housing Evaluations',"'Remove Housing Evaluations' vote passed without any given amendment text. In order to apply this change I'll need a new pull request aside from #50 to be opened that contains the proper commits.
+",0,0,0,2
+ComputerScienceHouse/Constitution,64,Add docs,"Just adding a simple contribution guide.
+",0,0,0,7
+ComputerScienceHouse/Constitution,63,We need docs,"The constitution is one of those documents that should be easy for a freshman walking in to CSH during the first week to make a PR to with very little git or unix experience. We should add instructions in the README or create a CONTRIBUTING.md that simply adds some info like that you need to modify the .tex files first, you must have pdflatex installed and then you must run make twice before committing and making a PR. Something like that would really lower the barrier for people to help with the constitution. 
+",0,0,0,1
+ComputerScienceHouse/Constitution,62,Dues Amount and Dues Collection Period,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Amendment One: All dues (regardless of on off-floor status are the same.
+Amendment Two: Dues can be collected at any point in the year, just not after Spring (Membership) Evaluations. Dues collection at the beginning of the year is defined by the Financial Direction in conjunction with RIT Administration (CRL and Housing).
+",0,0,0,1
+ComputerScienceHouse/Constitution,61,Dues Collection Updates,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Financial Director works with RIT to define dues dates, collects the money, and everyone is happy. Alumni can become members whenever they want.
+Spring Evals is a hard deadline for dues collection.
+",0,0,0,0
+ComputerScienceHouse/Constitution,60,Dues Amount,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Every member has the same right to every house resource. There is no reason to charge different dues amounts, it only complicates collection.
+",0,0,0,1
+ComputerScienceHouse/Constitution,59,Amendment Proposal Changes,"Proposed amendment to modify the amendment process to match the current
+method used at house meeting. Targets to resolve wording conflict where
+the date of discussion may be ambiguously interpreted.
+",0,0,0,3
+ComputerScienceHouse/Constitution,58,2.B.2 - Semantic Changes,"Proposed amendment to modify the amendment process to match the current
+method used at house meeting. Targets to resolve wording conflict where
+the date of discussion may be ambiguously interpreted.
+",0,0,0,1
+ComputerScienceHouse/Constitution,57,Establish CI,"Summary of issue:
+We really really really should not track changes in the pdf blob. 
+",2,2,0,22
+ComputerScienceHouse/Constitution,56,Leave of Absence,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Adds Leave of Absence section for Active Members and Introductory Members.
+
+To be announced on April 24th, 2016. To be voted on May 1st, 2016.
+",0,0,0,9
+ComputerScienceHouse/Constitution,55,Executive Board Confidentiality and Safe Environment,"Check one:
+- [x] Semantic Change: something about the meaning of the text is different
+- [x] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+
+Adds keeping confidentiality as an Executive Board responsibility when a House member requests for something to be kept private, except in cases where there is a potential for harm to themselves or others. Also, adds a responsibility for Executive Board to proactively maintain a safe environment for its members
+
+To be announced on April 17th, 2016. To be voted on April 24, 2016.
+",0,0,0,10
+ComputerScienceHouse/Constitution,54,Grammar problem.,"Check one:
+- [ ] Semantic Issue: something about the meaning of the text is different
+- [X] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+What are articles?
+https:  github.com ComputerScienceHouse Constitution blob master bylaws.tex#L296
+""If the member has previously passed an Membership Evaluation they will move to Alumni Membership status at the end of the Standard Operating Session (\ref{Alumni Membership Selection}).""
+
+Change an to a.
+",0,0,0,1
+ComputerScienceHouse/Constitution,53,Remove dual directorship.,"Check one:
+- [X] Semantic Change: something about the meaning of the text is different
+- [ ] Non-semantic Change: Spelling, grammar, or formatting changes.
+
+Summary of change(s):
+Remove dual directorship from the Constitution. Please look for other places in the document that may refer to the possibility of having dual directors.
+
+To be announced on April 17th, 2016. To be voted on April 24, 2016.
+",0,0,0,2
+ComputerScienceHouse/Constitution,52,Problems with terms of membership?,"Check one:
+- [X] Semantic Issue: something about the meaning of the text is different
+- [ ] Non-semantic Issue: Spelling, grammar, or formatting changes.
+
+Summary of issue:
+Reading over the terms of membership and eboard, seems there are two weird inconsistencies.
+https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L512
+
+> The term of an officer will be abbreviated due to resignation, impeachment, failure of the evaluation process, or change in membership status.
+
+Does failing Spring Evals end the term of the officer? Current practice has been that they keep the position until the end of the year, regardless of Spring Evals. 
+Then there is a contradiction here, I think. 
+https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L200
+
+> Active Membership shall last until the member: resigns, fails the Evaluation Process, or changes membership status.
+
+Contradicts here:
+
+https:  github.com ComputerScienceHouse Constitution blob master bylaws.tex#L296
+
+> If the member has previously passed an Membership Evaluation they will move to Alumni Membership status at the end of the Standard Operating Session (\ref{Alumni Membership Selection}).
+
+Your active membership term ends if you ""fail the Evaluation Process."" But, you move to Alumni Membership at the end of the semester. So, do you still get to vote?
+",0,0,0,3
+ComputerScienceHouse/Constitution,51,Allow selection of more than one advisor at a time,"Proposed amendment for Bylaws Section 4.B.4 - Selection of Advisory Members.
+",0,0,0,3
+ComputerScienceHouse/Constitution,50,Remove Housing Evaluations,"Members will now receive two Housing Points upon receiving a Passing status for
+Membership Evaluations.
+",0,0,0,4
+ComputerScienceHouse/Constitution,49,added issue and pull request templates,,0,0,0,1
+ComputerScienceHouse/Constitution,48,Voluntary Attendance for Discussions of Semantic Changes,"# 
+# Main Amendment
+
+This allows members who are disinterested in the amendment process or have already made their mind a way to abstain from discussion and the vote. 
+Altered the section section that defines the amendment process to allow this change. 
+# 
+# Comments
+
+This is Max's Amendment. 
+Discussion will be on April 10th, 2016. 
+I'd appreciate help from Matt to make sure this is worded correctly. 
+",0,0,0,9
+ComputerScienceHouse/Constitution,47,Change Executive Board Requirement For Creation of New RTPs,,0,0,0,3
+ComputerScienceHouse/Constitution,46,"Added Files via upload, 'board' Change","Changed all instances of 'Executive board' to 'Executive Board.'
+",0,0,0,0
+ComputerScienceHouse/Constitution,45,dos2unix line endings,"Change from dos to unix line endings.
+",0,0,0,3
+ComputerScienceHouse/Constitution,44,Inconsistent use of Executive Board ,"Thinking about ctrl +f "" Executive board"" and changing it to ""Executive Board."" Thoughts?
+",0,0,0,2
+ComputerScienceHouse/Constitution,43,Added House Meeting in ByLaws,"Located in section 2.B in ByLaws
+",0,0,0,1
+ComputerScienceHouse/Constitution,42,Add quorum requirement to amendment process,,0,0,0,1
+ComputerScienceHouse/Constitution,41,Added Alternatve Vote to voting options.,,0,0,0,2
+ComputerScienceHouse/Constitution,40,Changes to Executive Board elections,"Executive Board uses alternative vote now.
+
+Created Alternative Vote as a voting method and applied it to E Board
+elections.
+",0,0,0,1
+ComputerScienceHouse/Constitution,39,1 sentence = 1 line,"Current diffs can be difficult to read because every paragraph inhabits
+a single line. Giving each statement a line should make it easier to
+track changes in the statement
+",0,0,0,5
+ComputerScienceHouse/Constitution,38,Change Spring Evals Vote From Secret Immediate to Immediate,"Instead of doing a secret vote during membership evaluations during Spring
+Evals, a non-secret immediate vote will occur.
+",0,0,0,1
+ComputerScienceHouse/Constitution,37,Reduced spending committee quorum.,"Amendment passed 12 17 2015.
+",0,0,0,0
+ComputerScienceHouse/Constitution,36,Constitutional Maintainers Proposal,"Provide a faculty for trivial change approval and improve
+maintainability.
+",0,0,0,1
+ComputerScienceHouse/Constitution,35,Changes to Executive Board elections,"I made the changes to a future amendment I'll be bringing up at the house meeting on the 24th. It will be voted on at the meeting on the 31st. 
+
+This is an amendment which will change the way we vote for Executive Positions. 
+
+More information on the actual changes can be found here: 
+https:  www.youtube.com watch?v=3Y3jE3B8HsE
+",0,0,0,6
+ComputerScienceHouse/Constitution,34,Add On-Floor Eboard Qualifications,"Separated the qualifiations of Chairman and the Evaluations Director From the
+qualifications of the Social Director(s), Financial Director, Research and
+Development Director(s), House Improvements Director, House History Director.
+
+The Chairman and Evaluations Director now have the additional responsibility to
+reside On-Floor during the term of office.
+",0,0,0,1
+ComputerScienceHouse/Constitution,33,"Changing Executive Board Elections to Alternative Vote or ""Instant Runoff"" Vote","More information on the actual changes can be found here: 
+https:  www.youtube.com watch?v=3Y3jE3B8HsE
+",0,0,0,3
+ComputerScienceHouse/Constitution,32,Correctly typeset both documents.,,0,0,0,0
+ComputerScienceHouse/Constitution,31,Fixed error in Semantic Change Section,"Approved by simple majority House Vote meeting quorum on 10 11 2015
+",0,0,0,2
+ComputerScienceHouse/Constitution,30,non-semantic change,,0,0,0,0
+ComputerScienceHouse/Constitution,29,Non-Semantic Grammatical Corrections,"Articles Section 2.B.2: Semantic Changes
+",0,0,0,1
+ComputerScienceHouse/Constitution,28,Section 3.D Expenditure Approval,"Balloted Vote Passed (09 15 2015)
+",0,0,0,2
+ComputerScienceHouse/Constitution,27,No explicit vote defined for introductory members,"See bylaws 4.B.1 sub section c. There is no explicit wording stating that the vote ought to be a simple majority as it is currently done.
+",0,0,0,2
+ComputerScienceHouse/Constitution,26,Will Orr direct modification of articles,"This commit is invalid and should reverted: 2e787cf1f803
+",0,0,0,1
+ComputerScienceHouse/Constitution,13,Vague wording in Active Member section.,"https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L141
+
+Receive priority over whom?
+Also, are only active members on co-op allowed to come back on floor? Does that mean Harlan needs to pay dues to become an active member in order to be able to move on floor, meaning they pay dues for when they are not here?
+
+Also, we don't define anywhere that an alum in good standing can just pay dues and become an active member again. We actually never define what an alum in good standing is. We only say how you become one.
+
+Grammar error. https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L168 Are not subject ""to"" any evaluations.
+",0,0,0,2
+ComputerScienceHouse/Constitution,12,Misspelling,"https:  github.com ComputerScienceHouse Constitution blob master articles.tex#L148
+
+Alumnias is not a word. It should be alumni.
+",0,0,0,2
+ComputerScienceHouse/Constitution,11,"fixed refs to point to ComputerScienceHouse repo, not mine",,0,0,0,0
+ComputerScienceHouse/Constitution,10,Articles reference non-production bylaws,"Articles.tex:20
+
+\externaldocument{articles}[https:  github.com bencentra Constitution blob master articles.pdf?raw=true]
+
+Update the articles to point to production bylaws
+",0,0,0,2
+ComputerScienceHouse/Constitution,9,Repository URL Broken,"When I try to access the website at http:  csh.rit.edu committees, the following error is thrown:
+
+```
+Not Found
+
+The requested URL  committees was not found on this server.
+```
+",0,0,0,1
+ComputerScienceHouse/Constitution,8,All of 2013-14's Amendments,"This includes:
+- Housing Evals  
+- Alumni Membership
+- Quorum
+- Secretary
+- Active Membership Resignation
+- R&D a House Vote
+- Freshman Contradiction
+- Alumni Purge
+- Appeals
+- Elections
+- Dues Increase
+- Typo Fixes
+
+Ad-hoc dual directorship things were already added.
+
+Also refs are fixed (thanks, @gambogi).
+",0,0,0,0
+ComputerScienceHouse/Constitution,7,Advisory membership process appears to just be weird.,"In the bylaws this section pops up.
+d. Ballots will then be distributed for a secret ballot, fifty-percent House vote, as defined in 5.C.2. If more than two advisors are selected via this process, the Executive Board may call for a revote amongst the candidates selected in order to reduce the number of advisors to a workable level. If this decision is made, the candidates selected in the first ballot become the nominees for the second ballot and Step Three and Four are repeated. This recast process may not be repeated a second time.
+
+This section is ""numbered"" by letter and references a three and four, which do not exist. 
+
+Also, it should probably be changed to say ""as defined in the Constitution in 5.C.2"" as that is talked about in the constitution not in the bylaws. Also, if you wanted to shorten that, you could define something like B.5.C.2 as bylaws section 5.C.2 and C.5.C.2 as constitution section 5.C.2. Just a thought.
+",0,0,0,4
+ComputerScienceHouse/Constitution,6,Broken refs (presumably to bylaws) present in Constitution,"Our official governing document really, really shouldn't include phrases such as ""They must then undergo the selection process as defined in ??."" These are present throughout the document.
+",0,0,0,3
+ComputerScienceHouse/Constitution,5,Vacated position,"Line 394 is vague as to whether the inability to vote is true if the position is held by a stand-in member or the chairman
+",0,0,0,2
+ComputerScienceHouse/Constitution,4,working on ad-hoc dual directorship amendment,"The goal here is two-fold:
+- Allow current Eboard members to hold non-voting positions, such that voting members can also be ad-hoc directors
+- Not restrict ad-hoc directorships to single directorship. 
+
+Why these changes? YoungMoney and I, current voting members of Eboard, want to start an ad-hoc Web committee to standardize things, coordinate projects, etc. Strictly following the constitution, we are currently unable to do so.
+
+A side effect of the current wording is that we can have multiple secretaries, or a voting Eboard member can also be secretary. I don't really see a problem with this.
+
+Let me know if you have better wording suggestions.
+",0,0,0,1
+ComputerScienceHouse/Constitution,3,Update constitution to not have spelling error on Page 10 under Qualifications.,"I would love it if the House Secretary was on the Ad Hoc committee director.
+",0,0,0,0
+ComputerScienceHouse/Constitution,2,Incorrect Filenames,"As stated in the Constitution section, these are now considered the articles, and not the constitution.
+",0,0,0,1
+ComputerScienceHouse/Constitution,1,Constitution & By-Laws Rewrite,"CSH Constitution & By-Laws rewrite, by the ad-hoc Constitution Committee.
+
+The Constitution Committee consisted of: 
+- Gabbie Burns
+- Dan Tyler
+- Grant Cohoe
+- Connor Monahan
+- Matt Gambogi
+- Ben Centra
+- Emily Egeland
+- Drew Stebbins
+- Other contributors
+
+Approved by House at the end of the 2012-13 academic year, pending approval from ResLife and other authorities*.
+- 99% positive this is already under way, will verify.
+",0,0,0,0

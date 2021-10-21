@@ -1,0 +1,1687 @@
+Repo,Issue-no,Issue-title,Issue-body,Issue-reaction-total-count,Issue-reaction-plus-one,Issue-reaction-minus-one,Issue-comments
+okta/samples-js-react-native,102,Test travis,,0,0,0,0
+okta/samples-js-react-native,101,:memo: Updates README.md,Updates README.md to specify that `redirectUri` and `endSessionRedirectUri` must be unique from each other.,0,0,0,1
+okta/samples-js-react-native,100,:memo: Updates README.md,Updates README.md to specify that `redirectUri` and `endSessionRedirectUri` must be unique from each other.,1,0,0,1
+okta/samples-js-react-native,99,chore: Remove unnecessary CI installation,,0,0,0,0
+okta/samples-js-react-native,98,travis test,,0,0,0,0
+okta/samples-js-react-native,97,Updates samples dependencies,,0,0,0,0
+okta/samples-js-react-native,96,fix: Travis CI report,Fix Travis CI reporting where `xcpretty` used.,0,0,0,0
+okta/samples-js-react-native,95,Travis test,,0,0,0,0
+okta/samples-js-react-native,94,Bump url-parse from 1.5.1 to 1.5.3 in  custom-sign-in,"Bumps [url-parse](https:  github.com unshiftio url-parse) from 1.5.1 to 1.5.3.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com unshiftio url-parse commit ad444931666a30bad11472d89a216461cf16cae2""><code>ad44493< code>< a> [dist] 1.5.3< li>
+<li><a href=""https:  github.com unshiftio url-parse commit c7984617e235892cc22e0f47bb5ff1c012e6e39f""><code>c798461< code>< a> [fix] Fix host parsing for file URLs (<a href=""https:  github-redirect.dependabot.com unshiftio url-parse issues 210"">#210< a>)< li>
+<li><a href=""https:  github.com unshiftio url-parse commit 201034b8670c2aa382d7ec410ee750ac6f2f9c38""><code>201034b< code>< a> [dist] 1.5.2< li>
+<li><a href=""https:  github.com unshiftio url-parse commit 2d9ac2c94067742b2116332c1e03be9f37371dff""><code>2d9ac2c< code>< a> [fix] Sanitize only special URLs (<a href=""https:  github-redirect.dependabot.com unshiftio url-parse issues 209"">#209< a>)< li>
+<li><a href=""https:  github.com unshiftio url-parse commit fb128af4f43fa17f351d50cf615c7598c751f50a""><code>fb128af< code>< a> [fix] Use <code>'null'< code> as <code>origin< code> for non special URLs< li>
+<li><a href=""https:  github.com unshiftio url-parse commit fed6d9e338ea39de2d68bb66607066d71328c62f""><code>fed6d9e< code>< a> [fix] Add a leading slash only if the URL is special< li>
+<li><a href=""https:  github.com unshiftio url-parse commit 94872e7ab9103ee69b958959baa14c9e682a7f10""><code>94872e7< code>< a> [fix] Do not incorrectly set the <code>slashes< code> property to <code>true< code>< li>
+<li><a href=""https:  github.com unshiftio url-parse commit 81ab967889b08112d3356e451bf03e6aa0cbb7e0""><code>81ab967< code>< a> [fix] Ignore slashes after the protocol for special URLs< li>
+<li><a href=""https:  github.com unshiftio url-parse commit ee22050a48a67409aa5f7c87947284156d615bd1""><code>ee22050< code>< a> [ci] Use GitHub Actions< li>
+<li><a href=""https:  github.com unshiftio url-parse commit d2979b586d8c7751e0c77f127d9ce1b2143cc0c9""><code>d2979b5< code>< a> [fix] Special case the <code>file:< code> protocol (<a href=""https:  github-redirect.dependabot.com unshiftio url-parse issues 204"">#204< a>)< li>
+<li>Additional commits viewable in <a href=""https:  github.com unshiftio url-parse compare 1.5.1...1.5.3"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=url-parse&package-manager=npm_and_yarn&previous-version=1.5.1&new-version=1.5.3)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,0
+okta/samples-js-react-native,93,Bump tmpl from 1.0.4 to 1.0.5 in  browser-sign-in,"Bumps [tmpl](https:  github.com daaku nodejs-tmpl) from 1.0.4 to 1.0.5.
+<details>
+<summary>Commits< summary>
+<ul>
+<li>See full diff in <a href=""https:  github.com daaku nodejs-tmpl commits v1.0.5"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=tmpl&package-manager=npm_and_yarn&previous-version=1.0.4&new-version=1.0.5)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,0
+okta/samples-js-react-native,92,Bump tmpl from 1.0.4 to 1.0.5 in  custom-sign-in,"Bumps [tmpl](https:  github.com daaku nodejs-tmpl) from 1.0.4 to 1.0.5.
+<details>
+<summary>Commits< summary>
+<ul>
+<li>See full diff in <a href=""https:  github.com daaku nodejs-tmpl commits v1.0.5"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=tmpl&package-manager=npm_and_yarn&previous-version=1.0.4&new-version=1.0.5)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,0
+okta/samples-js-react-native,91,fix: Fixes for version 2.1.0,,0,0,0,0
+okta/samples-js-react-native,90,Updates okta react native version to 2.0.0,,0,0,0,0
+okta/samples-js-react-native,89,adding refreshTokens example,Closes #88 ,0,0,0,0
+okta/samples-js-react-native,88,Add refreshTokens example,,0,0,0,2
+okta/samples-js-react-native,87,Bump react-native from 0.63.3 to 0.64.1 in  custom-sign-in,"Bumps [react-native](https:  github.com facebook react-native) from 0.63.3 to 0.64.1.
+<details>
+<summary>Release notes< summary>
+<p><em>Sourced from <a href=""https:  github.com facebook react-native releases"">react-native's releases< a>.< em>< p>
+<blockquote>
+<h2>v0.64.1< h2>
+<p>This patch release is specifically targetted towards fixing iOS build problems in Xcode 12.5. If it doesn't help, please refer to <a href=""https:  github-redirect.dependabot.com facebook react-native issues 31480"">this issue< a>.< p>
+<p>Aside from bumping your version from 0.64.0 to 0.64.1, please check your podfile.lock and make sure that Flipper is on 0.75 or higher, and Flipper-Folly is 2.5.3 or higher; if not, add this line to your podfile (or modify it if you already had it):< p>
+<pre><code>use_flipper!('Flipper' =&gt; '0.75.1', 'Flipper-Folly' =&gt; '2.5.3', 'Flipper-RSocket' =&gt; '1.3.1')
+< code>< pre>
+<p>After which, do all the classic necessary cleans (node_modules, caches, pod folders, etc)(<a href=""https:  github.com pmadruga react-native-clean-project"">react-native-clean-project< a> is your ally) then do <code>yarn install< code> and a <code>pod install --repo-update< code> (if pod install fails on an error about a Flipper package, just remove the relevant lines from the podfile.lock and run the pod install again).< p>
+<p>The only other commit picked &amp; released along the Xcode 12.5 fixes is:< p>
+<ul>
+<li>Update validateBaseUrl to use latest regex (<a href=""https:  github.com facebook react-native commit ca09ae82715e33c9ac77b3fa55495cf84ba891c7"">commit< a>) which fixes CVE-2020-1920, GHSL-2020-293.< li>
+< ul>
+<hr  >
+<p>You can participate in the conversation on the status of this release at <a href=""https:  github-redirect.dependabot.com react-native-community releases issues 224"">this issue< a>.< p>
+<hr  >
+<p>To help you upgrade to this version, you can use the <a href=""https:  react-native-community.github.io upgrade-helper "">upgrade helper< a> ⚛️< p>
+<hr  >
+<p>You can find the whole <a href=""https:  github.com react-native-community react-native-releases blob master CHANGELOG.md"">changelog history< a> over at <code>react-native-releases< code>.< p>
+<h2>v0.64.0< h2>
+<p>0.64 stable is here 🎉< p>
+<p>Thanks to everyone who contributed and helped to get this together, everyone worked really hard and we hope you are as excited as we are 🤗< p>
+<p>Some of the most important highlights of this version:< p>
+<ul>
+<li>Hermes opt-in on iOS< li>
+<li>Inline Requires enabled by default< li>
+<li>React 17< li>
+< ul>
+<p>Among many others - please refer to the <a href=""https:  reactnative.dev blog 2021 03 11 version-0.64"">blog post< a> for more details.< p>
+<hr  >
+<p>You can participate in the conversation on the status of this release at <a href=""https:  github-redirect.dependabot.com react-native-community releases issues 221"">this issue< a>.< p>
+<hr  >
+<p>You can upgrade to this version using the <a href=""https:  react-native-community.github.io upgrade-helper "">upgrade helper webtool< a> ⚛️
+And if you are having trouble, please refer to the new <a href=""https:  github.com react-native-community upgrade-support"">Upgrade Support< a> repository by our awesome community.< p>
+<hr  >
+<!-- raw HTML omitted -->
+< blockquote>
+<p>... (truncated)< p>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com facebook react-native commit 787567a15014c73b87353b7d418c064c5643e7cc""><code>787567a< code>< a> [0.64.1] Bump version numbers< li>
+<li><a href=""https:  github.com facebook react-native commit cf8a364767df830d7255339741350bb53ab1a68a""><code>cf8a364< code>< a> [local] change post-install to patch RTC-Folly< li>
+<li><a href=""https:  github.com facebook react-native commit 1c4ac48a55cf0703f0c8a32cbb07474a2d126f3e""><code>1c4ac48< code>< a> [local] yarn lock update (?)< li>
+<li><a href=""https:  github.com facebook react-native commit 76f45d35e710f84a1cc44c90bc128494bc4280ce""><code>76f45d3< code>< a> [local] update RNTester files for 0.64< li>
+<li><a href=""https:  github.com facebook react-native commit 3912fef6bf654cd11451a0898d784c4e32d37b1b""><code>3912fef< code>< a> Update validateBaseUrl to use latest regex< li>
+<li><a href=""https:  github.com facebook react-native commit ace025d2cbcc06ef076cbf460be445b18baddcc7""><code>ace025d< code>< a> [0.64.0] Bump version numbers< li>
+<li><a href=""https:  github.com facebook react-native commit 728d55a3e1919cfd4c718f58582d1714832d2fa7""><code>728d55a< code>< a> Fixing the git attrs for all the people and all the files and all future 🙌< li>
+<li><a href=""https:  github.com facebook react-native commit 8a6ac1fef369071405a3bf14a89924c66f28d192""><code>8a6ac1f< code>< a> chore: Update React.podspec to require cocoapods &gt;= 1.10.1< li>
+<li><a href=""https:  github.com facebook react-native commit 138fdbceda80005be87eed6a81373793ac72a47b""><code>138fdbc< code>< a> fix: restore refresh control fix< li>
+<li><a href=""https:  github.com facebook react-native commit 7f3f80fc94d15a02b9b0364a3f230723df9d2086""><code>7f3f80f< code>< a> Fix RefreshControl layout when removed from window (<a href=""https:  github-redirect.dependabot.com facebook react-native issues 31024"">#31024< a>)< li>
+<li>Additional commits viewable in <a href=""https:  github.com facebook react-native compare v0.63.3...v0.64.1"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=react-native&package-manager=npm_and_yarn&previous-version=0.63.3&new-version=0.64.1)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,86,Bump react-native from 0.63.4 to 0.64.1 in  browser-sign-in,"Bumps [react-native](https:  github.com facebook react-native) from 0.63.4 to 0.64.1.
+<details>
+<summary>Release notes< summary>
+<p><em>Sourced from <a href=""https:  github.com facebook react-native releases"">react-native's releases< a>.< em>< p>
+<blockquote>
+<h2>v0.64.1< h2>
+<p>This patch release is specifically targetted towards fixing iOS build problems in Xcode 12.5. If it doesn't help, please refer to <a href=""https:  github-redirect.dependabot.com facebook react-native issues 31480"">this issue< a>.< p>
+<p>Aside from bumping your version from 0.64.0 to 0.64.1, please check your podfile.lock and make sure that Flipper is on 0.75 or higher, and Flipper-Folly is 2.5.3 or higher; if not, add this line to your podfile (or modify it if you already had it):< p>
+<pre><code>use_flipper!('Flipper' =&gt; '0.75.1', 'Flipper-Folly' =&gt; '2.5.3', 'Flipper-RSocket' =&gt; '1.3.1')
+< code>< pre>
+<p>After which, do all the classic necessary cleans (node_modules, caches, pod folders, etc)(<a href=""https:  github.com pmadruga react-native-clean-project"">react-native-clean-project< a> is your ally) then do <code>yarn install< code> and a <code>pod install --repo-update< code> (if pod install fails on an error about a Flipper package, just remove the relevant lines from the podfile.lock and run the pod install again).< p>
+<p>The only other commit picked &amp; released along the Xcode 12.5 fixes is:< p>
+<ul>
+<li>Update validateBaseUrl to use latest regex (<a href=""https:  github.com facebook react-native commit ca09ae82715e33c9ac77b3fa55495cf84ba891c7"">commit< a>) which fixes CVE-2020-1920, GHSL-2020-293.< li>
+< ul>
+<hr  >
+<p>You can participate in the conversation on the status of this release at <a href=""https:  github-redirect.dependabot.com react-native-community releases issues 224"">this issue< a>.< p>
+<hr  >
+<p>To help you upgrade to this version, you can use the <a href=""https:  react-native-community.github.io upgrade-helper "">upgrade helper< a> ⚛️< p>
+<hr  >
+<p>You can find the whole <a href=""https:  github.com react-native-community react-native-releases blob master CHANGELOG.md"">changelog history< a> over at <code>react-native-releases< code>.< p>
+<h2>v0.64.0< h2>
+<p>0.64 stable is here 🎉< p>
+<p>Thanks to everyone who contributed and helped to get this together, everyone worked really hard and we hope you are as excited as we are 🤗< p>
+<p>Some of the most important highlights of this version:< p>
+<ul>
+<li>Hermes opt-in on iOS< li>
+<li>Inline Requires enabled by default< li>
+<li>React 17< li>
+< ul>
+<p>Among many others - please refer to the <a href=""https:  reactnative.dev blog 2021 03 11 version-0.64"">blog post< a> for more details.< p>
+<hr  >
+<p>You can participate in the conversation on the status of this release at <a href=""https:  github-redirect.dependabot.com react-native-community releases issues 221"">this issue< a>.< p>
+<hr  >
+<p>You can upgrade to this version using the <a href=""https:  react-native-community.github.io upgrade-helper "">upgrade helper webtool< a> ⚛️
+And if you are having trouble, please refer to the new <a href=""https:  github.com react-native-community upgrade-support"">Upgrade Support< a> repository by our awesome community.< p>
+<hr  >
+<!-- raw HTML omitted -->
+< blockquote>
+<p>... (truncated)< p>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com facebook react-native commit 787567a15014c73b87353b7d418c064c5643e7cc""><code>787567a< code>< a> [0.64.1] Bump version numbers< li>
+<li><a href=""https:  github.com facebook react-native commit cf8a364767df830d7255339741350bb53ab1a68a""><code>cf8a364< code>< a> [local] change post-install to patch RTC-Folly< li>
+<li><a href=""https:  github.com facebook react-native commit 1c4ac48a55cf0703f0c8a32cbb07474a2d126f3e""><code>1c4ac48< code>< a> [local] yarn lock update (?)< li>
+<li><a href=""https:  github.com facebook react-native commit 76f45d35e710f84a1cc44c90bc128494bc4280ce""><code>76f45d3< code>< a> [local] update RNTester files for 0.64< li>
+<li><a href=""https:  github.com facebook react-native commit 3912fef6bf654cd11451a0898d784c4e32d37b1b""><code>3912fef< code>< a> Update validateBaseUrl to use latest regex< li>
+<li><a href=""https:  github.com facebook react-native commit ace025d2cbcc06ef076cbf460be445b18baddcc7""><code>ace025d< code>< a> [0.64.0] Bump version numbers< li>
+<li><a href=""https:  github.com facebook react-native commit 728d55a3e1919cfd4c718f58582d1714832d2fa7""><code>728d55a< code>< a> Fixing the git attrs for all the people and all the files and all future 🙌< li>
+<li><a href=""https:  github.com facebook react-native commit 8a6ac1fef369071405a3bf14a89924c66f28d192""><code>8a6ac1f< code>< a> chore: Update React.podspec to require cocoapods &gt;= 1.10.1< li>
+<li><a href=""https:  github.com facebook react-native commit 138fdbceda80005be87eed6a81373793ac72a47b""><code>138fdbc< code>< a> fix: restore refresh control fix< li>
+<li><a href=""https:  github.com facebook react-native commit 7f3f80fc94d15a02b9b0364a3f230723df9d2086""><code>7f3f80f< code>< a> Fix RefreshControl layout when removed from window (<a href=""https:  github-redirect.dependabot.com facebook react-native issues 31024"">#31024< a>)< li>
+<li>Additional commits viewable in <a href=""https:  github.com facebook react-native compare v0.63.4...v0.64.1"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=react-native&package-manager=npm_and_yarn&previous-version=0.63.4&new-version=0.64.1)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,85,chore: Upgrades dependencies,,0,0,0,0
+okta/samples-js-react-native,84,chore: Readme update. Minor cleanup of useless files,,0,0,0,0
+okta/samples-js-react-native,83,fix: Update project to npm usage,,0,0,0,0
+okta/samples-js-react-native,82,Dependency updates,,0,0,0,0
+okta/samples-js-react-native,81,Error: Your Okta URL is missing,"Hi,
+
+I followed the instructions in the repository and set up the dev environment as follows:-
+
+CLIENT_ID=0oa1095cz1xzfghressa
+REDIRECT_URI=com.okta.dev-71921545: callback
+LOGOUT_REDIRECT_URI=com.okta.dev-71921545: callback
+ISSUER=https:  dev-71921545.okta.com oauth2 default
+
+But still getting the “Error: Your Okta URL is missing” error.
+
+Thanks,
+-Sufian",0,0,0,4
+okta/samples-js-react-native,80,isomorphic-webcrypto cannot ensure the security of some operations!,"Hello,
+
+I'm getting this issue while running this app on ios.
+
+[Mon Jun 14 2021 02:43:33.225]  LOG      
+    isomorphic-webcrypto cannot ensure the security of some operations!
+    Install and configure react-native-securerandom or expo-random
+    If managed by Expo, run 'expo install expo-random'
+  
+[Mon Jun 14 2021 02:43:33.226]  ERROR    Invariant Violation: Native module cannot be null.
+[Mon Jun 14 2021 02:43:33.226]  ERROR    Invariant Violation: Module AppRegistry is not a registered callable module (calling runApplication)
+[Mon Jun 14 2021 02:43:34.234]  ERROR    Invariant Violation: Module AppRegistry is not a registered callable module (calling runApplication)",0,0,0,1
+okta/samples-js-react-native,79,Bump browserslist from 4.16.3 to 4.16.6 in  custom-sign-in,"Bumps [browserslist](https:  github.com browserslist browserslist) from 4.16.3 to 4.16.6.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com browserslist browserslist blob main CHANGELOG.md"">browserslist's changelog< a>.< em>< p>
+<blockquote>
+<h2>4.16.6< h2>
+<ul>
+<li>Fixed <code>npm-shrinkwrap.json< code> support in <code>--update-db< code> (by Geoff Newman).< li>
+< ul>
+<h2>4.16.5< h2>
+<ul>
+<li>Fixed unsafe RegExp (by Yeting Li).< li>
+< ul>
+<h2>4.16.4< h2>
+<ul>
+<li>Fixed unsafe RegExp.< li>
+<li>Added artifactory support to <code>--update-db< code> (by Ittai Baratz).< li>
+< ul>
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com browserslist browserslist commit 6fe3614db05b40f9dc1c63588a83d2ada05bae75""><code>6fe3614< code>< a> Release 4.16.6 version< li>
+<li><a href=""https:  github.com browserslist browserslist commit 33ebac933839847a62ede680273449f6cdca1e18""><code>33ebac9< code>< a> Update dependencies< li>
+<li><a href=""https:  github.com browserslist browserslist commit 2128170f231a6c9f462276006e09f302d811df31""><code>2128170< code>< a> Add support for npm-shrinkwrap files alongside package-lock (<a href=""https:  github-redirect.dependabot.com browserslist browserslist issues 595"">#595< a>)< li>
+<li><a href=""https:  github.com browserslist browserslist commit 7cc2aedd0047d800d44aa0259c02b6db1414105c""><code>7cc2aed< code>< a> Release 4.16.5 version< li>
+<li><a href=""https:  github.com browserslist browserslist commit 27e4afdc68798ca93f8c01c5ea6208b4b361a704""><code>27e4afd< code>< a> Update dependencies< li>
+<li><a href=""https:  github.com browserslist browserslist commit 1013a1847931a209c34a704aebc85a8c091286e7""><code>1013a18< code>< a> Fix version RegExp< li>
+<li><a href=""https:  github.com browserslist browserslist commit b879a1a304def2563f42cc3d3f5711e760662be3""><code>b879a1a< code>< a> Use Node.js 16 on CI< li>
+<li><a href=""https:  github.com browserslist browserslist commit bd1e9e01c95cad24be706fb11be7d151cd99ed0a""><code>bd1e9e0< code>< a> Fix ReDoS (<a href=""https:  github-redirect.dependabot.com browserslist browserslist issues 593"">#593< a>)< li>
+<li><a href=""https:  github.com browserslist browserslist commit 209adf9e0051fa39a2b25354cffd493300f34b02""><code>209adf9< code>< a> Release 4.16.4 version< li>
+<li><a href=""https:  github.com browserslist browserslist commit 3e2ae3b52daf7f5203247fd4f583b3bda66ea57d""><code>3e2ae3b< code>< a> Fix types< li>
+<li>Additional commits viewable in <a href=""https:  github.com browserslist browserslist compare 4.16.3...4.16.6"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=browserslist&package-manager=npm_and_yarn&previous-version=4.16.3&new-version=4.16.6)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,0
+okta/samples-js-react-native,78,Bump browserslist from 4.16.3 to 4.16.6 in  browser-sign-in,"Bumps [browserslist](https:  github.com browserslist browserslist) from 4.16.3 to 4.16.6.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com browserslist browserslist blob main CHANGELOG.md"">browserslist's changelog< a>.< em>< p>
+<blockquote>
+<h2>4.16.6< h2>
+<ul>
+<li>Fixed <code>npm-shrinkwrap.json< code> support in <code>--update-db< code> (by Geoff Newman).< li>
+< ul>
+<h2>4.16.5< h2>
+<ul>
+<li>Fixed unsafe RegExp (by Yeting Li).< li>
+< ul>
+<h2>4.16.4< h2>
+<ul>
+<li>Fixed unsafe RegExp.< li>
+<li>Added artifactory support to <code>--update-db< code> (by Ittai Baratz).< li>
+< ul>
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com browserslist browserslist commit 6fe3614db05b40f9dc1c63588a83d2ada05bae75""><code>6fe3614< code>< a> Release 4.16.6 version< li>
+<li><a href=""https:  github.com browserslist browserslist commit 33ebac933839847a62ede680273449f6cdca1e18""><code>33ebac9< code>< a> Update dependencies< li>
+<li><a href=""https:  github.com browserslist browserslist commit 2128170f231a6c9f462276006e09f302d811df31""><code>2128170< code>< a> Add support for npm-shrinkwrap files alongside package-lock (<a href=""https:  github-redirect.dependabot.com browserslist browserslist issues 595"">#595< a>)< li>
+<li><a href=""https:  github.com browserslist browserslist commit 7cc2aedd0047d800d44aa0259c02b6db1414105c""><code>7cc2aed< code>< a> Release 4.16.5 version< li>
+<li><a href=""https:  github.com browserslist browserslist commit 27e4afdc68798ca93f8c01c5ea6208b4b361a704""><code>27e4afd< code>< a> Update dependencies< li>
+<li><a href=""https:  github.com browserslist browserslist commit 1013a1847931a209c34a704aebc85a8c091286e7""><code>1013a18< code>< a> Fix version RegExp< li>
+<li><a href=""https:  github.com browserslist browserslist commit b879a1a304def2563f42cc3d3f5711e760662be3""><code>b879a1a< code>< a> Use Node.js 16 on CI< li>
+<li><a href=""https:  github.com browserslist browserslist commit bd1e9e01c95cad24be706fb11be7d151cd99ed0a""><code>bd1e9e0< code>< a> Fix ReDoS (<a href=""https:  github-redirect.dependabot.com browserslist browserslist issues 593"">#593< a>)< li>
+<li><a href=""https:  github.com browserslist browserslist commit 209adf9e0051fa39a2b25354cffd493300f34b02""><code>209adf9< code>< a> Release 4.16.4 version< li>
+<li><a href=""https:  github.com browserslist browserslist commit 3e2ae3b52daf7f5203247fd4f583b3bda66ea57d""><code>3e2ae3b< code>< a> Fix types< li>
+<li>Additional commits viewable in <a href=""https:  github.com browserslist browserslist compare 4.16.3...4.16.6"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=browserslist&package-manager=npm_and_yarn&previous-version=4.16.3&new-version=4.16.6)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,77,Bump hosted-git-info from 2.8.8 to 2.8.9 in  custom-sign-in,"Bumps [hosted-git-info](https:  github.com npm hosted-git-info) from 2.8.8 to 2.8.9.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com npm hosted-git-info blob v2.8.9 CHANGELOG.md"">hosted-git-info's changelog< a>.< em>< p>
+<blockquote>
+<h2><a href=""https:  github.com npm hosted-git-info compare v2.8.8...v2.8.9"">2.8.9< a> (2021-04-07)< h2>
+<h3>Bug Fixes< h3>
+<ul>
+<li>backport regex fix from <a href=""https:  github-redirect.dependabot.com npm hosted-git-info issues 76"">#76< a> (<a href=""https:  github.com npm hosted-git-info commit 29adfe5"">29adfe5< a>), closes <a href=""https:  github-redirect.dependabot.com npm hosted-git-info issues 84"">#84< a>< li>
+< ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->< p>
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com npm hosted-git-info commit 8d4b3697d79bcd89cdb36d1db165e3696c783a01""><code>8d4b369< code>< a> chore(release): 2.8.9< li>
+<li><a href=""https:  github.com npm hosted-git-info commit 29adfe5ef789784c861b2cdeb15051ec2ba651a7""><code>29adfe5< code>< a> fix: backport regex fix from <a href=""https:  github-redirect.dependabot.com npm hosted-git-info issues 76"">#76< a>< li>
+<li>See full diff in <a href=""https:  github.com npm hosted-git-info compare v2.8.8...v2.8.9"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~nlf"">nlf< a>, a new releaser for hosted-git-info since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=hosted-git-info&package-manager=npm_and_yarn&previous-version=2.8.8&new-version=2.8.9)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,76,Bump hosted-git-info from 2.8.8 to 2.8.9 in  browser-sign-in,"Bumps [hosted-git-info](https:  github.com npm hosted-git-info) from 2.8.8 to 2.8.9.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com npm hosted-git-info blob v2.8.9 CHANGELOG.md"">hosted-git-info's changelog< a>.< em>< p>
+<blockquote>
+<h2><a href=""https:  github.com npm hosted-git-info compare v2.8.8...v2.8.9"">2.8.9< a> (2021-04-07)< h2>
+<h3>Bug Fixes< h3>
+<ul>
+<li>backport regex fix from <a href=""https:  github-redirect.dependabot.com npm hosted-git-info issues 76"">#76< a> (<a href=""https:  github.com npm hosted-git-info commit 29adfe5"">29adfe5< a>), closes <a href=""https:  github-redirect.dependabot.com npm hosted-git-info issues 84"">#84< a>< li>
+< ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->< p>
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com npm hosted-git-info commit 8d4b3697d79bcd89cdb36d1db165e3696c783a01""><code>8d4b369< code>< a> chore(release): 2.8.9< li>
+<li><a href=""https:  github.com npm hosted-git-info commit 29adfe5ef789784c861b2cdeb15051ec2ba651a7""><code>29adfe5< code>< a> fix: backport regex fix from <a href=""https:  github-redirect.dependabot.com npm hosted-git-info issues 76"">#76< a>< li>
+<li>See full diff in <a href=""https:  github.com npm hosted-git-info compare v2.8.8...v2.8.9"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~nlf"">nlf< a>, a new releaser for hosted-git-info since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=hosted-git-info&package-manager=npm_and_yarn&previous-version=2.8.8&new-version=2.8.9)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,75,chore: Updates okta-react-native dependency,Update okta-react-native to version 1.11.0,0,0,0,0
+okta/samples-js-react-native,74,e2e tests initialization,,0,0,0,0
+okta/samples-js-react-native,73,Help with -600 Okta Oidc error?,"Hello,
+
+I'm having an issue getting this example to work properly. Upon entering the correct login information, the app throws a error with code -600 (Okta Oidc Error). Looking at the admin logs shows that okta believes a successful login occurred. I have reached the same issue working with both browser sign in and custom sign in. I am using an Android device running Android 10. I read posts in the developer forums that mentioned building a new virtual device solved the problem, but the same error has been thrown on my physical device, and three different virtual devices. 
+Has anyone run into this issue and resolved it? It seems very odd that okta reads the interaction as a success, but library receives an error. ",0,0,0,9
+okta/samples-js-react-native,72,Setup E2E test runner for react native sample applications,,0,0,0,0
+okta/samples-js-react-native,71,Updates outdated links readme,Replace remaining links to outdated repos,0,0,0,0
+okta/samples-js-react-native,70,Update README.md,https:  github.com okta samples-js-react-native pull 69,0,0,0,0
+okta/samples-js-react-native,69,Update README.md,those okta-react-native links died when the monorepo was broken up,0,0,0,3
+okta/samples-js-react-native,68,Updates rn samples dependencies,,0,0,0,0
+okta/samples-js-react-native,67,Update hermes path,"Hermes module changed changed it`s name, so here is a small fix to build it",0,0,0,0
+okta/samples-js-react-native,66,Add debug keystore to custom sign in sample.,Closes #65,0,0,0,3
+okta/samples-js-react-native,65,Debug Keystore for custom sign in app,Seems that the debug keystore needs to be added.,0,0,0,1
+okta/samples-js-react-native,64,Update samples to the latest version (1.5.0).,,0,0,0,0
+okta/samples-js-react-native,63,Bump node-notifier from 8.0.0 to 8.0.1 in  custom-sign-in,"Bumps [node-notifier](https:  github.com mikaelbr node-notifier) from 8.0.0 to 8.0.1.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com mikaelbr node-notifier blob v8.0.1 CHANGELOG.md"">node-notifier's changelog< a>.< em>< p>
+<blockquote>
+<h3><code>v8.0.1< code>< h3>
+<ul>
+<li>fixes possible injection issue for notify-send< li>
+< ul>
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com mikaelbr node-notifier commit 5d62799dab88505a709cd032653b2320c5813fce""><code>5d62799< code>< a> v8.0.1< li>
+<li><a href=""https:  github.com mikaelbr node-notifier commit 0c4a80df9a3b5015cd1e1ab858e008be3fece082""><code>0c4a80d< code>< a> chore: adds changelog< li>
+<li><a href=""https:  github.com mikaelbr node-notifier commit f5a7bc647589fc89ac64b0f1d259a853fcf057bc""><code>f5a7bc6< code>< a> fix: test cases< li>
+<li><a href=""https:  github.com mikaelbr node-notifier commit b9d148d697d3db807f653e2e6953c3de57dfeb8a""><code>b9d148d< code>< a> patch: fixes possible injection issue for notify-send< li>
+<li>See full diff in <a href=""https:  github.com mikaelbr node-notifier compare v8.0.0...v8.0.1"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=node-notifier&package-manager=npm_and_yarn&previous-version=8.0.0&new-version=8.0.1)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,62,Bump node-notifier from 8.0.0 to 8.0.1 in  browser-sign-in,"Bumps [node-notifier](https:  github.com mikaelbr node-notifier) from 8.0.0 to 8.0.1.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com mikaelbr node-notifier blob v8.0.1 CHANGELOG.md"">node-notifier's changelog< a>.< em>< p>
+<blockquote>
+<h3><code>v8.0.1< code>< h3>
+<ul>
+<li>fixes possible injection issue for notify-send< li>
+< ul>
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com mikaelbr node-notifier commit 5d62799dab88505a709cd032653b2320c5813fce""><code>5d62799< code>< a> v8.0.1< li>
+<li><a href=""https:  github.com mikaelbr node-notifier commit 0c4a80df9a3b5015cd1e1ab858e008be3fece082""><code>0c4a80d< code>< a> chore: adds changelog< li>
+<li><a href=""https:  github.com mikaelbr node-notifier commit f5a7bc647589fc89ac64b0f1d259a853fcf057bc""><code>f5a7bc6< code>< a> fix: test cases< li>
+<li><a href=""https:  github.com mikaelbr node-notifier commit b9d148d697d3db807f653e2e6953c3de57dfeb8a""><code>b9d148d< code>< a> patch: fixes possible injection issue for notify-send< li>
+<li>See full diff in <a href=""https:  github.com mikaelbr node-notifier compare v8.0.0...v8.0.1"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=node-notifier&package-manager=npm_and_yarn&previous-version=8.0.0&new-version=8.0.1)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,61,Bump ini from 1.3.5 to 1.3.7 in  browser-sign-in,"Bumps [ini](https:  github.com isaacs ini) from 1.3.5 to 1.3.7.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com npm ini commit c74c8af35f32b801a7e82a8309eab792a95932f6""><code>c74c8af< code>< a> 1.3.7< li>
+<li><a href=""https:  github.com npm ini commit 024b8b55ac1c980c6225607b007714c54eb501ba""><code>024b8b5< code>< a> update deps, add linting< li>
+<li><a href=""https:  github.com npm ini commit 032fbaf5f0b98fce70c8cc380e0d05177a9c9073""><code>032fbaf< code>< a> Use Object.create(null) to avoid default object property hazards< li>
+<li><a href=""https:  github.com npm ini commit 2da90391ef70db41d10f013e3a87f9a8c5d01a72""><code>2da9039< code>< a> 1.3.6< li>
+<li><a href=""https:  github.com npm ini commit cfea636f534b5ca7550d2c28b7d1a95d936d56c6""><code>cfea636< code>< a> better git push script, before publish instead of after< li>
+<li><a href=""https:  github.com npm ini commit 56d2805e07ccd94e2ba0984ac9240ff02d44b6f1""><code>56d2805< code>< a> do not allow invalid hazardous string as section name< li>
+<li>See full diff in <a href=""https:  github.com isaacs ini compare v1.3.5...v1.3.7"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~isaacs"">isaacs< a>, a new releaser for ini since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=ini&package-manager=npm_and_yarn&previous-version=1.3.5&new-version=1.3.7)](https:  docs.github.com en github managing-security-vulnerabilities about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,60,Update podfiles to fix updated React dependencies,"This simplifies the way React dependencies are specified, allowing the iOS samples to be built.",0,0,0,0
+okta/samples-js-react-native,59,Test Travis,,0,0,0,0
+okta/samples-js-react-native,58,Update NPM dependencies.,,0,0,0,0
+okta/samples-js-react-native,57,Update minSdkVersion and document supported platforms.,Internal Ref: OKTA-269879,0,0,0,0
+okta/samples-js-react-native,56,old version of npm package Detox causes build to fail,"System:
+Mac OS X 10.15.7
+Xcode 12.1
+Node v14.14.0
+NPM 6.14.8
+
+Build fails with the errors below with the original version
+[2020-10-22T20_21_57_248Z-debug.log](https:  github.com okta samples-js-react-native files 5429755 2020-10-22T20_21_57_248Z-debug.log)
+
+`npm ERR! Failed at the detox@13.2.0 postinstall script.
+`
+Build succeeds after updating the package",0,0,0,3
+okta/samples-js-react-native,55,Bumped packages that caused build issues on newer versions of xcode ios,,0,0,0,3
+okta/samples-js-react-native,54,Have to bump detox package to latest or it won't build (latest xcode version),"**System:**
+Mac OS X 10.15.7
+Xcode 12.1
+Node v14.14.0
+NPM 6.14.8
+
+**Build fails with the errors below with the original version**
+[2020-10-22T20_21_57_248Z-debug.log](https:  github.com okta samples-js-react-native files 5425815 2020-10-22T20_21_57_248Z-debug.log)
+`npm ERR! Failed at the detox@13.2.0 postinstall script.
+`
+
+**Build succeeds after updating the package**
+
+",0,0,0,1
+okta/samples-js-react-native,53,Fix typo in customUriScheme,,0,0,0,0
+okta/samples-js-react-native,52,Fix typo on the sample config,,0,0,0,0
+okta/samples-js-react-native,51,Bump lodash from 4.17.11 to 4.17.20 in  browser-sign-in,"Bumps [lodash](https:  github.com lodash lodash) from 4.17.11 to 4.17.20.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com lodash lodash commit ded9bc66583ed0b4e3b7dc906206d40757b4a90a""><code>ded9bc6< code>< a> Bump to v4.17.20.< li>
+<li><a href=""https:  github.com lodash lodash commit 63150ef7645ac07961b63a86490f419f356429aa""><code>63150ef< code>< a> Documentation fixes.< li>
+<li><a href=""https:  github.com lodash lodash commit 00f0f62a979d2f5fa0287c06eae70cf9a62d8794""><code>00f0f62< code>< a> test.js: Remove trailing comma.< li>
+<li><a href=""https:  github.com lodash lodash commit 846e434c7a5b5692c55ebf5715ed677b70a32389""><code>846e434< code>< a> Temporarily use a custom fork of <code>lodash-cli< code>.< li>
+<li><a href=""https:  github.com lodash lodash commit 5d046f39cbd27f573914768e3b36eeefcc4f1229""><code>5d046f3< code>< a> Re-enable Travis tests on <code>4.17< code> branch.< li>
+<li><a href=""https:  github.com lodash lodash commit aa816b36d402a1ad9385142ce7188f17dae514fd""><code>aa816b3< code>< a> Remove <code> npm-package< code>.< li>
+<li><a href=""https:  github.com lodash lodash commit d7fbc52ee0466a6d248f047b5d5c3e6d1e099056""><code>d7fbc52< code>< a> Bump to v4.17.19< li>
+<li><a href=""https:  github.com lodash lodash commit 2e1c0f22f425e9c013815b2cd7c2ebd51f49a8d6""><code>2e1c0f2< code>< a> Add npm-package< li>
+<li><a href=""https:  github.com lodash lodash commit 1b6c282299f4e0271f932b466c67f0f822aa308e""><code>1b6c282< code>< a> Bump to v4.17.18< li>
+<li><a href=""https:  github.com lodash lodash commit a370ac81408de2da77a82b3c4b61a01a3b9c2fac""><code>a370ac8< code>< a> Bump to v4.17.17< li>
+<li>Additional commits viewable in <a href=""https:  github.com lodash lodash compare 4.17.11...4.17.20"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~bnjmnt4n"">bnjmnt4n< a>, a new releaser for lodash since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=lodash&package-manager=npm_and_yarn&previous-version=4.17.11&new-version=4.17.20)](https:  docs.github.com en github managing-security-vulnerabilities configuring-github-dependabot-security-updates)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,50,update the placeholder for discoveryUri,Seems discoveryUri would point the AS server according to README Hence update the placeholder,0,0,0,1
+okta/samples-js-react-native,49,Update README.md - OKTA-328645,,0,0,0,0
+okta/samples-js-react-native,48,Android browser not opening in release build when minifying code,"When we build the application for release, the browser does not open when we call `signIn`. After doing a lot of digging, it appears to be caused by setting `minifyEnabled` to be true inside the `app build.gradle`'s release build type:
+
+```gradle
+buildTypes {
+    release {
+        minifyEnabled true
+        proguardFiles getDefaultProguardFile(""proguard-android.txt""), ""proguard-rules.pro""
+        signingConfig signingConfigs.release
+    }
+}
+```
+
+Simply changing `minifyEnabled` to `false` is a work around, but we'd like to continue minimizing the native code.
+
+This isn't necessarily limited to release builds, it could happen on debug as well if `minifyEnabled` is `true`
+",0,0,0,2
+okta/samples-js-react-native,47,Fix title: %s iOS React Native,,0,0,0,0
+okta/samples-js-react-native,46,Bump handlebars from 4.3.1 to 4.7.6 in  custom-sign-in,"Bumps [handlebars](https:  github.com wycats handlebars.js) from 4.3.1 to 4.7.6.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com handlebars-lang handlebars.js blob master release-notes.md"">handlebars's changelog< a>.< em>< p>
+<blockquote>
+<h2>v4.7.6 - April 3rd, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1672"">#1672< a> - Switch cmd parser to latest minimist (<a href=""https:  api.github.com users dougwilson"">@dougwilson< a>< li>
+< ul>
+<p>Compatibility notes:< p>
+<ul>
+<li>Restored Node.js compatibility< li>
+< ul>
+<p><a href=""https:  github.com wycats handlebars.js compare v4.7.5...v4.7.6"">Commits< a>< p>
+<h2>v4.7.5 - April 2nd, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><del>Node.js version support has been changed to v6+< del> Reverted in 4.7.6< li>
+< ul>
+<p>Compatibility notes:< p>
+<ul>
+<li><del>Node.js &lt; v6 is no longer supported< del> Reverted in 4.7.6< li>
+< ul>
+<p><a href=""https:  github.com wycats handlebars.js compare v4.7.4...v4.7.5"">Commits< a>< p>
+<h2>v4.7.4 - April 1st, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1666"">#1666< a> - Replaced minimist with yargs for handlebars CLI (<a href=""https:  api.github.com users aorinevo"">@aorinevo< a>, <a href=""https:  api.github.com users AviVahl"">@AviVahl< a> &amp; <a href=""https:  api.github.com users fabb"">@fabb< a>)< li>
+< ul>
+<p>Compatibility notes:< p>
+<ul>
+<li>No incompatibilities are to be expected< li>
+< ul>
+<p><a href=""https:  github.com wycats handlebars.js compare v4.7.3...v4.7.4"">Commits< a>< p>
+<h2>v4.7.3 - February 5th, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1644"">#1644< a> - Download links to aws broken on handlebarsjs.com - access denied (<a href=""https:  api.github.com users Tea56"">@Tea56< a>)< li>
+<li>Fix spelling and punctuation in changelog - d78cc73< li>
+< ul>
+<p>Bugfixes:< p>
+<ul>
+<li>Add Type Definition for Handlebars.VERSION, Fixes <a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1647"">#1647< a> - 4de51fe< li>
+<li>Include Type Definition for runtime.js in Package - a32d05f< li>
+< ul>
+<p>Compatibility notes:< p>
+<!-- raw HTML omitted -->
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit e6ad93ea01bcde1f8ddaa4b4ebe572dd616abfaa""><code>e6ad93e< code>< a> v4.7.6< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 2bf4fc6fd3ae3d8f076d628653f284d85faebeb4""><code>2bf4fc6< code>< a> Update release notes< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit b64202bc9197307bd785a58693e3820eb9bb41a8""><code>b64202b< code>< a> Update release-notes.md< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit c2f1e6203178918569f085e12afdb762cae17fb0""><code>c2f1e62< code>< a> Switch cmd parser to latest minimist< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 08e9a11a34c3ad8387a0b85b1334f97cab85191a""><code>08e9a11< code>< a> Revert &quot;chore: set Node.js compatibility to v6+&quot;< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 1fd2edee2a12fb228061fcde807905c6b14339c4""><code>1fd2ede< code>< a> v4.7.5< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 3c9c2f5cf29cf10f54d5fe4daca6b24b65f0adcf""><code>3c9c2f5< code>< a> Update release notes< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 16487a088e13f4d52c6fd6610b9ec71c4a51be8a""><code>16487a0< code>< a> chore: downgrade yargs to v14< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 309d2b49a11628d2a8f052c5587e7459968cd705""><code>309d2b4< code>< a> chore: set Node.js compatibility to v6+< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 645ac73844918668f9a2f41e49b7cb18ce5abf36""><code>645ac73< code>< a> test: fix integration tests< li>
+<li>Additional commits viewable in <a href=""https:  github.com wycats handlebars.js compare v4.3.1...v4.7.6"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~erisds"">erisds< a>, a new releaser for handlebars since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=handlebars&package-manager=npm_and_yarn&previous-version=4.3.1&new-version=4.7.6)](https:  docs.github.com en github managing-security-vulnerabilities configuring-github-dependabot-security-updates)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,45,mjs breaks react-native app,"I am seeing an issue where the following library is causing a compile error:
+
+Can't import the named export 'fromBase64Url' from non EcmaScript module (only default export is available)
+
+If i remove the .mjs file it works perfectly but this shouldn't be the case.
+
+Can anyone help?",0,0,0,2
+okta/samples-js-react-native,44,Bump elliptic from 6.5.2 to 6.5.3 in  custom-sign-in,"Bumps [elliptic](https:  github.com indutny elliptic) from 6.5.2 to 6.5.3.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com indutny elliptic commit 8647803dc3d90506aa03021737f7b061ba959ae1""><code>8647803< code>< a> 6.5.3< li>
+<li><a href=""https:  github.com indutny elliptic commit 856fe4d99fe7b6200556e6400b3bf585b1721bec""><code>856fe4d< code>< a> signature: prevent malleability and overflows< li>
+<li>See full diff in <a href=""https:  github.com indutny elliptic compare v6.5.2...v6.5.3"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=elliptic&package-manager=npm_and_yarn&previous-version=6.5.2&new-version=6.5.3)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,43,Bump elliptic from 6.5.2 to 6.5.3 in  browser-sign-in,"Bumps [elliptic](https:  github.com indutny elliptic) from 6.5.2 to 6.5.3.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com indutny elliptic commit 8647803dc3d90506aa03021737f7b061ba959ae1""><code>8647803< code>< a> 6.5.3< li>
+<li><a href=""https:  github.com indutny elliptic commit 856fe4d99fe7b6200556e6400b3bf585b1721bec""><code>856fe4d< code>< a> signature: prevent malleability and overflows< li>
+<li>See full diff in <a href=""https:  github.com indutny elliptic compare v6.5.2...v6.5.3"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=elliptic&package-manager=npm_and_yarn&previous-version=6.5.2&new-version=6.5.3)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,42,Bump lodash from 4.17.15 to 4.17.19 in  custom-sign-in,"Bumps [lodash](https:  github.com lodash lodash) from 4.17.15 to 4.17.19.
+<details>
+<summary>Release notes< summary>
+<p><em>Sourced from <a href=""https:  github.com lodash lodash releases"">lodash's releases< a>.< em>< p>
+<blockquote>
+<h2>4.17.16< h2>
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com lodash lodash commit d7fbc52ee0466a6d248f047b5d5c3e6d1e099056""><code>d7fbc52< code>< a> Bump to v4.17.19< li>
+<li><a href=""https:  github.com lodash lodash commit 2e1c0f22f425e9c013815b2cd7c2ebd51f49a8d6""><code>2e1c0f2< code>< a> Add npm-package< li>
+<li><a href=""https:  github.com lodash lodash commit 1b6c282299f4e0271f932b466c67f0f822aa308e""><code>1b6c282< code>< a> Bump to v4.17.18< li>
+<li><a href=""https:  github.com lodash lodash commit a370ac81408de2da77a82b3c4b61a01a3b9c2fac""><code>a370ac8< code>< a> Bump to v4.17.17< li>
+<li><a href=""https:  github.com lodash lodash commit 1144918f3578a84fcc4986da9b806e63a6175cbb""><code>1144918< code>< a> Rebuild lodash and docs< li>
+<li><a href=""https:  github.com lodash lodash commit 3a3b0fd339c2109563f7e8167dc95265ed82ef3e""><code>3a3b0fd< code>< a> Bump to v4.17.16< li>
+<li><a href=""https:  github.com lodash lodash commit c84fe82760fb2d3e03a63379b297a1cc1a2fce12""><code>c84fe82< code>< a> fix(zipObjectDeep): prototype pollution (<a href=""https:  github-redirect.dependabot.com lodash lodash issues 4759"">#4759< a>)< li>
+<li><a href=""https:  github.com lodash lodash commit e7b28ea6cb17b4ca021e7c9d66218c8c89782f32""><code>e7b28ea< code>< a> Sanitize sourceURL so it cannot affect evaled code (<a href=""https:  github-redirect.dependabot.com lodash lodash issues 4518"">#4518< a>)< li>
+<li><a href=""https:  github.com lodash lodash commit 0cec225778d4ac26c2bac95031ecc92a94f08bbb""><code>0cec225< code>< a> Fix lodash.isEqual for circular references (<a href=""https:  github-redirect.dependabot.com lodash lodash issues 4320"">#4320< a>) (<a href=""https:  github-redirect.dependabot.com lodash lodash issues 4515"">#4515< a>)< li>
+<li><a href=""https:  github.com lodash lodash commit 94c3a8133cb4fcdb50db72b4fd14dd884b195cd5""><code>94c3a81< code>< a> Document matches* shorthands for over* methods (<a href=""https:  github-redirect.dependabot.com lodash lodash issues 4510"">#4510< a>) (<a href=""https:  github-redirect.dependabot.com lodash lodash issues 4514"">#4514< a>)< li>
+<li>Additional commits viewable in <a href=""https:  github.com lodash lodash compare 4.17.15...4.17.19"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~mathias"">mathias< a>, a new releaser for lodash since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=lodash&package-manager=npm_and_yarn&previous-version=4.17.15&new-version=4.17.19)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,41,Bump lodash from 4.17.11 to 4.17.15 in  browser-sign-in,"Bumps [lodash](https:  github.com lodash lodash) from 4.17.11 to 4.17.15.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com lodash lodash commit ddfd9b11a0126db2302cb70ec9973b66baec0975""><code>ddfd9b1< code>< a> Bump to v4.17.15.< li>
+<li><a href=""https:  github.com lodash lodash commit b185fcee26b2133bd071f4aaca14b455c2ed1008""><code>b185fce< code>< a> Rebuild lodash and docs.< li>
+<li><a href=""https:  github.com lodash lodash commit be87d303941222b97c482755afc0f4a77ce46c30""><code>be87d30< code>< a> Bump to v4.17.14.< li>
+<li><a href=""https:  github.com lodash lodash commit a6fe6b1e174fd02b5e60eb2664405f4c1262c300""><code>a6fe6b1< code>< a> Rebuild lodash and docs.< li>
+<li><a href=""https:  github.com lodash lodash commit e37182845f16715a0d1c391c8662d83c55609cee""><code>e371828< code>< a> Bump to v4.17.13.< li>
+<li><a href=""https:  github.com lodash lodash commit 357e899e685872b4af5403ecc4b2a928f961ae63""><code>357e899< code>< a> Rebuild lodash and docs.< li>
+<li><a href=""https:  github.com lodash lodash commit fd9a062d57646450b61f74029315abd4cc834b08""><code>fd9a062< code>< a> Bump to v4.17.12.< li>
+<li><a href=""https:  github.com lodash lodash commit e77d68121ff00ba86b53eed5893d35adfe94c9dd""><code>e77d681< code>< a> Rebuild lodash and docs.< li>
+<li><a href=""https:  github.com lodash lodash commit 629d1865793182cd967196716f4beff223aa4a91""><code>629d186< code>< a> Update OpenJS references.< li>
+<li><a href=""https:  github.com lodash lodash commit 2406eac542b2a1282be8d812a6d8a45433ade80a""><code>2406eac< code>< a> Fix minified build.< li>
+<li>Additional commits viewable in <a href=""https:  github.com lodash lodash compare 4.17.11...4.17.15"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=lodash&package-manager=npm_and_yarn&previous-version=4.17.11&new-version=4.17.15)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,40,Bump acorn from 5.7.3 to 5.7.4 in  browser-sign-in,"Bumps [acorn](https:  github.com acornjs acorn) from 5.7.3 to 5.7.4.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com acornjs acorn commit 6370e90067552022710190319cbbbd8c43001957""><code>6370e90< code>< a> Mark version 5.7.4< li>
+<li><a href=""https:  github.com acornjs acorn commit fbc15b1344f6dfb992f67b4bbf1357436247c8a0""><code>fbc15b1< code>< a> More rigorously check surrogate pairs in regexp validator< li>
+<li>See full diff in <a href=""https:  github.com acornjs acorn compare 5.7.3...5.7.4"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=acorn&package-manager=npm_and_yarn&previous-version=5.7.3&new-version=5.7.4)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,39,Bump handlebars from 4.1.2 to 4.7.6 in  browser-sign-in,"Bumps [handlebars](https:  github.com wycats handlebars.js) from 4.1.2 to 4.7.6.
+<details>
+<summary>Changelog< summary>
+<p><em>Sourced from <a href=""https:  github.com handlebars-lang handlebars.js blob master release-notes.md"">handlebars's changelog< a>.< em>< p>
+<blockquote>
+<h2>v4.7.6 - April 3rd, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1672"">#1672< a> - Switch cmd parser to latest minimist (<a href=""https:  api.github.com users dougwilson"">@dougwilson< a>< li>
+< ul>
+<p>Compatibility notes:< p>
+<ul>
+<li>Restored Node.js compatibility< li>
+< ul>
+<p><a href=""https:  github.com wycats handlebars.js compare v4.7.5...v4.7.6"">Commits< a>< p>
+<h2>v4.7.5 - April 2nd, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><del>Node.js version support has been changed to v6+< del> Reverted in 4.7.6< li>
+< ul>
+<p>Compatibility notes:< p>
+<ul>
+<li><del>Node.js &lt; v6 is no longer supported< del> Reverted in 4.7.6< li>
+< ul>
+<p><a href=""https:  github.com wycats handlebars.js compare v4.7.4...v4.7.5"">Commits< a>< p>
+<h2>v4.7.4 - April 1st, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1666"">#1666< a> - Replaced minimist with yargs for handlebars CLI (<a href=""https:  api.github.com users aorinevo"">@aorinevo< a>, <a href=""https:  api.github.com users AviVahl"">@AviVahl< a> &amp; <a href=""https:  api.github.com users fabb"">@fabb< a>)< li>
+< ul>
+<p>Compatibility notes:< p>
+<ul>
+<li>No incompatibilities are to be expected< li>
+< ul>
+<p><a href=""https:  github.com wycats handlebars.js compare v4.7.3...v4.7.4"">Commits< a>< p>
+<h2>v4.7.3 - February 5th, 2020< h2>
+<p>Chore Housekeeping:< p>
+<ul>
+<li><a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1644"">#1644< a> - Download links to aws broken on handlebarsjs.com - access denied (<a href=""https:  api.github.com users Tea56"">@Tea56< a>)< li>
+<li>Fix spelling and punctuation in changelog - d78cc73< li>
+< ul>
+<p>Bugfixes:< p>
+<ul>
+<li>Add Type Definition for Handlebars.VERSION, Fixes <a href=""https:  github-redirect.dependabot.com wycats handlebars.js issues 1647"">#1647< a> - 4de51fe< li>
+<li>Include Type Definition for runtime.js in Package - a32d05f< li>
+< ul>
+<p>Compatibility notes:< p>
+< tr>< table> ... (truncated)
+< blockquote>
+< details>
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit e6ad93ea01bcde1f8ddaa4b4ebe572dd616abfaa""><code>e6ad93e< code>< a> v4.7.6< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 2bf4fc6fd3ae3d8f076d628653f284d85faebeb4""><code>2bf4fc6< code>< a> Update release notes< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit b64202bc9197307bd785a58693e3820eb9bb41a8""><code>b64202b< code>< a> Update release-notes.md< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit c2f1e6203178918569f085e12afdb762cae17fb0""><code>c2f1e62< code>< a> Switch cmd parser to latest minimist< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 08e9a11a34c3ad8387a0b85b1334f97cab85191a""><code>08e9a11< code>< a> Revert &quot;chore: set Node.js compatibility to v6+&quot;< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 1fd2edee2a12fb228061fcde807905c6b14339c4""><code>1fd2ede< code>< a> v4.7.5< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 3c9c2f5cf29cf10f54d5fe4daca6b24b65f0adcf""><code>3c9c2f5< code>< a> Update release notes< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 16487a088e13f4d52c6fd6610b9ec71c4a51be8a""><code>16487a0< code>< a> chore: downgrade yargs to v14< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 309d2b49a11628d2a8f052c5587e7459968cd705""><code>309d2b4< code>< a> chore: set Node.js compatibility to v6+< li>
+<li><a href=""https:  github.com handlebars-lang handlebars.js commit 645ac73844918668f9a2f41e49b7cb18ce5abf36""><code>645ac73< code>< a> test: fix integration tests< li>
+<li>Additional commits viewable in <a href=""https:  github.com wycats handlebars.js compare v4.1.2...v4.7.6"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~erisds"">erisds< a>, a new releaser for handlebars since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=handlebars&package-manager=npm_and_yarn&previous-version=4.1.2&new-version=4.7.6)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,38,Fix auto link,updates for auto linking,0,0,0,1
+okta/samples-js-react-native,37,feat: update samples to use @okta okta-react-native v1.4.0,"What's in this PR:
+
+- Update both samples to use @okta okta-react-native v1.4.0
+- Remove @okta okta-auth-js dependency for custom-sign-in sample
+- Remove manual link for @okta okta-react-native, because react-native started support autolink since v0.60
+- Update react-navigation module to v5
+- Update READMEs accordingly",0,0,0,4
+okta/samples-js-react-native,36,Bump acorn from 5.7.3 to 5.7.4 in  custom-sign-in,"Bumps [acorn](https:  github.com acornjs acorn) from 5.7.3 to 5.7.4.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com acornjs acorn commit 6370e90067552022710190319cbbbd8c43001957""><code>6370e90< code>< a> Mark version 5.7.4< li>
+<li><a href=""https:  github.com acornjs acorn commit fbc15b1344f6dfb992f67b4bbf1357436247c8a0""><code>fbc15b1< code>< a> More rigorously check surrogate pairs in regexp validator< li>
+<li>See full diff in <a href=""https:  github.com acornjs acorn compare 5.7.3...5.7.4"">compare view< a>< li>
+< ul>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=acorn&package-manager=npm_and_yarn&previous-version=5.7.3&new-version=5.7.4)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,35,chore: lock authjs version to 2.11.2 - OKTA-282531,"Lock authjs version to 2.11.2 due to newer version not compatible with `react-native`.
+
+Scripts to lock version
+```bash
+npm ci
+npm i ""@okta okta-auth-js@2.11.2"" --save-exact
+```",0,0,0,2
+okta/samples-js-react-native,34,Invalid operation. Please check your configuration. OAuth2 authorization servers does notsupport  userinfo endpoint.,"Getting Error: ""**Invalid operation. Please check your configuration. OAuth2 authorization servers does notsupport  userinfo endpoint**"" When try to login with android emulator device only this same thing is working fine with ios simulator device and getting this error while try to access loggedin userinfo ""**await getUser()**"". 
+here my configuration for reference.
+```
+oidc: {
+    clientId: {My_Client_ID}',
+    redirectUri: 'com.sampleapplication: ',
+    endSessionRedirectUri: 'com.sampleapplication: ',
+    discoveryUri: 'https:  dev-493092.oktapreview.com oauth2 default',
+    scopes: ['openid', 'profile', 'offline_access'],
+    requireHardwareBackedKeyStore: false,
+  },
+```
+
+In Android build.gradle file -> 
+```
+allprojects {
+    repositories {
+...
+maven {
+            url  ""https:  dl.bintray.com okta com.okta.android""
+        }
+...
+}
+}
+```
+
+In android app build.gradle file -> 
+
+```
+android {
+defaultConfig {
+...
+manifestPlaceholders = [
+                appAuthRedirectScheme: 'com.sampleapplication'
+        ]
+...
+}
+}
+```
+
+Please let me know what is happening wrong here. Thank You... K00L ;)",0,0,0,8
+okta/samples-js-react-native,33,Bump mixin-deep from 1.3.1 to 1.3.2,"Bumps [mixin-deep](https:  github.com jonschlinkert mixin-deep) from 1.3.1 to 1.3.2.
+<details>
+<summary>Commits< summary>
+<ul>
+<li><a href=""https:  github.com jonschlinkert mixin-deep commit 754f0c20e1bc13ea5a21a64fbc7d6ba5f7b359b9""><code>754f0c2< code>< a> 1.3.2< li>
+<li><a href=""https:  github.com jonschlinkert mixin-deep commit 90ee1fab375fccfd9b926df718243339b4976d50""><code>90ee1fa< code>< a> ensure keys are valid when mixing in values< li>
+<li>See full diff in <a href=""https:  github.com jonschlinkert mixin-deep compare 1.3.1...1.3.2"">compare view< a>< li>
+< ul>
+< details>
+<details>
+<summary>Maintainer changes< summary>
+<p>This version was pushed to npm by <a href=""https:  www.npmjs.com ~doowb"">doowb< a>, a new releaser for mixin-deep since your current version.< p>
+< details>
+<br  >
+
+
+[![Dependabot compatibility score](https:  dependabot-badges.githubapp.com badges compatibility_score?dependency-name=mixin-deep&package-manager=npm_and_yarn&previous-version=1.3.1&new-version=1.3.2)](https:  help.github.com articles configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[  ]: # (dependabot-automerge-start)
+[  ]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options< summary>
+<br  >
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https:  github.com okta samples-js-react-native network alerts).
+
+< details>",0,0,0,1
+okta/samples-js-react-native,32,Default app auth redirect scheme,"Fixes #30 by updating the configured `appAuthRedirectScheme` to match the scheme that the README instructs you to create.
+
+Also adds a note in the README for the need to update this value if you entered a different redirect URI in your Okta Application than the README instructed.",0,0,0,3
+okta/samples-js-react-native,31,docs: add redirect schema step for android browser sign in,Add `redirect schema` setup step for browser in sign android development.,0,0,0,7
+okta/samples-js-react-native,30,Okta browser login page does not appear on Android,"I'm attempting to get `browser-sign-in` working on Android. I've followed the instructions in the README to create a personal Okta account and application, and configure it just as the README specifies.
+
+When I attempt to run the application, on all device configurations I tested, I see the Login button, but tapping it does not bring up the Okta browser login page. Adding some logging statements, the call to `@okta okta-react-native`'s `signIn()` function returns a promise that resolves quickly (no arguments passed to the resolve handler).
+
+This behavior happens on the following configurations I tested:
+- Emulator: Pixel C API 28 (Android 9.0, x86)
+- Emulator: Pixel 3 API 28 (Android 9.0, x86)
+- Hardware device: Galaxy Tab A SM-T510, Android 9
+",3,3,0,10
+okta/samples-js-react-native,29,How to handle MFA workflow with custom-ui in my react-native app ?,https:  github.com okta okta-oidc-js issues 652#issue-554637285,0,0,0,2
+okta/samples-js-react-native,28,App is crashing when the username password is wrong,"Hello guys,
+
+We're debugging the customUI sample, but the app is crashing when the username password is wrong executing the signIn method here https:  github.com okta samples-js-react-native blob master custom-sign-in app LoginScreen.js#L49
+
+We want to get the error here https:  github.com okta samples-js-react-native blob master custom-sign-in app LoginScreen.js#L62 instead of closing the app with this native exception.
+
+Thanks for your help!",0,0,0,2
+okta/samples-js-react-native,27,Error in getAccessToken,"Hello guys,
+I am Getting this error when I run getAccessToken
+![image](https:  user-images.githubusercontent.com 19539930 70656254-bbe6f880-1c27-11ea-83f9-48523f54f893.png)
+
+anyone has faced it
+
+Thanks in advance!",6,6,0,7
+okta/samples-js-react-native,26,_oktaReactNative.EventEmitter.addEventListener(...) is not a function,Does anyone have a clue why am I getting this error? I'm on react native 0.61.5 if that should mean something...,0,0,0,1
+okta/samples-js-react-native,25,Setting session cookies for SSO vie Webview,"Hi guys,
+We are using Okta as our identity provider and once the user in, we use the Okta id token to log in to our backend + we need to set session cookies for later web view sessions to log the user in other sites as well via SSO.
+Does your library support setting session cookies?
+Thanks in advance.
+",0,0,0,1
+okta/samples-js-react-native,24,TouchID and FaceID samples,"Hello guys,
+Can you help me with the steps to integrate **Okta** with **TouchID FaceID**?
+How can I use a native plugin like `react-native-fingerprint-scanner` with okta authentication?
+
+Thanks in advance!",3,1,0,1
+okta/samples-js-react-native,23,Fix UI output,,0,0,0,0
+okta/samples-js-react-native,22,Update README.md,,0,0,0,1
+okta/samples-js-react-native,21,Update README.md,,0,0,0,0
+okta/samples-js-react-native,20,Add debug.keystore to sample.,":arrow_up:
+
+Since this is a sample. Add the default android
+debug keystore for developers to quickly start the
+sample.",0,0,0,0
+okta/samples-js-react-native,19,OKTA-245527 - React Native: Add custom login view sample (using react views),"Main files for review:
+- App.js
+- LoginScreen.js
+- ProfileScreen.js
+
+Readme is in progress...",0,0,0,1
+okta/samples-js-react-native,18,Upgrade to React Native 0.61.0,"This PR is to show that upgrading to React Native 0.61.0 breaks this example's tests.
+
+```
+$ npm test
+
+> browserSignIn@0.0.1 test  Users mraible samples-js-react-native browser-sign-in
+> jest __tests__ App-test.js
+
+ FAIL  __tests__ App-test.js
+  ● Test suite failed to run
+
+    Cannot find module 'EventEmitter' from 'setupJest.js'
+
+      24 |   global.window = global;
+      25 |   global.window.navigator = {};
+    > 26 | }
+         |  ^
+      27 |
+      28 | const EventEmitter = require('EventEmitter');
+      29 | const RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
+
+      at Resolver.resolveModule (node_modules jest-resolve build index.js:259:17)
+      at Object.<anonymous> (setupJest.js:26:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        2.513s
+```",0,0,0,2
+okta/samples-js-react-native,17,Update okta-react-native package version to 1.2.1,,0,0,0,3
+okta/samples-js-react-native,16,Running sample project in iOS throws OktaOidc-Swift.h file not found error,"I cloned this repo, ran:
+
+1. `npm install`
+1. `react-native link @okta okta-react-native`
+1. `cd ios` and then `pod install`
+1. `cd .. `
+1. `react-native start`
+1. All of these commands have run successfully
+1. open a new terminal window
+1. `react-native run-ios`
+
+I get the error:
+
+```
+** BUILD FAILED **
+
+
+The following build commands failed:
+	CompileC  src samples-js-react-native browser-sign-in ios build browserSignIn Build Intermediates.noindex Pods.build Debug-iphonesimulator OktaOidc.build Objects-normal x86_64 OIDTokenRequest.o  src samples-js-react-native browser-sign-in ios Pods OktaOidc Okta AppAuth OIDTokenRequest.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+(1 failure)
+```
+
+Scroll up to see:
+
+```
+src samples-js-react-native browser-sign-in ios Pods OktaOidc Okta AppAuth OIDTokenRequest.m:29:9: fatal error: 'OktaOidc OktaOidc-Swift.h' file not found
+#import <OktaOidc OktaOidc-Swift.h>
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+```
+
+Any guidance is appreciated.",0,0,0,8
+okta/samples-js-react-native,15,Get User From Request prints [object Object] #13,"- Fixed `removeAllListeners` part. Function expects event name
+- Fixed printing of user details",0,0,0,0
+okta/samples-js-react-native,14,"When you click Logout, you're prompted to ""Sign In""","I don't think it's possible to change this message, but this is a surprising message for me as a user when I try to logout.
+
+<img width=""545"" alt=""Screen Shot 2019-09-20 at 11 53 32 AM"" src=""https:  user-images.githubusercontent.com 17892 65347986-5e4d8d80-db9d-11e9-82ea-bc75da5f75dc.png"">
+",0,0,0,2
+okta/samples-js-react-native,13,Get User From Request prints [object Object],"It seems like toString() should be called.
+
+<img width=""545"" alt=""Screen Shot 2019-09-20 at 9 19 54 AM"" src=""https:  user-images.githubusercontent.com 17892 65338825-40296280-db88-11e9-91a4-d58885f77fd1.png"">
+",0,0,0,1
+okta/samples-js-react-native,12,Fix label for Logout redirect URIs,,0,0,0,0
+okta/samples-js-react-native,11,OKTA-246008 - ReactNative OIDC SDK: Update RN sample app with sdk 1.1.0,"- Update readme
+- Update package.json with latest metro version
+- Push updated package-lock.json",0,0,0,0
+okta/samples-js-react-native,10,OKTA-246008 - ReactNative OIDC SDK: Update RN sample app with sdk 1.1.0,Updated sample app to use latest Okta RN oidc sdk - 1.1.0,0,0,0,0
+okta/samples-js-react-native,9,Keep getting a build error in iOS,"Hello, I've tried many many things to make this example run in iOS,
+I've cloned and followed the instructions in the README, linked with the command and manually, reinstalled XCode, reinstalled Pods, but the project won't run...
+
+Lately it shows me this in XCode
+<img width=""271"" alt=""Screen Shot 2019-07-29 at 3 01 55 PM"" src=""https:  user-images.githubusercontent.com 18431708 62079387-39c7db80-b214-11e9-91a5-d6162e0dff6b.png"">
+
+I've just started to knock my head against the wall,
+Any help would be apreciated, thanks in advance,
+",0,0,0,1
+okta/samples-js-react-native,8,Adds integration tests to the sample,,0,0,0,0
+okta/samples-js-react-native,7,Deletes old sample project,Deletes the old sample from the repo,0,0,0,0
+okta/samples-js-react-native,6,Adds updated browser sign in for react-native version 1.0.1 example,,0,0,0,4
+okta/samples-js-react-native,5,:seedling: Updates README to add a disclaimer,,0,0,0,0
+okta/samples-js-react-native,4,:seedling: Adds sample for Okta login redirect,"- Squashed PRs from #2 and #3 
+
+Resolves: OKTA-166559",0,0,0,0
+okta/samples-js-react-native,3,:seedling: Adds sample for Okta login redirect,"### Description
+Primary logic for React Native Application. This PR is broken into the following commits for easy readability:
+
+- [`2914ffb`](https:  github.com okta samples-js-react-native pull 3 commits 2914ffbd028acab9facc8ac8f30af18a9dfa958f) - Adds RN sample
+- [`3d3a799`](https:  github.com okta samples-js-react-native pull 3 commits 3d3a7993c825b84caca31d82a809cf317bd7e2f8) - Adds jest tests
+- [`d5ae07c`](https:  github.com okta samples-js-react-native pull 3 commits d5ae07c9fb514582a8be7e7256d234c6cc7106a0) - README updates and banners
+
+|Android | iOS |
+| :------: | :--: |
+|<img width=""267"" alt=""screen shot 2018-04-12 at 3 26 43 pm"" src=""https:  user-images.githubusercontent.com 20212241 38707507-71d16cc6-3e66-11e8-86c4-5bf5b61591e4.png""> | <img width=""292"" alt=""screen shot 2018-04-12 at 3 27 00 pm"" src=""https:  user-images.githubusercontent.com 20212241 38707512-77ff05f4-3e66-11e8-8a10-3419d8341fdc.png""> |
+",1,0,0,0
+okta/samples-js-react-native,2,:arrow_up: Sample init,"This PR is broken into the following commits:
+- [`1254339`](https:  github.com okta samples-js-react-native pull 2 commits 1254339fab4a3719771fc77c9267ede3b54f2a4e) - Sample application boilerplate from `create-react-native-app`
+- [`3ea6f16`](https:  github.com okta samples-js-react-native pull 2 commits 3ea6f1610b434e10f91bbf6bd129aa5d16861a9d) - Shared tools, scripts, license, and contributing docs
+- [`d11c663`](https:  github.com okta samples-js-react-native pull 2 commits d11c6633ff1dff22d6956a74adf07d2d1bc6b732) - Updates scripts to reflect React Native structure
+___
+Squashed into: [`a104d7f`](https:  github.com okta samples-js-react-native pull 2 commits a104d7fdd4008021f2a5bffdd76d6200467960eb)",0,0,0,0
+okta/samples-js-react-native,1,:arrow_up: Sample init,`create-react-app` scaffolding for `okta-hosted-login` sample,0,0,0,0

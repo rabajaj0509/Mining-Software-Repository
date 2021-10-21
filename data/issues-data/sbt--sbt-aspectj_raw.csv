@@ -1,0 +1,556 @@
+Repo,Issue-no,Issue-title,Issue-body,Issue-reaction-total-count,Issue-reaction-plus-one,Issue-reaction-minus-one,Issue-comments
+sbt/sbt-aspectj,49,Travis CI dropped,"Given the poor handling of the recent security incident (https:  arstechnica.com information-technology 2021 09 travis-ci-flaw-exposed-secrets-for-thousands-of-open-source-projects ) I'm suspending Travis CI integration indefinitely.
+
+Let's move on to GitHub Actions.",0,0,0,0
+sbt/sbt-aspectj,48,How would I waive project dependencies? Does any free IDE support this plugin when running stuff?,Taking from your example on compile time waiving with annotations I could waive project source code but not the calls the libraries I'm using. I there any way to include library classes into being part of this plugins waiving with aspectJ?,0,0,0,0
+sbt/sbt-aspectj,47,Platform-specific tests in example projects,"Currently something like this is found in [6 different places](https:  github.com sbt sbt-aspectj search?q=%5Cnhello) in the code base:
+
+```scala
+val expected = ""Printing sample:\nhello\n""
+```
+
+Those tests will all fail on Windows due to the different line separators. Please replace all occurrences by something like:
+
+```scala
+val LF = System.lineSeparator()
+val expected = ""Printing sample:"" + LF + ""hello"" + LF
+```
+
+See also: https:  stackoverflow.com a 67427841 1082681",0,0,0,0
+sbt/sbt-aspectj,46,"Bumped aspectj version to 1.9.6, apsectjSource to 1.9, sbt to 1.4.6","The purpose of the PR is to make it easier for sbt projects to use aspectj 1.9.x that is compatible with Java 11. Tested it by publishing it to local repo using sbt publishLocal. Environment: macOS Big Sur version 11.2 using openjdk 11.0.9.1, Scala 2.12.12, and sbt 1.4.6.",1,1,0,1
+sbt/sbt-aspectj,45,Apply aspect for test classes with sbt-aspectj,"How to apply aspects for unit-test using sbt-aspectj. It's only worked for my project main classes and not worked for test classes
+
+My config in build.sbt
+```
+aspectjSettings
+aspectjInputs in Aspectj += (aspectjCompiledClasses in Aspectj).value
+
+aspectjCompileOnly in Aspectj := true
+
+products in Compile := (products in Aspectj).value
+
+products in Runtime := (products in Compile).value
+```
+test classes located under {proj} tests folder",0,0,0,0
+sbt/sbt-aspectj,44,Creating an external aspectj library,"I am in the process of writing a library that does monitoring OpenTracing and I am attempting to use sbt-aspectj so that users of the library don't need to manually instrument their code. I am currently however getting an issue with creating an sbt-project representing such a library.
+
+The idea is that I want an external library as indicated in this sample here https:  github.com sbt sbt-aspectj tree master src sbt-test weave external however that external library is dependant on an external dependency (i.e. `akka-actors`). Basically I am trying to combine both https:  github.com sbt sbt-aspectj tree master src sbt-test weave external and https:  github.com sbt sbt-aspectj tree master src sbt-test weave jar. I have created a sample project here https:  github.com mdedetrich sbt-aspectj-issue to indicate the problem I am having however below is the relevant sample
+
+```sbt
+lazy val root = (project in file("".""))
+  .enablePlugins(SbtAspectj)
+  .settings(
+    name := RootName,
+    version := Version,
+       add akka-actor as an aspectj input (find it in the update report)
+      aspectjInputs in Aspectj ++= update.value.matching(
+        moduleFilter(organization = ""com.typesafe.akka"", name = ""akka-actor*"")),
+       replace the original akka-actor jar with the instrumented classes in runtime
+      fullClasspath in Runtime := aspectjUseInstrumentedClasses(Runtime).value,
+       only compile the aspects (no weaving)
+    aspectjCompileOnly in Aspectj := true,
+       ignore warnings (we don't have the target classes at this point)
+    aspectjLintProperties in Aspectj += ""invalidAbsoluteTypeName = ignore"",
+       replace regular products with compiled aspects
+    products in Compile ++= (products in Aspectj).value,
+    libraryDependencies ++= Seq(
+      ""com.typesafe.akka"" %% ""akka-actor"" % akkaVersion
+    )
+  )
+
+lazy val test = (project in file(""test""))
+  .enablePlugins(SbtAspectj)
+  .settings(
+    aspectjBinaries in Aspectj ++= update.value.matching(
+      moduleFilter(organization = Organization, name = s""$RootName*"")),
+    aspectjInputs in Aspectj ++= update.value.matching(
+      moduleFilter(organization = ""com.typesafe.akka"", name = ""akka-actor*"")),
+    fullClasspath in Runtime := aspectjUseInstrumentedClasses(Runtime).value,
+       weave this project's classes
+    aspectjInputs in Aspectj += (aspectjCompiledClasses in Aspectj).value,
+    products in Compile := (products in Aspectj).value,
+    products in Runtime := (products in Compile).value,
+    libraryDependencies ++= Seq(
+      Organization %% RootName % Version
+    )
+  )
+```
+
+The idea is that we publish the `root` project using `root publishLocal` and the test project is just designed to include `root` as a `libraryDependency` so we can see if the aspect-j is working properly.
+
+The problem is simple that I am unable to get it working. The current code at https:  github.com mdedetrich sbt-aspectj-issue publishes with `root publishLocal` (not sure if its correct though) however when I then do `test run` I get this
+
+```
+[info] Weaving 2 inputs with 1 AspectJ binary to  home mdedetrich github sbt-aspectj-issue test target scala-2.13 aspectj classes...
+[error] stack trace is suppressed; run last test   Compile   packageBin for the full output
+[error] (test   Compile   packageBin) java.util.zip.ZipException: duplicate entry: META-INF MANIFEST.MF
+[error] Total time: 1 s, completed Dec 29, 2019 4:31:27 PM
+sbt:sbt-aspectj-issue> 
+```
+
+Which seems to be an issue with having duplicate `akka-actor` entries. I tried toggling various entries in `build.sbt` but didn't manage to get it working.",0,0,0,0
+sbt/sbt-aspectj,43,Update Aspectj,"The new version of AspectJ adds support for Java 9 and 10.
+
+References
+https:  www.eclipse.org aspectj doc released README-191.html
+https:  www.eclipse.org aspectj doc released README-190.html",0,0,0,2
+sbt/sbt-aspectj,42,sbt-aspectJ with Play org.aspectj.bridge.AbortException: ReflectionFactory unable to load org.aspectj.ajdt.ajc.AjdtCommand as org.aspectj.bridge.ICommand,"I am trying to use aspectJ within a play app. After lot of digging around I am able to configure the aspectJ where I can see my java classes being weaved. But I am getting a runtime exception as soon as I am trying to hit the Play service 
+
+[Weaving 1 input to D:\Rogers\source\dpt-play-profile-service\target\scala-2.12\aspectj\classes...←[
+[error] org.aspectj.bridge.AbortException: ReflectionFactory unable to load org.aspectj.ajdt.ajc.AjdtCommand as org.aspectj.bridge.ICommand
+[error]        at co.lightbend.sbt.SbtAspectj$Ajc$$anon$1.handleessage(SbtAspectj.scala:21)
+[error]        at org.aspectj.bridge.essageHandler.handleessage(essageHandler.java:15)
+[error]        at org.aspectj.bridge.ReflectionFactory.ake(ReflectionFactory.java:78)
+[error]        at org.aspectj.bridge.ReflectionFactory.akeCoand(ReflectionFactory.java:36)
+[error]        at org.aspectj.tools.ajc.ain.run(ain.java:364)
+[error]        at org.aspectj.tools.ajc.ain.runain(ain.java:248)
+[error]        at co.lightbend.sbt.SbtAspectj$Ajc$.runAjcain(SbtAspectj.scala:211)
+[error]        at co.lightbend.sbt.SbtAspectj$Ajc$.runAjc(SbtAspectj.scala:124)
+[error]        at co.lightbend.sbt.SbtAspectj$Ajc$.$anonfun$ajcTask$2(SbtAspectj.scala:111)
+[error]        at sbt.util.FileFunction$.$anonfun$cached$1(FileFunction.scala:73)
+[error]        at sbt.util.FileFunction$.$anonfun$cached$4(FileFunction.scala:147)
+[error]        at sbt.util.Difference.apply(Tracked.scala:3)
+[error]        at sbt.util.Difference.apply(Tracked.scala:293)
+[error]        at sbt.util.FileFunction$.$anonfun$cached$3(FileFunction.scala:143)
+[error]        at sbt.util.Difference.apply(Tracked.scala:3)
+[error]        at sbt.util.Difference.apply(Tracked.scala:288)
+[error]        at sbt.util.FileFunction$.$anonfun$cached$2(FileFunction.scala:142)
+[error]        at co.lightbend.sbt.SbtAspectj$Ajc$.$anonfun$ajcTask$1(SbtAspectj.scala:116)
+[error]        at scala.Function1.$anonfun$copose$1(Function1.scala:44)
+[error]        at sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:39)
+[error]        at sbt.std.Transfor$$anon$4.work(Syste.scala:66)
+[error]        at sbt.Execute.$anonfun$subit$2(Execute.scala:262)
+[error]        at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:16)
+[error]        at sbt.Execute.work(Execute.scala:271)
+[error]        at sbt.Execute.$anonfun$subit$1(Execute.scala:262)
+[error]        at sbt.ConcurrentRestrictions$$anon$4.$anonfun$subitValid$1(ConcurrentRestrictions.scala:174)
+[error]        at sbt.CopletionService$$anon$2.call(CopletionService.scala:36)
+[error]        at java.util.concurrent.FutureTask.run(Unknown Source)
+[error]        at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+[error]        at java.util.concurrent.FutureTask.run(Unknown Source)
+[error]        at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[error]        at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[error]        at java.lang.Thread.run(Unknown Source)
+
+
+
+**below is what I am using as settings in the build.sbt**
+
+.settings(aspectjSettings,
+  AspectjKeys.aspectjVerbose := true,
+  AspectjKeys.aspectjShowWeaveInfo := true,
+  AspectjKeys.aspectjVersion := ""1.8.5"",
+  aspectjInputs in Aspectj += (aspectjCompiledClasses in Aspectj).value,
+  products in Compile := (products in Aspectj).value
+ products in Runtime := (products in Compile).value
+)
+javaAgents += ""org.aspectj"" % ""aspectjweaver"" % ""1.8.5"" % ""compile;test""
+javaOptions in run ++= (AspectjKeys.aspectjWeaverOptions in Aspectj).value
+",0,0,0,1
+sbt/sbt-aspectj,41,"sbt {1.1.5, 0.13.17}",,0,0,0,1
+sbt/sbt-aspectj,40,Migrating to the new version of sbt-aspectj,"I am trying to compile and run a tool, which is using an **old version** of sbt-aspectj (com.typesafe.sbtaspectj"" % ""sbt-aspectj"" % ""0.5.3""). I updated the plugins.sbt file to switch to the new version (""com.lightbend.sbt"" % ""sbt-aspectj"" % ""0.11.0""). I updated the build file as well. The original build file can be found in this link: https:  github.com samira-t Bita blob master project Build.scala
+
+Hereby, I updated the **import statements** as follows:
+
+mport com.lightbend.sbt.SbtAspectj 
+import com.lightbend.sbt.AspectjKeys.{ aspectjInputs, aspectjBinaries, aspectjWeave }
+
+Then I updated the **library dependencies** as follows:
+
+libraryDependencies ++= Seq(
+		""com.typesafe.akka"" %% ""akka-actor"" % ""2.4.1"",
+		""org.scalatest"" %% ""scalatest"" % ""2.2.4"" % ""test"",
+		""org.scala-lang"" % ""scala-reflect"" % ""2.11.7"",
+		""org.scala-lang.modules"" %% ""scala-xml"" % ""1.0.4""
+	  ),
+
+The following definition does not work since **""inputs in Aspectj""** is apparently not defined anymore:
+
+inputs in Aspectj <<=  update map { report =>
+        report.matching(moduleFilter(organization = ""com.typesafe.akka"", name = ""akka-actor""))
+      },
+
+So, I changed it as follows (hoping that this value in AspectjKeys is representative):
+
+aspectjInputs <<=  update map { report =>
+        report.matching(moduleFilter(organization = ""com.typesafe.akka"", name = ""akka-actor""))
+      },
+
+I changed the last two lines for **using the instrumented versions** as well (hoping that they are comparable to the use of AspectjPlugin.useInstrumentedClasses and AspectjPlugin.useInstrumentedJars):
+
+fullClasspath in Test <<= SbtAspectj.aspectjUseInstrumentedClasses(Test),
+fullClasspath in Runtime <<= SbtAspectj.aspectjUseInstrumentedClasses(Runtime)))
+
+Assuming that the above modifications are correct, the part that I am really puzzled with is the definition of an **aspect filter** as copied below:
+
+aspectFilter in Aspectj := {
+         (jar, aspects) =>
+          {
+            if (jar.name.contains(""akka-actor"") )
+              aspects filter (jar => (jar.name.startsWith(""Actor"")))
+            else Seq.empty[File]
+          }
+      },
+
+Apperrently such a filter is not defined in the version. I also could not find a representative definition.
+",0,0,0,4
+sbt/sbt-aspectj,39,Add version number to README,,0,0,0,1
+sbt/sbt-aspectj,38,sbt-aspectj not found,"Now, there is no available version 
+
+addSbtPlugin(""com.lightbend.sbt"" % ""sbt-aspectj"" % ""{version}"")
+
+Error:Unresolved dependencies:<ul><li> com.lightbend.sbt#sbt-aspectj;0.13.15: not found< li>< ul>See complete log in <a href=""file: Users cubeanliu Library Logs IntelliJIdea2017.2 sbt.last.log"">file: Users cubeanliu Library Logs IntelliJIdea2017.2 sbt.last.log< a>
+
+ I tried version 0.13.13, 0.13.15, 1.0.0, 1.0.2, they are all not working.
+
+What's the problem now?",0,0,0,1
+sbt/sbt-aspectj,37,Task name conflict prevents use with kamon's aspectj weaver,"Upgrading our tooling to Scala 2.12, SBT 0.13.16 and newest (0.11.0) version of this plugin as well as the newest (1.0.1) version of the [kamon-io aspectj runner plugin](https:  github.com kamon-io sbt-aspectj-runner).
+
+Get this on SBT start:
+
+````
+java.lang.RuntimeException: Some keys were defined with the same name but different types: 'aspectjWeaver' (sbt.Task[scala.Option[java.io.File]], sbt.Task[java.io.File])
+	at scala.sys.package$.error(package.scala:27)
+	at sbt.Index$.stringToKeyMap0(EvaluateConfigurations.scala:296)
+	at sbt.Index$.stringToKeyMap(EvaluateConfigurations.scala:287)
+	at sbt.Load$.structureIndex(Load.scala:209)
+	at sbt.Load$$anonfun$9.apply(Load.scala:165)
+	at sbt.Load$$anonfun$9.apply(Load.scala:165)
+	at sbt.Load$.timed(Load.scala:1025)
+	at sbt.Load$.apply(Load.scala:164)
+	at sbt.Load$.defaultLoad(Load.scala:39)
+````
+
+I tracked it down to the fact that this plugins both define `aspectjWeaver` keys with different types:
+
+````scala
+trait AspectjKeys {
+    val aspectjWeaver = taskKey[Option[File]](""Location of AspectJ load-time weaver."")
+}
+````
+
+kamon plugin's definition
+
+````scala
+ object Keys {
+    val aspectjWeaver = TaskKey[File](""aspectj-weaver"")
+  }
+
+````
+
+I'm going to continue looking for a workaround but i suspect that this could be resolved easily by prefixing the keys to make them unique.  It will be a breaking change for some, but at least it will play nicely with other plugins.",0,0,0,1
+sbt/sbt-aspectj,36,Build with SBT 1.0,Updates the build process to be based on SBT 1.0 instead of 0.13 but still cross-compiling to both.,0,0,0,0
+sbt/sbt-aspectj,35,Namespace all the sbt settings,Add `aspectj` to the sbt settings.,0,0,0,0
+sbt/sbt-aspectj,34,Add cross-build for sbt 1.0,"+ add sbt-release
++ update from typesafe to lightbend",0,0,0,0
+sbt/sbt-aspectj,33,Upgrade to SBT 0.13.16 and make it an Autoplugin ,"This PR upgrades the plugin to latest version of SBT, removing all deprecated syntax by their counterparts post SBT 0.13.14+ and makes the plugin an AutoPlugin, effectively setting it ready for the upcoming SBT 1.0.0 release.
+
+`.sbt` build files for all of the SBT scripted tests are now replacing the old `Build.scala`, which will be removed in SBT 1.0.0.
+
+Everything compiles and passes tests. No changes in the logic inside the plugin have been done, with the exception of moving the keys out of the plugin class, the rest is just a translation from the old syntax to the new one.",0,0,0,7
+sbt/sbt-aspectj,32,Add artifactFilter to make sure the aspectjweaver JAR is returned,"Currently when trying to figure out the path to the `aspectjweaver` jar we only use a `moduleFilter` and rely on sbt's artifact ordering, i.e. the jar will always be at the head of the list. Using [coursier](https:  github.com coursier coursier) for dependency resolution this is no longer valid since a POM is returned instead. This PR fixes it by adding an `artifactFilter` to make sure the returned file is a jar.",0,0,0,0
+sbt/sbt-aspectj,31,Release latest changes to allow use in Scala 2.12,Could we get a release to bintray in the current state to allow downstream dependency upgrades that are currently blocked due to use of Scala 2.12?,2,2,0,7
+sbt/sbt-aspectj,30,Upgrade from aspectj 1.8.9 to 1.8.10,,0,0,0,8
+sbt/sbt-aspectj,29,please add a namespace to your compileOnly setting,"sbt plugin conventions are to prefix settings with a global namespace, e.g. `aspectj` or `aj` because everything lives in one big stringy hashtable, believe it or not.
+
+We have a `compileOnly` Task in ENSIME which is following the naming convention of `testOnly` and does exactly what one would expect: compiles only one file. However, we have a namespace collision with your variable.
+
+It would be very nice to your users if you could please change your setting key and let them know what has changed in the release notes, as our `Task` has good reason not to have a prefix namespace (indeed, it may make it into core sbt at some point)
+",4,4,0,0
+sbt/sbt-aspectj,28,Upgrade aspectj from 1.8.8 to 1.8.9,,0,0,0,3
+sbt/sbt-aspectj,27,Upgrade aspectj from 1.8.7 to 1.8.8,,0,0,0,2
+sbt/sbt-aspectj,26,Doesn't work with sbt-native-packager,"Not sure if I should post here or `sbt-native-packager`.
+
+When I package with `sbt docker:publishLocal` with `enablePlugins(JavaAppPackaging)`, it doesn't add the agent option to `bashScriptExtraDefines`.
+
+Then I found this but it's no longer available on bintray repository. 
+https:  github.com gilt sbt-aspectjweaver
+
+Would anyone advice?
+",0,0,0,2
+sbt/sbt-aspectj,25,Upgrade aspectj dependency to 1.8.8,"Please ugprade aspectj dependency to 1.8.8
+",0,0,0,1
+sbt/sbt-aspectj,24,More generic agent plugin,"If possible please make this or a separate plugin, more generic, to enable specifying arbitrary library dependency as agent; should support specifying more than one agent library, and agent specific parameters.
+",0,0,0,2
+sbt/sbt-aspectj,23,Upgrade aspectj from 1.8.6 to 1.8.7,,0,0,0,0
+sbt/sbt-aspectj,22,[warn] warning .. advice defined in .. has not been applied [Xlint:adviceDidNotMatch],"I'm trying to get the AspectJ plugin working and I get the following error when I run my project:
+
+```
+[warn] warning at  home cassius sensespace BigSense src main aspectj AspectLogger.aj:13::0 advice defined in io.bigsense.AspectLogger has not been applied [Xlint:adviceDidNotMatch]
+```
+
+I've added the following in my plugins:
+
+```
+addSbtPlugin(""com.typesafe.sbt"" % ""sbt-aspectj"" % ""0.10.2"")
+```
+
+and added the following to my build.sbt
+
+```
+import com.typesafe.sbt.SbtAspectj._
+
+aspectjSettings
+
+ * project settings * 
+
+fork in run := true
+
+javaOptions in run <++= AspectjKeys.weaverOptions in Aspectj
+
+products in Compile <++= products in Aspectj
+```
+
+And I created a very simple aspect:
+
+```
+package io.bigsense;
+
+import org.apache.log4j.Logger;
+
+public aspect AspectLogger {
+
+  private long start;
+
+  private Logger log = Logger.getLogger(getClass());
+
+  pointcut conn() : call(* io.bigsense.server.TomcatServer.startServer(..));
+
+  void around() : conn() {
+    start = System.currentTimeMillis();
+    Throwable t = null;
+    try {
+      proceed();
+    }
+    catch(Throwable _t) {
+      t = _t;
+    }
+    long spent = System.currentTimeMillis() - start;
+    log.debug(""Test"");
+    System.out.println(""Send time: "" + spent);
+    if (t != null) {
+      throw new RuntimeException(t);
+    }
+  }
+
+}
+```
+
+So `io.bigsense.server.TomcatServer.startServer` does exist. `TomcatServer` is a Scala class and that's a public function. Why isn't the pointcut that I define being applied? 
+
+Full project source code can be found here: https:  github.com sumdog BigSense
+",0,0,0,1
+sbt/sbt-aspectj,21,Upgrade aspectj from 1.8.5 to 1.8.6,,0,0,0,3
+sbt/sbt-aspectj,20,Possible to weave scala-library.jar?,"I'm attempting to add `before` advice to a function within scala-library.jar.
+
+It appears that the sbt-aspectj plugin is successfully weaving the jar. However, the weaved jar is somehow not getting loaded, despite the `fullClasspath in Runtime <<= useInstrumentedClasses(Runtime)` line in my build file.
+
+For what it's worth, [here](https:  github.com NetSys sts2-applications blob test-ask project Build.scala#L28) is my build file, my aspectj [file](https:  github.com NetSys sts2-applications blob test-ask interposition src main aspectj WeaveActor.aj#L40), and my test [program](https:  github.com NetSys sts2-applications blob test-ask src main scala Runner.scala#L9).  
+
+To reproduce:
+
+```
+git clone -b test-ask git@github.com:NetSys sts2-applications.git test-ask
+cd test-ask
+sbt debug run
+```
+
+Running it should print ""WOOHOO"" at the beginning. However, no such message appears. 
+
+Interestingly, the weaved classes are on the classpath. Moreover, as far as I can tell, there are no redundant classes on the classpath, i.e. there is one and only one of the class I'm trying to weave on the classpath.
+
+I suspect that the scala runtime somehow loads its own scala-library, dynamically and without regard to the classpath.. Any insights?
+
+Thanks!
+",0,0,0,0
+sbt/sbt-aspectj,19,Upgrade aspectj from 1.8.4 to 1.8.5,"This patch upgrades aspectj dependency from 1.8.4 to 1.8.5.
+",0,0,0,3
+sbt/sbt-aspectj,18,Not weaving when runnin the jar,"Hi,
+I am using sbt-aspect for weaving the scala classes with aspectj. I am able to make it work correctly in the sbt-console. But once I generated the jar file and ran the jar file, I found out that the aspects are not working. How can I make it work ?
+I am using sbt-one-jar to create executable jar file.
+
+I tried the same build.scala that is provided(https:  github.com sbt sbt-aspectj blob master src sbt-test compile aspects project SampleBuild.scala). But getting the error as below:
+""Missing message: configure.invalidClasspathSection in: org.aspectj.ajdt.ajc.messages""
+""(aspectjTracer aspectj:ajc) org.aspectj.bridge.AbortException: ABORT""
+",0,0,0,1
+sbt/sbt-aspectj,17,Updated versions of sbt and AspectJ,,0,0,0,1
+sbt/sbt-aspectj,16,update aspectj version to avoid conflicts on deployment,"Currently sbt-aspectj causes conflict problems with current aspectj version when you try to deploy project. 
+
+I just upgraded version to the latest. 
+
+Maybe it's not an issue since this project has nothing to do with deployment but I thought upgrading the version wouldn't hurt anyone.
+",0,0,0,1
+sbt/sbt-aspectj,15,Hot reload resources after modification,"Hi,
+I'm facing an issue to refresh resource files such as javascript files after any modification.
+I'm using, sbt-aspectj v 0.9.4 with playframework v 2.1.5. [Stackoverflow Question](http:  stackoverflow.com questions 27624486 reload-javascript-files-is-not-working-using-sbt-aspectj )
+Is there any configuration to add to the build.scala or the .sbt file to resolve this problem.
+",0,0,0,0
+sbt/sbt-aspectj,14,How to add javaagent for weaving,"in oder to use AspectJ Weaver in http:  kamon.io introduction get-started 
+I added sbt-aspectj plugin to my project, and my build.sbt contains this:
+
+```
+fork in run := true
+
+javaOptions in run <++= AspectjKeys.weaverOptions in Aspectj
+```
+
+But i get `Reference to undefined setting`:
+`aspectj:weaverOptions from *:run::javaOptions`
+
+What am i missing!?
+",0,0,0,1
+sbt/sbt-aspectj,13,Bump up aspectj version to 1.8.2,"Closes https:  github.com sbt sbt-aspectj issues 12
+",0,0,0,3
+sbt/sbt-aspectj,12,Update aspectjtools to 1.8.X,"Currently, your plugin depends on:  
+""org.aspectj"" % ""aspectjtools"" % ""1.7.3""
+
+Is it possible to make it depend to the latest stable version?
+
+Thanks a lot
+",0,0,0,0
+sbt/sbt-aspectj,11,compile time weaving is not working,"Hi, I already posted this on [stackoverflow](http:  stackoverflow.com questions 21065592 using-spring-data-neo4j-advanced-mapping-mode-in-sbt).
+
+I cannot make the compile time weaving for the advanced mapping-mode of [spring-data-neo4j](http:  projects.spring.io spring-data-neo4j ) work. Here is an example project: (https:  github.com fdietze spring-data-neo4j-aspects-sbt-example)
+
+The error I get:
+
+```
+$ sbt test
+
+[info] Weaving 1 input with 1 AspectJ binary to target scala-2.10 aspectj classes...
+[error] error at sdntest Node.scala::0 The type sdntest.Node must implement the inherited abstract method org.springframework.data.neo4j.aspects.core.GraphBacked.setPersistentState(Ljava lang Object;)
+[error]     see also: org springframework data neo4j aspects core GraphBacked.java::0
+[error]     see also: org springframework data neo4j aspects support node Neo4jNodeBacking.aj:66::0
+[error] error at sdntest Node.scala::0 The type sdntest.Node must implement the inherited abstract method org.springframework.data.neo4j.mapping.ManagedEntity.setPersistentState(Ljava lang Object;)
+[error]     see also: org springframework data neo4j mapping ManagedEntity.java::0
+[error]     see also: org springframework data neo4j aspects support node Neo4jNodeBacking.aj:66::0
+[warn] warning at  home felix .ivy2 cache org.springframework.data spring-data-neo4j-aspects jars spring-data-neo4j-aspects-3.0.0.M1.jar!org springframework data neo4j aspects support relationship Neo4jRelationshipBacking.class:64::0 advice defined in org.springframework.data.neo4j.aspects.support.relationship.Neo4jRelationshipBacking has not been applied [Xlint:adviceDidNotMatch]
+[warn] warning at  home felix .ivy2 cache org.springframework.data spring-data-neo4j-aspects jars spring-data-neo4j-aspects-3.0.0.M1.jar!org springframework data neo4j aspects support relationship Neo4jRelationshipBacking.class:167::0 advice defined in org.springframework.data.neo4j.aspects.support.relationship.Neo4jRelationshipBacking has not been applied [Xlint:adviceDidNotMatch]
+[warn] warning at  home felix .ivy2 cache org.springframework.data spring-data-neo4j-aspects jars spring-data-neo4j-aspects-3.0.0.M1.jar!org springframework data neo4j aspects support relationship Neo4jRelationshipBacking.class:174::0 advice defined in org.springframework.data.neo4j.aspects.support.relationship.Neo4jRelationshipBacking has not been applied [Xlint:adviceDidNotMatch]
+org.aspectj.bridge.AbortException: AspectJ failed
+    at com.typesafe.sbt.SbtAspectj$Ajc$.runAjcMain(SbtAspectj.scala:220)
+...
+```
+
+What am I doing wrong?
+
+Thanks for your help!
+",0,0,0,4
+sbt/sbt-aspectj,10,Caching in ajcTask misses changes if one of the inputs is a directory,"In my case, there's a multi-module project where one module defines (and aspectj compiles) the aspects and the other one uses it with
+
+``` scala
+binaries in Aspectj <<=  products in Compile in sprayAspects
+```
+
+This, however, points to the `sprayAspects target ... classes` folder. Since the cache is then based on the last modified time of the directory, caching misses changes.
+
+My workaround is to rely on the packaged aspects jar like this:
+
+``` scala
+binaries in Aspectj <<= (packageBin in Compile in sprayAspects) map (Seq(_)),
+```
+",0,0,0,5
+sbt/sbt-aspectj,9,sbt-aspectj 0.9.0-SNAPSHOT missing from repo,"Hello,
+
+I try to add the 0.9.0 version of your plugin.
+However, I don't find it in the indicated repository, it seems missing.... 
+
+I added this repo into my SBT conf:
+
+resolvers += Resolver.url(""scalasbt snapshots"", new URL(""http:  scalasbt.artifactoryonline.com scalasbt sbt-plugin-snapshots ""))(Resolver.ivyStylePatterns)
+
+Could you fix it?
+
+Thanks a lot :)
+",0,0,0,2
+sbt/sbt-aspectj,8,Update version in README,,0,0,0,1
+sbt/sbt-aspectj,7,Support for aspects written in Scala,"Shouldn't it be possible to write aspects using the annotation style directly in Scala? Is this supported by the plugin?
+",0,0,0,1
+sbt/sbt-aspectj,6,"Weaving my own classes using ""aj"" files from external jars.","Hello,
+
+If I well looked at the different samples, using your plugin, we can at compile time:
+
+_ Weave our own classes with our own aspectJ files (*.aj)
+_ Weave an external jar (akka for instance) with our own aspectJ files.
+
+Is there an easy way to weave my own classes with an external jars containing ""aj"" files?
+Indeed, I would like to weave my own class with Spring-aspect.jar (in order to benefit of Spring's @Transaction annotation for example).
+
+Thanks in advance :)
+",0,0,0,6
+sbt/sbt-aspectj,5,Update aspectj to 1.7.2,,0,0,0,0
+sbt/sbt-aspectj,4,Mixing class weaving and jar weaving,"Hello,
+
+In the samples, I can see how I can weave classes or jar file of a library. However, I don't know how I can mix them together, i.e. weaving the class files of my sample application as well as a jar file of the external library like ""akka-actor"". Would you please tell me how the ""SampleBuild"" would look like in the case that I use both ways of waving?
+
+Thank you very much,
+Samira
+",0,0,0,3
+sbt/sbt-aspectj,3,Running the sample,"Hi,
+
+I want to use this plugin in my project. I tried to run the sample in the repository. However, I am got this error:
+`
+[warn]  ::::::::::::::::::::::::::::::::::::::::::::::
+[warn]  ::          UNRESOLVED DEPENDENCIES         ::
+[warn]  ::::::::::::::::::::::::::::::::::::::::::::::
+[warn]  :: com.typesafe.sbtaspectj#sbt-aspectj;0.5.4-SNAPSHOT: not found
+[warn]  ::::::::::::::::::::::::::::::::::::::::::::::
+[warn] 
+[warn]  Note: Some unresolved dependencies have extra attributes.  Check that these dependencies exist with the requested attributes.
+[warn]      com.typesafe.sbtaspectj:sbt-aspectj:0.5.4-SNAPSHOT (sbtVersion=0.12, scalaVersion=2.9.2)
+[warn] 
+`
+It turns out that `sbt-aspectj;0.5.4-SNAPSHOT` does not exist in the repository. Would you please help me to resolve the issue?
+
+Thanks,
+Samira
+",0,0,0,2
+sbt/sbt-aspectj,2,add ability to weave classes directory,"Here example of use from my build.sbt
+
+input - I don't want to weave all available jars, so there is only one in filter
+
+<pre>
+inputs in Aspectj <<= (fullClasspath in Compile, streams) map { (cp, s) => {
+    val result = cp.map(_.data).filter(_.getName match {
+      case ""classes"" => true
+      case ""digilib_2.8.2-0.0.1.jar"" => true
+      case skip => s.log.debug(""aspectj skip entity: "" + skip); false
+    })
+    result.foreach(e => s.log.debug(""aspectj add entity: "" + e))
+    result
+  }
+}
+< pre>
+
+
+example AOP source files at
+[https:  github.com ezh android-component-DigiSSHD tree master src main aspectj org digimead digi inetd sshd](https:  github.com ezh android-component-DigiSSHD tree master src main aspectj org digimead digi inetd sshd)
+
+<pre>
+aspectFilter in Aspectj := {
+  (input, aspects) => {
+    input.name match {
+      case ""classes"" => aspects filter (_.toString.contains("" aspectj org digimead digi inetd aop ""))
+      case ""digilib_2.8.2-0.0.1.jar"" => aspects filter (_.toString.contains("" aspectj org digimead digi inetd lib aop ""))
+      case file =>
+       Seq.empty[File]
+    }
+  }
+}
+< pre>
+
+
+patch positive sides:
+- backward compatible
+- weaving directories
+- more than nothing
+
+patch (all code?) negative sides:
+- project **must** have AspectJ files with same content in difference classes for runtime and jar sources.
+  If you try to use only one AspectJ for jar library and class directory there possible will be error. Android dex tool crashed with ""class already exists"" error. And, It is indeed. But nothing critical.
+
+King regards,
+Alexey
+",0,0,0,1
+sbt/sbt-aspectj,1,could u please post some wiki page for some plugin usage sample build file in sbt0.10+?,"since I had been using sbt0.7+ for a long time, I am not so familiar with sbt 0.10+ configuration rules, so a sample build file will be help, the README is not enough for a outsider like me :-)
+",0,0,0,1

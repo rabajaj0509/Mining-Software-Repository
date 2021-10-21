@@ -1,0 +1,234 @@
+Repo,Issue-no,Issue-title,Issue-body,Issue-reaction-total-count,Issue-reaction-plus-one,Issue-reaction-minus-one,Issue-comments
+sbt/sbt-findbugs,27,Travis CI dropped,"Given the poor handling of the recent security incident (https:  arstechnica.com information-technology 2021 09 travis-ci-flaw-exposed-secrets-for-thousands-of-open-source-projects ) I'm suspending Travis CI integration indefinitely.
+
+Let's move on to GitHub Actions.",0,0,0,0
+sbt/sbt-findbugs,26,README devoid of clear working examples,"### Expected vs Actual Behaviour
+
+When I try to put
+
+> findbugsReportType := Some(FindbugsReportType.FancyHtml)
+
+in `build.sbt`
+
+Instead it...
+
+Complains ""Cannot resolve symbol FindbugsReportType""
+
+Solution
+
+Show full working examples of what settings should look like in the build.sbt file instead of **PARTIAL** examples that are ambiguous
+
+There seems to be a trend with everything SBT related to give ambiguous and incomplete information devoid of clear working examples.
+
+________________
+Erics-MBP-2:pci-enclave eric.kolotyluk$ sbt findbugs
+[warn] Executing in batch mode.
+[warn]   For better performance, hit [ENTER] to switch to interactive mode, or
+[warn]   consider launching sbt without any commands, or explicitly passing 'shell'
+[info] Loading project definition from  Users eric.kolotyluk perforceRoot nds servers projects pci-enclave project
+ Users eric.kolotyluk perforceRoot nds servers projects pci-enclave build.sbt:84: error: not found: value FindbugsReportType
+findbugsReportType := Some(FindbugsReportType.FancyHtml)
+                           ^
+[error] Type error in expression",0,0,0,0
+sbt/sbt-findbugs,25,Can't generate HTML output.,"### Expected vs Actual Behaviour
+
+It should generate HTML output for a report.
+
+Instead it crashes.
+
+Generating the XML works fine though and I can render the XML to HTML with the standalone `findbugs` binary.
+
+### Steps to Reproduce
+
+Configuration is
+
+`addSbtPlugin(""com.github.sbt"" % ""sbt-findbugs"" % ""2.0.0"")` in `project plugins.sbt`, `findbugsReportType := Some(FindbugsReport.Html)` in `build.sbt`.
+
+Then output is as follows (same for the other report types apart from the XML one):
+
+```
+sbt findbugs
+[info] Loading settings from credentials.sbt,plugins.sbt,idea.sbt ...
+[info] Loading global plugins from  home olof .sbt 1.0 plugins
+Waiting for lock on  home olof .ivy2 .sbt.ivy.lock to be available...
+[info] Loading settings from plugins.sbt ...
+[info] Loading project definition from  home olof src <project> project
+[info] Loading settings from build.sbt ...
+[info] Set current project to libplugin (in build file: home olof src <project> )
+[info] Compiling 1 Scala source to  home olof src <project> target classes ...
+[info] Done compiling.
+[error] Warning: at xsl:variable on line 349 column 56 of default.xsl:
+[error]   SXWN9001: A variable with no following sibling instructions has no effect
+[error] Warning: at xsl:variable on line 352 column 59 of default.xsl:
+[error]   SXWN9001: A variable with no following sibling instructions has no effect
+[error] Error on line 72 of default.xsl:
+[error]   SEPM0009: Values of 'standalone' and 'omit-xml-declaration' conflict
+[error] The following errors occurred during analysis:
+[error]   Could not generate HTML output
+[error]     net.sf.saxon.trans.XPathException: Values of 'standalone' and 'omit-xml-declaration' conflict
+[error]       At net.sf.saxon.serialize.XMLEmitter.writeDeclaration(XMLEmitter.java:229)
+[error]       At net.sf.saxon.serialize.XMLEmitter.openDocument(XMLEmitter.java:162)
+[error]       At net.sf.saxon.serialize.XMLEmitter.characters(XMLEmitter.java:576)
+[error]       At net.sf.saxon.serialize.XMLIndenter.indent(XMLIndenter.java:315)
+[error]       At net.sf.saxon.serialize.XMLIndenter.startElement(XMLIndenter.java:113)
+[error]       At net.sf.saxon.event.ProxyReceiver.startElement(ProxyReceiver.java:132)
+[error]       At net.sf.saxon.event.NamespaceReducer.startElement(NamespaceReducer.java:73)
+[error]       At net.sf.saxon.event.ComplexContentOutputter.startContent(ComplexContentOutputter.java:566)
+[error]       At net.sf.saxon.event.ComplexContentOutputter.startElement(ComplexContentOutputter.java:189)
+[error]       At net.sf.saxon.expr.instruct.ElementCreator.processLeavingTail(ElementCreator.java:443)
+[error]       At net.sf.saxon.expr.instruct.ElementCreator.processLeavingTail(ElementCreator.java:389)
+[error]       At net.sf.saxon.expr.instruct.Block.processLeavingTail(Block.java:669)
+[error]       At net.sf.saxon.expr.instruct.Instruction.process(Instruction.java:144)
+[error]       At net.sf.saxon.expr.instruct.ElementCreator.processLeavingTail(ElementCreator.java:450)
+[error]       At net.sf.saxon.expr.instruct.ElementCreator.processLeavingTail(ElementCreator.java:389)
+[error]       At net.sf.saxon.expr.instruct.Template.applyLeavingTail(Template.java:336)
+[error]       At net.sf.saxon.trans.Mode.applyTemplates(Mode.java:1124)
+[error]       At net.sf.saxon.Controller.transformDocument(Controller.java:2106)
+[error]       At net.sf.saxon.Controller.transform(Controller.java:1705)
+[error]       At net.sf.saxon.s9api.XsltTransformer.transform(XsltTransformer.java:547)
+[error]       At net.sf.saxon.jaxp.TransformerImpl.transform(TransformerImpl.java:179)
+[error]       At edu.umd.cs.findbugs.HTMLBugReporter.finish(HTMLBugReporter.java:73)
+[error]       At edu.umd.cs.findbugs.DelegatingBugReporter.finish(DelegatingBugReporter.java:89)
+[error]       At edu.umd.cs.findbugs.DelegatingBugReporter.finish(DelegatingBugReporter.java:89)
+[error]       At edu.umd.cs.findbugs.FindBugs2.analyzeApplication(FindBugs2.java:1138)
+[error]       At edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:283)
+[error]       At edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:402)
+[error]       At edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1200)
+[error]       At edu.umd.cs.findbugs.LaunchAppropriateUI.launch(LaunchAppropriateUI.java:106)
+[error]       At edu.umd.cs.findbugs.LaunchAppropriateUI.main(LaunchAppropriateUI.java:198)
+[error] Warnings generated: 90
+[success] Total time: 24 s, completed 24-May-2018 12:40:35
+```
+
+### Environment
+
+* sbt version: 1.0.4
+* Plugin version: 2.0.0
+* Scala version(s): 2.12.4
+* Java version: 1.8.0_171-b11
+* Link to project source: not available",5,5,0,0
+sbt/sbt-findbugs,24,FindbugsReportType -> FindbugsReport in docs,"The README.md file contains this section:
+
+_findbugsReportType
+Description: Optionally selects the output format for the FindBugs report.
+Accepts: Some(FindbugsReportType.{Xml, Html, PlainHtml, FancyHtml, FancyHistHtml, Emacs, Xdoc})
+Default: Some(FindbugsReportType.Xml)_
+
+But it seems that `FindbugsReportType` should be `FindbugsReport`",1,1,0,0
+sbt/sbt-findbugs,23,Update README.md,Updated settings names in readme,0,0,0,1
+sbt/sbt-findbugs,22,Best practices improvements & sbt 1.0 support,"This brings the project up to date with current sbt best practices for plugins, makes the plugin an `AutoPlugin` and adds support for sbt 1.0",1,0,0,1
+sbt/sbt-findbugs,21,Cut new release,"It looks like it's been awhile since we've had a release
+
+@jmhofer would you be able to release a new version?",1,1,0,1
+sbt/sbt-findbugs,20,Upgrade to Findbugs 3.0.1,"There are some java8 related bugs that were fixed in Findbugs 3.0.1, in particular, the current version (3.0.0) throws a medium level warning due to an unused private method when the method is actually used via method reference.
+
+See: https:  sourceforge.net p findbugs bugs 1370 
+
+Fixed in Findbugs 3.0.1",0,0,0,0
+sbt/sbt-findbugs,19,updated findbugs & jsr305 dependency to 3.0.1 version,,1,1,0,1
+sbt/sbt-findbugs,18,Add pluginList support for FindSecurityBugs,"In order to add the FindSecurityBugs plugin to our build, we needed to have access to FindBugs's plugin mechanism. This pull requests gives this access. Here's a usage example:
+
+```
+findbugsSettings
+findbugsReportPath := Some(crossTarget.value   ""findbugs""   ""report.html"")
+findbugsReportType := Some(ReportType.PlainHtml)
+findbugsPluginList += s""${Path.userHome.absolutePath} .ivy2 cache com.h3xstream.findsecbugs findsecbugs-plugin jars findsecbugs-plugin-1.4.5.jar""
+findbugsIncludeFilters := Some(<FindBugsFilter>
+  <Match>
+    <Bug category=""SECURITY"" >
+  < Match>
+< FindBugsFilter>)
+compile <<= (compile in Compile).dependsOn(FindBugs.findbugs)
+```
+",1,1,0,2
+sbt/sbt-findbugs,17,Added option to break the build if issues are found as well as GUI task,"You can now execute `findbugs-check` to analyze your project, produce an XML report and automatically break the build if issues are found.
+
+You can also execute `findbugs-gui` to display Findbugs GUI. If you previously generated a report, it will be automatically loaded.
+",0,0,0,1
+sbt/sbt-findbugs,16,Add FindBugs failOnError setting,"This PR fixes #13 by adding a `findbugsFailOnError` setting to fail the build if any FindBugs issues are found.
+
+I also added some tests for the plugin that run findbugs on the test project and check whether the report is created, you can run them using `sbt scripted`.
+",0,0,0,2
+sbt/sbt-findbugs,15,Update readme.md,"just a couple of readme fixes
+
+<!-- Reviewable:start -->
+
+[<img src=""https:  reviewable.io review_button.png"" height=40 alt=""Review on Reviewable"" >](https:  reviewable.io reviews sbt findbugs4sbt 15)
+
+<!-- Reviewable:end -->
+",0,0,0,1
+sbt/sbt-findbugs,14,Documentation about how to use it.,"Does anyone has a small documented guide on how to use this tool?
+",0,0,0,0
+sbt/sbt-findbugs,13,Introduce findbug failOnError property available to ant task.,"I am currently unsure of what can be done, suggestions ?
+
+http:  findbugs.sourceforge.net manual anttask.html#d0e1367
+",0,0,0,2
+sbt/sbt-findbugs,12,Version 1.4.0 has not been deployed,"Version 1.4.0 is referenced in the README but it does not exist in the SBT community repository.
+",0,0,0,9
+sbt/sbt-findbugs,11,Fix link in readme,,0,0,0,1
+sbt/sbt-findbugs,10,Move to Findbugs 3 to add support for Java 8,"@jmhofer I added support for FB3 to address https:  github.com sbt findbugs4sbt issues 9
+
+I tested it locally against a new Play-Java project
+",0,0,0,3
+sbt/sbt-findbugs,9,Add suport for Findbugs 3.0,"Findbugs 3..0 [is released](https:  mailman.cs.umd.edu pipermail findbugs-discuss 2014-July 004029.html).
+",0,0,0,6
+sbt/sbt-findbugs,8,Add support for auto plugins in sbt 0.13.5,"Add support for auto plugins in sbt 0.13.5
+",0,0,0,2
+sbt/sbt-findbugs,7,Create a cross build for both 2.11 and 2.10,"It would be nice if the plugin would work with both scala versions.  Need to wait for the sbt release on 2.11
+
+http:  stackoverflow.com questions 23282469 does-sbt-builds-againts-scala-2-11
+",0,0,0,1
+sbt/sbt-findbugs,6,Fix header formatting in README.md,,0,0,0,1
+sbt/sbt-findbugs,5,Update lots of things,"Fix   clean up a bunch of stuff:
+- fix bugs and typos in documentation
+- update to findbugs 2.0.3
+- rename 'Effort' to 'Priority' to reflect meaning
+- add actual 'Effort' setting (that follows findbugs definition of effort)
+- make Priority and Effort enums type safe
+- clean up stuff in general
+",0,0,0,8
+sbt/sbt-findbugs,4,"Customise findbugs rules for Scala -- reduce false positives, add scala specific rules","Is there any work underway to customise the findbugs rules for Scala?
+
+I've installed `findbugs4sbt` but the core findbugs rules produce lots of false positives around class & method naming conventions that are caused by Scala.
+
+I can't be the first person to notice this -- surely all other users of findbugs4sbt must have the same problems?
+
+Is there a project that has a ruleset for findbugs which is customised to work well with Scala? (Both by removing fixing rules which give false positives in Scala and also by adding new Scala specific rules.)
+
+If so, I would think that we should add it to the README, as it seems likely to be a FAQ.
+
+If not, perhaps we should start one? Would that be considered out of scope for `findbugs4sbt` itself?
+",0,0,0,3
+sbt/sbt-findbugs,3,Include findbugs-contrib rules,"While findbugs code has a good base set of rules, most of Findbug's bug patterns are defined in `findbugs-contrib`.
+
+It looks to me like `findbugs4sbt` doesn't include `findbugs-contrib` by default. Is that correct?
+
+If so, we should probably add it by default (or at least add easy to follow instructions to the docs on how to include).
+",0,0,0,2
+sbt/sbt-findbugs,2,correct syntax for findbugsReportPath?,"Could you provide an example of setting findbugsReportPath?  I would like the report to be generated in target findbugs findbugs.xml.  Not sure how to do that in Scala.
+
+The README says that the default value is: 
+
+```
+Some(crossTarget   ""findbugs""   ""report.xml""
+```
+
+which seems syntactically incorrect (there is no closing parenthesis) and doesn't seem to match the actual location, which is:
+
+```
+target scala-2.10 findbugs findbugs.xml
+```
+
+What line do I put into my build.sbt to set the report path to target findbugs findbugs.xml? 
+
+Thanks so much
+",0,0,0,3
+sbt/sbt-findbugs,1,Java play 2.2.X application with findbugs4sbt does not generate Html report,"Adding findbugs4sbt and configured with ReportType.Html
+does not generate a Html report.
+The play-consoles displays:
+[play-findbugs4sbt] $ findbugs:findbugsReportType
+[info] Some(-html)
+
+The output directory (target scala-2.10 findbugs ) has only the file ""findbugs.xml""
+For configuration see https:  github.com carestra play-findbugs4sbt
+",0,0,0,1

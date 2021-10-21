@@ -1,0 +1,2240 @@
+Repo,Issue-no,Issue-title,Issue-body,Issue-reaction-total-count,Issue-reaction-plus-one,Issue-reaction-minus-one,Issue-comments
+contentful/contentful-management.rb,232,Move Travis CI to travis-ci.com,"Transfer [one on travis-ci.org](https:  travis-ci.org github contentful contentful-management.rb) to [app.travis-ci.com](https:  app.travis-ci.com github contentful contentful-management.rb) like [other repos on Contentful](https:  app.travis-ci.com github contentful) since .org was shut down on June 15th, 2021.
+
+Signed-off-by: Takuya Noguchi <takninnovationresearch@gmail.com>",0,0,0,1
+contentful/contentful-management.rb,231,Adds getter setter for EditorInterface#sidebar property,Fixes #229,0,0,0,4
+contentful/contentful-management.rb,230,Tasks implementation missing in contentful-management.rb,"Need to be able to create read update delete Tasks on an entry via contentful-management.rb.
+
+need to:
+   - create a Task Resource
+   - include it in the Contentful::Management::ResourceBuilder class
+   - update mapping of sys types to include Tasks
+   - be able to run create_all_resources on the Contentful::Management::Response
+
+See: https:  github.com contentful contentful-management.rb blob 517b03a2fdf200ead6092e39b92546705145730b lib contentful management resource_builder.rb",0,0,0,0
+contentful/contentful-management.rb,229,editor_interface missing sidebar implementation,"Hello! It appears that contentful-management.rb is missing the implementation to manage the sidebar configurations on a `Contentful::Management::EditorInterface` resource, which is critical for some of the work our team at Square is working on
+
+Reference: https:  www.contentful.com developers docs extensibility custom-sidebar  
+API Reference: https:  www.contentful.com developers docs references content-management-api # reference editor-interface 
+
+Ruby SDK missing `.sidebar` getter setters. Upon inspection of the `raw_object` the API response is correct, but the ruby SDK is missing this piece.
+
+Opening an enterprise support ticket referencing this github issue. In the meantime, do you recommend modifying the raw_object manually and saving, or is there a better workflow within the constraints of the current implementation?
+
+![image](https:  user-images.githubusercontent.com 492573 129217678-549fb799-8915-4bb5-9d1f-3f6c23c58f35.png)
+",0,0,0,1
+contentful/contentful-management.rb,228,fix validation hash,Fixes #211 ,0,0,0,1
+contentful/contentful-management.rb,227,Feature all users,,0,0,0,0
+contentful/contentful-management.rb,226,Get all users for a space or organization,"Adds ability to retrieve all users in a space or organisation. Please refer to https:  www.contentful.com developers docs references user-management-api # reference users for more details.
+
+Fixes #224",0,0,0,0
+contentful/contentful-management.rb,225,Get all users for a space or organization,"Adds ability to retrieve all users in a space or organization. Please refer to https:  www.contentful.com developers docs references user-management-api # reference users for more details.
+
+Fixes #224 ",0,0,0,0
+contentful/contentful-management.rb,224,Get all users implementation missing,"Hey, it looks like contentful-management.rb is missing the get all users API feature, which is quite critical for some user access control synchronization work our team at Square is about to execute on
+
+API Reference: https:  www.contentful.com developers docs references user-management-api # reference users
+
+Ruby SDK missing `.all` method functionality: 
+![image](https:  user-images.githubusercontent.com 492573 117469938-41a5cb00-af24-11eb-9d4b-7fb7963df5d2.png)
+
+Any ETA on this missing functionality being added?",0,0,0,6
+contentful/contentful-management.rb,223,Creating entry with field 'id' doesn't work,"I've got a content type with field 'id', whn I'm trying to create it using the gem with:
+entry = entry_content_type.entries.create(id: 123, name: 'Name') I get:
+`Message: Validation error
+Details: 
+        * Name:  - Path: '' - Value: ''
+        * Name:  - Path: '' - Value: ''`",0,0,0,4
+contentful/contentful-management.rb,222,server tags metadata as _metadata,,0,0,0,0
+contentful/contentful-management.rb,221,Entry destroy not working as expected,"Unpublish & archive working but destroy results in this error `FrozenError (can't modify frozen String: """")`. Tried unpublishing and or archiving first, but destroy still failed. Is there some other config or process to destroy entries?
+
+```
+module ContentfulAdapter
+  module Management
+    module DeleteEntries
+      module_function
+
+      def delete_all(entry_type:)
+        cms_client = ContentfulAdapter::Management::CreateClient.call
+        space = cms_client.spaces.find(ENV['CONTENTFUL_SPACE'])
+        entries = space.entries.all(content_type: entry_type)
+
+        entries.each do |entry|
+          entry.unpublish
+          entry.destroy
+        end
+      end
+    end
+  end
+end
+```
+
+",0,0,0,1
+contentful/contentful-management.rb,220,Fixes entry and asset loading with tags,Fixes #219 ,0,0,0,0
+contentful/contentful-management.rb,219,Gem blows up when querying entries that have tags associated with them,"We recently started experimenting with tags in Contentful and we've found that it breaks a lot of functionality with the Management API. When querying an entry with a tag here is an example object that breaks:
+
+```ruby
+{""metadata""=>{""tags""=>[{""sys""=>{""type""=>""Link"", ""linkType""=>""Tag"", ""id""=>""campaignBrand""}}]},
+ ""sys""=>
+  {""space""=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Space"", ""id""=>""id""}},
+   ""id""=>""55FkOYPSmltCpZPgXZiwoY"",
+   ""type""=>""Entry"",
+   ""createdAt""=>""2020-07-31T20:28:35.447Z"",
+   ""updatedAt""=>""2020-11-03T01:24:25.437Z"",
+   ""environment""=>{""sys""=>{""id""=>""legacy-master"", ""type""=>""Link"", ""linkType""=>""Environment""}},
+   ""publishedVersion""=>84,
+   ""publishedAt""=>""2020-11-03T01:24:25.437Z"",
+   ""firstPublishedAt""=>""2020-08-21T23:51:00.860Z"",
+   ""createdBy""=>{""sys""=>{""type""=>""Link"", ""linkType""=>""User"", ""id""=>""4oBuurbO6ICl4oibcibtkg""}},
+   ""updatedBy""=>{""sys""=>{""type""=>""Link"", ""linkType""=>""User"", ""id""=>""4oBuurbO6ICl4oibcibtkg""}},
+   ""publishedCounter""=>6,
+   ""version""=>85,
+   ""publishedBy""=>{""sys""=>{""type""=>""Link"", ""linkType""=>""User"", ""id""=>""4oBuurbO6ICl4oibcibtkg""}},
+   ""contentType""=>{""sys""=>{""type""=>""Link"", ""linkType""=>""ContentType"", ""id""=>""productPage""}}},
+ ""fields""=>
+  {""slug""=>{""en""=>""why-square-2""},
+   ""metadata""=>{""en""=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""251HdGEynHSJ03hvgjgnxF""}}},
+   ""locales""=>{""en""=>[""US""]},
+   ""sections""=>
+    {""en""=>
+      [{""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""4z5cgXD4B9OQjDdngPNstK""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""uk8aHThRReCfrdRDKoeYu""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""3f9GUXvkQZD96BRaCxGHPo""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""3hdf2gHipyTlzMznX7bo1Y""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""QSnggXyICvZMn181E6pDO""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""CpqsmycoDdnVkaSHFvkm7""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""6umcmNdrXQoKaWhp2zw1Ef""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""7e0qhknUVUEYcAgCAcaAgc""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""2DjDt3oqMJUmQgjES4QbuX""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""7e0qhknUVUEYcAgCAcaAgc""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""2Bd7we0VPLWxNRtVdNFj2u""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""7e0qhknUVUEYcAgCAcaAgc""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""10lVzbPii7F6AlibXqwH7x""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""7e0qhknUVUEYcAgCAcaAgc""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""4Z5yeqV3u1BFcKTz96hVCQ""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""7e0qhknUVUEYcAgCAcaAgc""}},
+       {""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""N5BS5VKV83O0LOsCDX5eV""}}]},
+   ""navigationBannerColor""=>{""en""=>""white""},
+   ""stylesheets""=>{""en""=>[{""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""1L0WLp4fxMP39paRW3IUuh""}}]},
+   ""javascripts""=>{""en""=>[{""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""2ODnsqoZ5l4RxXHw8BNqZe""}}]},
+   ""translationState""=>{""en""=>""not_needed""},
+   ""translationOptions""=>{""en""=>{""contact_email""=>""example@example.com"", ""included_fields""=>[], ""required_locales""=>[], ""translations_required""=>true}},
+   ""translationProgress""=>{""en""=>{""watchers""=>[]}},
+   ""displayType""=>{""en""=>true}}}
+```
+
+It blows up on [this line in the `replace_children` method](https:  github.com contentful contentful-management.rb blob 8d15747cd5cc913a5444597e470921a2481b1feb lib contentful management resource_builder.rb#L219). I'm not sure what the underlying problem is here, but I'm afraid that it's a name conflict between `metadata` (the tags object) and `metadata` our Entry field. If not, then it might just be that the gem doesn't support tags in general yet. 
+
+Any help on fixing this would be very helpful. Thanks.",0,0,0,4
+contentful/contentful-management.rb,218,Ignore empty hashes in Field#validations_to_hash,"There is a chance that `Contentful::Management::Validation#properties_to_hash` generates an empty hash. 
+For example, in my case the `nodes` fields was `{}` so the `#properties_to_hash` returned an empty hash.
+
+This PR makes sure such values are ignored during submission.
+Because otherwise the API throws the `Name: size - Path: '[""fields"", <index>, ""validations"", <index>]' - Value: ''` error because the validation hash is empty",0,0,0,1
+contentful/contentful-management.rb,217,Retrieves one user by ID from the space & organization,#188 ,0,0,0,1
+contentful/contentful-management.rb,216,Fix top-level JSON array parsing,Fixes #215 ,0,0,0,0
+contentful/contentful-management.rb,215,JSON field getting cleared on save,"Simply retrieving the entry and saving it without any changes clears one of the Object fields (but not the others).
+
+```
+space_id = 'a1kd6145ijia'
+environment_id = 'staging'
+token = CONTENTFUL_MANAGEMENT_TOKEN
+client = Contentful::Management::Client.new(token, max_rate_limit_retries: 2)
+environment = client.environments(space_id).find(environment_id)
+entry = environment.entries.find('2Yd9Uk4GbY2kejDs9QWdNQ')
+entry.values # [[""XXS"", ""00-0"", ""31-32\"""", ""23-24\"""", ""33-34\""""], [""XS"", ""0-2"", ""33-34\"""", ""25-26\"""", ""35-36 1 2\""""], [""S"", ""4-6"", ""35-36\"""", ""27-28\"""", ""37-38 1 2\""""], [""M"", ""8-10"", ""37-38\"""", ""29-31\"""", ""39-41\""""], [""L"", ""12-14"", ""39-40\"""", ""32-35\"""", ""42-45\""""], [""XL"", ""16"", ""41-44\"""", ""36-39\"""", ""46-49\""""], [""2XL"", ""18"", ""45-48\"""", ""40-43\"""", ""50-52\""""]]
+entry.save # didn't make any changes
+entry.values # []
+```",0,0,0,4
+contentful/contentful-management.rb,214,Update usage API readme,,0,0,0,0
+contentful/contentful-management.rb,213,Retrieving content types throws an HTTP connection error,"Trying to follow along with the readme and the official [documentation](https:  www.contentful.com developers docs references content-management-api # reference content-types content-type get-a-single-content-type console ruby) for retrieving content types by ID. I have this code:
+
+```
+@content_type = client.content_types('<space_id_of_our_space>', 'development').find('<id_of_our_content_type>')
+```
+
+But I'm getting the following error and error trace:
+
+```
+HTTP::ConnectionError: error reading from socket: Could not parse data
+ .gem ruby 2.6.5 gems http-4.2.0 lib http response parser.rb:31:in `add'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http connection.rb:217:in `read_more'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http connection.rb:103:in `read_headers!'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http client.rb:75:in `perform'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http client.rb:31:in `request'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http chainable.rb:20:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:496:in `public_send'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:496:in `http_send'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:442:in `block in get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:386:in `execute_request'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:441:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management request.rb:41:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management resource_requester.rb:71:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management resource_requester.rb:19:in `find'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management resource.rb:241:in `find'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client_association_methods_factory.rb:33:in `find'
+
+Caused by:
+IOError: Could not parse data
+ .gem ruby 2.6.5 gems http-4.2.0 lib http response parser.rb:31:in `add'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http connection.rb:217:in `read_more'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http connection.rb:103:in `read_headers!'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http client.rb:75:in `perform'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http client.rb:31:in `request'
+ .gem ruby 2.6.5 gems http-4.2.0 lib http chainable.rb:20:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:496:in `public_send'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:496:in `http_send'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:442:in `block in get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:386:in `execute_request'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client.rb:441:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management request.rb:41:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management resource_requester.rb:71:in `get'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management resource_requester.rb:19:in `find'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management resource.rb:241:in `find'
+ .gem ruby 2.6.5 gems contentful-management-2.11.0 lib contentful management client_association_methods_factory.rb:33:in `find'
+```
+
+Oddly, retrieving ALL content types in the space and environment works fine and I can see all the content types in the response. I've also noticed a similar error when trying to retrieve content entries as well.",0,0,0,1
+contentful/contentful-management.rb,212,Add OrganizationPeriodicUsage and SpacePeriodicUsage,Adding API endpoints for https:  www.contentful.com developers docs references content-management-api # reference usage,0,0,0,0
+contentful/contentful-management.rb,211,Rich text field validations prevent operations on content type,"**Summary**
+If I have a content type, I can normally use the API to add fields to it. 
+
+If that content type contains a rich text field with validations, I can no longer use the API to add fields to it. I've found a workaround, but it destroys some validations. 
+
+**Details**
+I create a content type called `test_type`, either through the web app or through the API. That content type does not contain a rich text field. I retrieve the content type through the api with: 
+
+```
+test_type = env.content_types.find('test_type')
+```
+
+I can now use the API to add a field to that content type, using either of the documented approaches: 
+
+```
+test_field = Contentful::Management::Field.new
+test_field.id = 'test_field'
+test_field.name = 'Test'
+test_field.type = 'Text'
+test_type.fields.add(test_field)
+test_type.save
+```
+or
+```
+test_type.fields.create(id: 'test_field', name: 'Test', type: 'Text')
+test_type.save
+```
+
+This is fine. **But** if test_type contains a rich text field, I get an error when trying to save the new field back to the content type:
+
+```
+Traceback (most recent call last):
+        15: from  Users alec Ruby content_model bugfix.rb:20:in `<main>'
+        14: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management resource.rb:78:in `save'
+        13: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management resource.rb:69:in `update'
+        12: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management content_type.rb:170:in `query_attributes'
+        11: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management content_type.rb:158:in `fields_to_nested_properties_hash'
+        10: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management content_type.rb:158:in `map'
+         9: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management content_type.rb:159:in `block in fields_to_nested_properties_hash'
+         8: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:32:in `properties_to_hash'
+         7: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:32:in `each_with_object'
+         6: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:32:in `each'
+         5: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:33:in `block in properties_to_hash'
+         4: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:45:in `parse_value'
+         3: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:89:in `validations_to_hash'
+         2: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:89:in `each_with_object'
+         1: from  Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:89:in `each'
+ Users alec .rbenv versions 2.6.3 lib ruby gems 2.6.0 gems contentful-management-2.10.0 lib contentful management field.rb:90:in `block in validations_to_hash': undefined method `properties_to_hash' for {:unique=>true}:Hash (NoMethodError)
+```
+
+When I break things down step by step, this goes wrong at the `fields.create` stage, hitting an error with the rich text field's validations: 
+
+```
+#<Contentful::Management::UnprocessableEntity: HTTP status code: 422 Unprocessable Entity
+Message: Validation error
+Details: 
+	* Name: size - Path: '[""fields"", 1, ""validations"", 1]' - Value: ''
+```
+
+_Before_ I run `fields.create` the rich text field's validations are: 
+
+```
+:validations=>[#<Contentful::Management::Validation: @properties={:in=>nil, :size=>{""min""=>nil, ""max""=>1000}, :range=>nil, :regexp=>nil, :unique=>false, :present=>false, :linkField=>false, :assetFileSize=>nil, :linkContentType=>nil, :linkMimetypeGroup=>nil, :assetImageDimensions=>nil, :enabledNodeTypes=>nil, :enabledMarks=>nil}>, #<Contentful::Management::Validation: @properties={:in=>nil, :size=>nil, :range=>nil, :regexp=>nil, :unique=>false, :present=>false, :linkField=>false, :assetFileSize=>nil, :linkContentType=>nil, :linkMimetypeGroup=>nil, :assetImageDimensions=>nil, :enabledNodeTypes=>nil, :enabledMarks=>nil}>]
+```
+
+This leaves out a lot of the rich text field validations, such as 'accept only specified entry type'. I assume they in some way account for the second item in the validations array - the one that seems to be blank in the API response. 
+
+_After_ I run `fields.create` the validation objects change to hashes: 
+```
+:validations=>[{:size=>{""min""=>nil, ""max""=>1000}}, {}]  
+``` 
+
+**Partial workaround**
+The problem in my example above seems to be connected to the second item in the validations array - the one that becomes an empty hash during the `fields.create` process. 
+
+So I can avoid these errors by deleting the last item from the rich text field's validations array before I run `fields.create`. This lets me create and save the new field, no matter what combination of validations I have on my rich text field. 
+
+However, it can also delete some validations from the rich text field, so it isn't an ideal workaround! It lets me keep 'required field' (which isn't part of the validations array) and 'limit character count', but if I have any other validations (such as 'accept only specified entry type'), they're deleted. These validation types are the ones that aren't returned by the API, so I'm guessing this is connected to the problem. 
+
+**An exception**
+This error still happens if the rich text field has no validations. However, it _doesn't_ happen if, when I create the rich text field, I press 'create' without clicking on 'create and configure' or visiting the rich text field's settings menu. 
+
+**System and environment details**
+I'm running this as a little local testing script in Ruby 2.6.3, using just the Contentful management gem. ",0,0,0,5
+contentful/contentful-management.rb,210,Error reading from socket,"Intermittent connection issues when updating-deleting records. As a workourand I'm retrying the request.
+
+```bash
+error reading from socket: Could not parse data (HTTP::ConnectionError)
+~ gems http-4.3.0 lib http response parser.rb:31:in `add'
+~ gems http-4.3.0 lib http connection.rb:217:in `read_more'
+~ gems http-4.3.0 lib http connection.rb:103:in `read_headers!'
+~ gems http-4.3.0 lib http client.rb:75:in `perform'
+~ gems http-4.3.0 lib http client.rb:31:in `request'
+~ gems http-4.3.0 lib http chainable.rb:41:in `delete'
+~ gems contentful-management-2.11.0 lib contentful management client.rb:496:in `public_send'
+~ gems contentful-management-2.11.0 lib contentful management client.rb:496:in `http_send'
+~ gems contentful-management-2.11.0 lib contentful management client.rb:435:in `block in delete'
+~ gems contentful-management-2.11.0 lib contentful management client.rb:386:in `execute_request'
+~ gems contentful-management-2.11.0 lib contentful management client.rb:434:in `delete'
+~ gems contentful-management-2.11.0 lib contentful management request.rb:56:in `delete'
+~ gems contentful-management-2.11.0 lib contentful management resource_requester.rb:94:in `delete'
+~ gems contentful-management-2.11.0 lib contentful management resource_requester.rb:42:in `destroy'
+~ gems contentful-management-2.11.0 lib contentful management resource.rb:85:in `destroy'
+```",0,0,0,7
+contentful/contentful-management.rb,209,Creating an asset example fails on `process_file`,"Following along from README.md.
+
+```ruby
+    image_file = Contentful::Management::File.new
+    image_file.properties[:contentType] = 'image jpeg'
+    image_file.properties[:fileName] = ""#{@artist.slug}.jpg""
+    image_file.properties[:upload] = @artist.image
+
+    asset = @environment.assets.create(title: @artist.slug, description: '', file: image_file)
+    asset.save
+
+    asset.process_file
+```
+
+Fails with this error:
+
+```Contentful::Management::UnprocessableEntity: HTTP status code: 422 Unprocessable Entity
+Message: Validation error
+Details:
+	* Name: required - Path: '[""fields"", ""file"", ""en-US"", ""upload""]' - Value: ''
+	* Name: required - Path: '[""fields"", ""file"", ""en-US"", ""uploadFrom""]' - Value: ''
+Request ID: xyz
+ Users giles .gem ruby 2.3.1 gems contentful-management-2.11.0 lib contentful management client.rb:390:in `execute_request'
+```
+
+It seems that some properties are missing on the `asset.file` object.
+
+The following snippet completes without error:
+
+```ruby
+    image_file = Contentful::Management::File.new
+    image_file.properties[:contentType] = 'image jpeg'
+    image_file.properties[:fileName] = ""#{@artist.slug}.jpg""
+    image_file.properties[:upload] = @artist.image
+
+    asset = @environment.assets.create(title: @artist.slug, description: '', file: image_file)
+
+    asset.file.properties[:contentType] = 'image jpeg'
+    asset.file.properties[:fileName] = ""#{@artist.slug}.jpg""
+    asset.file.properties[:upload] = @artist.image
+
+    asset.save
+
+    asset.process_file
+```",0,0,0,0
+contentful/contentful-management.rb,208,Update gemspec versions,Fixes #206 #205 ,0,0,0,0
+contentful/contentful-management.rb,207,Rich text validations,Fixes #200 ,0,0,0,0
+contentful/contentful-management.rb,206,Update http gem,https:  github.com contentful contentful-management.rb issues 205,0,0,0,0
+contentful/contentful-management.rb,205,Old http dependency causing issues,"This gem requires an older version of the `http` gem, which is causing conflicts with other gems (specifically `elastic-apm`). Would it be possible to update it to >3.0?
+
+```
+Bundler could not find compatible versions for gem ""http"":
+  In snapshot (Gemfile.lock):
+    http (= 2.2.2)
+
+  In Gemfile:
+    http
+
+    contentful was resolved to 2.11.1, which depends on
+      http (< 4.0, > 0.8)
+
+    contentful-management was resolved to 2.6.0, which depends on
+      http (< 3.0, > 1.0)
+
+    elastic-apm (= 2) was resolved to 2.0.0, which depends on
+      http (>= 3.0)
+
+Running `bundle update` will rebuild your snapshot from scratch, using only
+the gems in your Gemfile, which may resolve the conflict.
+```",2,2,0,1
+contentful/contentful-management.rb,204,Inconsistency between space environments locales and default locale,"There is some inconsistency regarding locales and default locale on space and environment. The locales are defined in a specific environment, but the default locale is defined in the space. This leads to weird situations.
+For example, the space object has a `#default_locale` method, but it has no `#locales` and the environment has a `#locales` but not a `#default_locale`, and when I query the `defaul_locale`
+ for an space I get a code that is not part of the allowed locales for the master environments.
+ 
+```ruby
+[103] pry(main)> space = contentful_management.spaces.find('vyk520m9px5z')
+[104] pry(main)> space.locales
+NoMethodError: undefined method `locales' for #<Contentful::Management::Space:0x00007fdb22b87838>
+[105] pry(main)> space.default_locale
+=> ""en-US""
+[108] pry(main)> environment = space.environments.find('master')
+[109] pry(main)> environment.default_locale
+NoMethodError: undefined method `found_locale' for #<Contentful::Management::Environment:0x00007fdb251fefe8>
+[112] pry(main)> environment.locales.all.collect(&:code)
+=> [""en-CA"", ""fr-CA""]
+```
+So default_locale is `en-US` for an space that doesn't has `en-US` as available locale in any of the environments.
+
+This should not be a big problem, except that when I retrieve a content_type from that environment, the default_locale for that content_type is also wrong.
+```ruby
+[115] pry(main)> product = environment.content_types.find('product')
+[116] pry(main)> product.default_locale
+=> ""en-US""
+```
+
+And that problem causes a lot of other bugs, for example: #201, #202, #203
+
+I've read #73 and I know I can use `product.client.configuration[:default_locale] = 'en-CA'`, but that changes the default_locale for the whole contentful management client, and I need to keep it independently for each space.
+
+As a workaround I'm avoiding this problem with this: 
+`product.define_singleton_method(:default_locale) { 'en-CA' }` but doesn't feel like a real solution, it's more a temporal patch.",0,0,0,0
+contentful/contentful-management.rb,203,Issues with assigning fields to asset when locale is not default,"Similar to #201 but on assets it evens fails for localized fields. 
+
+I have a space with two locales, `en-CA` and `fr-CA`. I would expect that if I set a value into an asset field, it should always set the value into the current locale. But this is what happens when you try to do it through `#title=` or `#description=`
+```ruby
+[206] pry(main)> asset = environment.assets.new
+=> #<Contentful::Management::Asset: ...>
+[207] pry(main)> asset.locale = 'en-CA'
+=> ""en-CA""
+[208] pry(main)> asset.title = ""Test""
+=> ""Test""
+[209] pry(main)> asset.title
+=> nil
+```
+
+and if you try to use the `#title_with_locales=`, the value will be saved, but an empty value for the default locale will be added, and that will prevent for saving the record.
+
+```ruby
+[210] pry(main)> asset.title_with_locales = {'en-CA' => 'Title'}
+=> {""en-CA""=>""Title""}
+[211] pry(main)> asset.title
+=> ""Title""
+[212] pry(main)> asset.title_with_locales 
+=> {""en-US""=>nil, ""en-CA""=>""Title""} #This will cause a failure when saving because 'en-US' is not a valid locale on that space
+```
+
+This issue combined with #204, creates a messy situation that forces us to use a lot of weird workarounds to be able to edit the content in the spaces that are not using the client default locale.",0,0,0,0
+contentful/contentful-management.rb,202,Updating fields_with_locales has weird unintuitive behaviour,"Assigning a hash to `field_with_locales` doesn't override the current hash. 
+And trying to manipulate the existing `field_with_locales` hash didn't do anything.
+
+This looks totally weird and unintuitive.
+```ruby
+[178] pry(main)> entry.title_with_locales = {'en-CA' => 'Title'}
+=> {""en-CA""=>""Title""}
+[179] pry(main)> entry.title_with_locales 
+=> {""en-CA""=>""Title""}
+[180] pry(main)> entry.title_with_locales['fr-CA'] = 'TitleFR'
+=> ""TitleFR""
+[181] pry(main)> entry.title_with_locales 
+=> {""en-CA""=>""Title""}
+[182] pry(main)> entry.title_with_locales = {'fr-CA' => 'TitleFR'}
+=> {""fr-CA""=>""TitleFR""}
+[183] pry(main)> entry.title_with_locales 
+=> {""en-CA""=>""Title"", ""fr-CA""=>""TitleFR""}
+[184] pry(main)> entry.title_with_locales.delete 'en-CA'
+=> ""Title""
+[185] pry(main)> entry.title_with_locales 
+=> {""en-CA""=>""Title"", ""fr-CA""=>""TitleFR""}
+```
+
+And also it doesn't allow us to delete an existing key.
+
+This issue combined with #204, creates a messy situation that forces us to use a lot of weird workarounds to be able to edit the content in the spaces that are not using the client default locale.",0,0,0,0
+contentful/contentful-management.rb,201,Updating non localized fields is ignored when entry locale is not the default locale,"I have a space with two locales, `en-CA` and `fr-CA`. I would expect that if I set a value into a non-localized field, it should always set the value, regarding the current locale. But this is what happens when you try to set a non-localized field using a non-default locale:
+
+```ruby
+[150] pry(main)> entry = content_type.entries.new
+=> #<Contentful::Management::DynamicEntry[product]: @sys={:space=>#<Contentful::Management::Link: @sys={:type=>""Link"", :linkType=>""Space"", :id=>""vyk520m9px5z""}>}>
+[151] pry(main)> entry.default_locale
+=> ""en-CA""
+[152] pry(main)> entry.locale = 'fr-CA' # this is the secondary locale for that space
+=> ""fr-CA""
+[153] pry(main)> entry.slug
+=> nil
+[154] pry(main)> entry.slug = ""this-is-a-slug""
+=> ""this-is-a-slug""
+[155] pry(main)> entry.slug
+=> nil # This doesn't has any sense...
+```
+
+This issue combined with #204, creates a messy situation that forces us to use a lot of weird workarounds to be able to edit the content in the spaces that are not using the client default locale.",0,0,0,0
+contentful/contentful-management.rb,200,Add message and nodes properties to Validation,This PR adds an ability to specify a custom validation message and rules for rich text node validations (as seen here https:  www.contentful.com developers docs tutorials general getting-started-with-rich-text-field-type #customization-with-an-api-call),0,0,0,1
+contentful/contentful-management.rb,199,Bump json gem to latest (2.2.0) from '~> 1.8',"The only breaking change is that the 2.0 version of json dropped support
+for old rubies:
+
+> Drops support for old rubies whose life has ended, that is
+> rubies < 2.0. Also see https:  www.ruby-lang.org en news 2014 07 01 eol-for-1-8-7-and-1-9-2 
+From: https:  github.com flori json blob master CHANGES.md#2015-09-11-200",0,0,0,0
+contentful/contentful-management.rb,198,Difficulty with Rich Text Block,"I might be missing something but is there an addition step needed to push content up to a rich text field? I'm currently trying to push markup to a rich text field but it's breaking here: 
+
+![Screen Shot 2019-06-21 at 12 02 44](https:  user-images.githubusercontent.com 37854050 59935768-8b629680-941c-11e9-8422-338913bd13fa.png)
+
+Here's my code: 
+
+![Screen Shot 2019-06-21 at 12 04 44](https:  user-images.githubusercontent.com 37854050 59935913-ccf34180-941c-11e9-8eae-40fe601d9c26.png)
+",0,0,0,9
+contentful/contentful-management.rb,197,Support query parameters on space retrieving,"When doing `client.spaces.all` or `Contentful::Management::Space.all(client)` the current implementation doesn't accepts arguments for passing into the query string. That behaviour disallows developers to change pagination options like `limit` or `skip`.
+
+This PR allows both methods to receive a hash with parameters that will be included in the query string.
+
+Before:
+```ruby
+[1] pry(main)> client = Contentful::Management::Client.new(ENV['CONTENTFUL_MANAGEMENT_API_KEY'])
+=> #<Contentful::Management::Client:0x00007fb4671c89a0 ...>
+[2] pry(main)> client.spaces.all(limit: 10)
+ArgumentError: wrong number of arguments (given 1, expected 0)
+from ...contentful-management-2.8.2 lib contentful management client_space_methods_factory.rb:18:in `all`
+[3] pry(main)> Contentful::Management::Space.all(client, limit: 10)
+ArgumentError: wrong number of arguments (given 2, expected 1)
+from ...contentful-management-2.8.2 lib contentful management space.rb:38:in `all`
+```
+
+With this PR:
+```ruby
+[1] pry(main)> client = Contentful::Management::Client.new(ENV['CONTENTFUL_MANAGEMENT_API_KEY'])
+=> #<Contentful::Management::Client:0x00007f8e1defe090 ...>
+[2] pry(main)> client.spaces.all(limit: 10)
+=> #<Contentful::Management::Array:  ...>
+[3] pry(main)> Contentful::Management::Space.all(client, limit: 10)
+=> #<Contentful::Management::Array: ...>
+
+```",0,0,0,1
+contentful/contentful-management.rb,196,Relax json gem version between 1.8 and 2.x,"Here's the changelog for json 2.x: https:  github.com flori json blob master CHANGES.md
+
+2.x adds better compatibility with ruby 2.4, 2.6 and RFC 7159 compliance and so it seems like it would be a good idea to support it.
+
+Not to mention, I have a conflicting dependency that requires json > 2.x.
+
+Related to: https:  github.com contentful contentful-management.rb issues 151",0,0,0,1
+contentful/contentful-management.rb,195,Fix EnvironmentAware#environment_id when building entries or assets,"Currently both `content_type.entries.new` and `environment.assets.new`(basically `ContentTypeEntryMethodsFactory#new` and `EnvironmentEntryMethodsFactory#new`) don't work corrently when enviorment is not `master`. An object that is returned is always targeted to `master`
+
+### `content_type.entries.new` case
+
+In this case, `enviorment_id` doesn't calculate properly, because `sys` doesn't really have any information about the current environment. But there is `content_type` reader that has `#enviorment_id`.
+
+### `environment.assets.new` case
+
+In this case, `sys[:enviorment]` is present, but it is not `Contentful::Management::Link`, it is  `Contentful::Management::Environment`. 
+
+This PR extends `EnvironmentAware#environment_id` and adds support for both cases. It might even fix other similar cases
+
+It would be great to cover that with integrations specs. Unfortunately, I don't have access to the testing Contentful account, so I can just draft the specs but they need to be finalised by someone with the access",0,0,0,4
+contentful/contentful-management.rb,194,Do not pass default_locale to `Contentful::Management::Resource.initialize`,"This PR addresses a problem similar to https:  github.com contentful contentful-management.rb issues 73
+So if `default_locale` is different from `Contentful::Management::Client::DEFAULT_CONFIGURATION[:default_locale]`(`en-US`) `entries.new` with `entries.save` doesn't work correctly.
+Basically, it ignores non-localised fields set with a setter
+
+Let's assume `en-GB` is a default locale and there is a content type with two fields:
+- slug - regular text field
+- name - localised text field
+
+The code below ignores `slug` field and set only `name` field on Contentful
+```ruby
+new_entry = content_type.entries.new
+new_entry.slug = 'my-slug'
+new_entry.name_with_locales = { 'en-GB' => 'GB title', 'en-IE' => 'IE title' }
+new_entry.save
+```
+ 
+This is because we don't pass `default_locale` when we instantiate `DynamicEntry` here https:  github.com contentful contentful-management.rb blob master lib contentful management content_type_entry_methods_factory.rb#L47 so as result `default_locale`(that is used [here](https:  github.com contentful contentful-management.rb blob master lib contentful management resource field_aware.rb#L67) as part of a `name_with_locales=` setter) is taken from `Contentful::Management::Client::DEFAULT_CONFIGURATION[:default_locale]`",0,0,0,0
+contentful/contentful-management.rb,193,Add missing rich text validation options,"According to https:  www.contentful.com developers docs references content-management-api # reference content-types content-type `enabledNodeTypes` and `enabledMarks` are available in the API but they are missing in `Contentful::Management::Validation` 
+This PR adds them",0,0,0,0
+contentful/contentful-management.rb,192,Fix Field#properties_to_hash method,"On the Field class, when converting the properties to a hash for sending the API request, the method is not avoiding empty values (it does already avoid them when serializing validators).
+
+These cause some requests to fail when trying to creating new content models using an existing (from another model) complex (array or referenced) field as the source.
+
+This small change fixes the issue and allows for complex content model migrations or duplication.
+
+Before:
+```ruby
+#source_environment = ...
+#target_environment = ...
+pry(main)> content_model = source_environment.content_types.find('complex_sample_model')
+pry(main)> new_content_type = target_environment.content_types.create(id: content_model.id, name: content_model.name, fields: content_model.fields)
+=> Contentful::Management::UnprocessableEntity: HTTP status code: 422 Unprocessable Entity
+Message: Validation error
+Details: 
+	* Name: unexpected - Path: '[""fields"", 1, ""items"", ""id""]' - Value: ''
+	* Name: unexpected - Path: '[""fields"", 1, ""items"", ""items""]' - Value: ''
+	* Name: unexpected - Path: '[""fields"", 1, ""items"", ""name""]' - Value: ''
+	* Name: unexpected - Path: '[""fields"", 1, ""items"", ""omitted""]' - Value: ''
+	* Name: unexpected - Path: '[""fields"", 1, ""items"", ""required""]' - Value: ''
+	* Name: unexpected - Path: '[""fields"", 1, ""items"", ""disabled""]' - Value: ''
+	* Name: unexpected - Path: '[""fields"", 1, ""items"", ""localized""]' - Value: ''
+Request ID: 4ba35367324d77bf9610217f1f2eb77c
+from  Users hq063 .rvm gems ruby-2.5.1@juulio gems contentful-management-2.6.0 lib contentful management client.rb:390:in `execute_request'
+```
+
+With this fix:
+```ruby
+#source_environment = ...
+#target_environment = ...
+pry(main)> content_model = source_environment.content_types.find('complex_sample_model')
+pry(main)> new_content_type = target_environment.content_types.create(id: content_model.id, name: content_model.name, fields: content_model.fields)
+#<Contentful::Management::ContentType: @properties=....>
+```
+",0,0,0,2
+contentful/contentful-management.rb,191,Is there a way to find the entry with slug?,"Is there a way to query through slug opposed to id?  I am doing something simple like this in Rails: 
+
+```ruby
+def index
+    render locals: {
+      updates: contentful.entries(
+        content_type: 'myUpdates', 
+        include: 10,
+        order: '-fields.scheduledDate',
+      )
+    }
+end
+
+def show
+  update = contentful.entry(params[:id])
+end
+
+# https:  myapp.com updates this-is-slug-name-in-contentful
+```",0,0,0,3
+contentful/contentful-management.rb,190,Fix #save method,"Fixes #189 
+
+The issue only reports that `Webhook`s are not properly saving, but the same is true for several other entities that had that method enabled on version `2.5.0`. This PR addresses those resources.",0,0,0,0
+contentful/contentful-management.rb,189,Calling save on Webhook produces BadRequest where as calling update succeeds,"Given a webhook (probably true for other resources, not tested)
+```
+client = Contentful::Management::Client.new(ENV.fetch('ACCESS_TOKEN'))
+webhook = client.webhook(ENV.fetch('SPACE_ID')).find('WEBHOOK_ID')
+```
+
+Using the assign and save method causes BadRequest:
+```
+webhook.url = 'https:  www.example.com the path to stuff'
+webhook.save                                                                                                                                                                                                            
+=> #<Contentful::Management::BadRequest: HTTP status code: 400 Bad Request Message: 
+The request was malformed or missing a required parameter.
+Message: The request was malformed or missing a required parameter.>
+```
+
+Where as using `update` works just fine:
+```
+webhook.update(url: 'https:  www.example.com the path to stuff')
+=> #<Contentful::Management::Webhook: @properties={:url=>""https:  example.com the path to stuff"", :name=>""ContentType publishing"", :topics=>[""ContentType.publish""], :headers=>[], :httpBasicUsername=>nil, :filters=>nil, :transformation=>nil} @sys={:type=>""WebhookDefinition"", :id=>""WEBHOOK_ID"", :version=>9, :space=>...
+```",0,0,0,0
+contentful/contentful-management.rb,188,Can't find user with user_id,"ContentfulWriteClient = Contentful::Management::Client.new(
+  Rails.application.secrets.contentful_management_access_token
+)
+
+This is working: ContentfulWriteClient.users.find('me')
+=> #<Contentful::Management::User: @properties={:email=>""xxx"", :lastName=>""xxx"", :firstName=>""xxx"", :avatarUrl=>""xxx"", :activated=>true, :confirmed=>true, :signInCount=>7} @sys={:type=>""User"", :id=>""2XfpR7Cg0XF9mpl0zw8g08"", :version=>15, :createdAt=>Tue, 07 Aug 2018 22:44:34 +0000, :updatedAt=>Mon, 18 Mar 2019 16:36:53 +0000}>
+
+But this is not working: ContentfulWriteClient.users.find('2XfpR7Cg0XF9mpl0zw8g08')
+=> #<Contentful::Management::NotFound: HTTP status code: 404 Not Found
+Message: The path you tried to reach is unknown or doesn't support this HTTP method.",0,0,0,2
+contentful/contentful-management.rb,187,Add environment branching,,0,0,0,0
+contentful/contentful-management.rb,186,Add updated? to publishable resources,Fixes #178 ,1,1,0,0
+contentful/contentful-management.rb,185,Field named `id` assumes it is the system `id` value,"When there is a field named `id` for an entry and I attempt to save the entry, it conflicts with the Contentful ID. Thus, I am unable to update an entry unless the custom `id` field matches the system's `id` value.
+
+Suppose `client` is defined as a Contentful environment object, and I retrieve an entry from the database:
+
+```rb
+id = ""3GBVdrGOcg4ek2UQYSeywk""
+entry = contentful.entries.find(id) # => <Contentful::Management::Entry>
+```
+
+Now suppose that entry has a field defined in its content model called `id` and it's set to `123`:
+
+```rb
+entry.id # => 123
+```
+
+So if I try to update another field, say `title`, and then save the entry again, it will create a new entry rather than saving the new entry:
+
+```rb
+entry.title = ""My New Title""
+entry.save # => creates a new entry with `id` 123
+```
+
+Knowing that choosing `id` as a custom field name is not a great decision, it is possible to take this approach through the API , and seems like the gem would benefit from keeping an entry's fields separate from its system data.",0,0,0,4
+contentful/contentful-management.rb,184,"Entity field named ""client"" breaks create call","To reproduce:
+1. Create a content model with a field named client.
+2. `entries.create(content_type, { client: 'asdf' } )`
+
+Entry is created successfully but errors in after_create hook (the first time `client` is referenced)
+https:  github.com contentful contentful-management.rb issues new
+
+`undefined method 'default_locale' for ""asdf"":String`
+
+",0,0,0,2
+contentful/contentful-management.rb,183,Add Usages API,,0,0,0,0
+contentful/contentful-management.rb,182,Updating field properties not working !?,"I am using this line from the README to update my content type:
+
+```
+blog_post_content_type.update(name: 'Post', description: 'Post Description', fields: [title_field])
+```
+
+I read content_type definitions from a JSON file and update my content model, but as far as I can see, there is no change applied to fields that already exist. I can add additional fields but I can't change properties of already existing fields.
+
+This is the code I use to update the content type:
+
+```
+def update_content_type(content_type, json)
+  content_type.update(
+    name: json['name'],
+    description: json['description'],
+    fields: create_fields(json['fields']),
+    displayField: json['displayField']
+  )
+end
+
+def create_fields(json_fields)
+  fields = []
+  json_fields.keys.each do |key|
+    fields.push(create_field(json_fields[key]))
+  end
+
+  fields
+end
+
+def create_field(json_field)
+  new_field = Contentful::Management::Field.new
+  new_field.id = json_field['id']
+  new_field.name = json_field['name']
+  new_field.type = json_field['apiType']
+  new_field.disabled = json_field['disabled'] == ""true"" ? true : false
+
+  if json_field['linkType']
+    new_field.link_type = json_field['linkType']
+  end
+
+  if json_field['items']
+    new_field.items = create_items(json_field['items'])
+  end
+
+  new_field
+end
+```",0,0,0,4
+contentful/contentful-management.rb,181,Update readme to include fallback code instructions,"When creating or updating a locale, you can include a fallback code. I noticed this was not in the readme, so I think other people will find this useful.",0,0,0,1
+contentful/contentful-management.rb,180,Rename StructuredText to RichText,,0,0,0,0
+contentful/contentful-management.rb,179,Add #save to resource,,0,0,0,0
+contentful/contentful-management.rb,178,"Checking if entry asset is ""changed""","https:  github.com contentful contentful-management.rb#entries 
+
+Currently, looks like we can check if a resource has ever been published, using `my_entry.published?`.
+But that returns true even if the entry has been changed.
+
+1. Is the proper approach to check if `my_entry[""sys""][""updatedAt""] > my_entry[""sys""][""publishedAt""]`?
+2. Is it worth adding a `changed?` method?",0,0,0,1
+contentful/contentful-management.rb,177,Getting save failures for lack of an X-Contentful-Content-Type header,"Hi there,
+
+I've been trying to duplicate Contentful entries in an application I'm writing and trying to save an object instantiated with the `new` operator is yielding this error:
+
+```
+#<Contentful::Management::BadRequest: HTTP status code: 400 Bad Request
+Message: You should provide a content type in X-Contentful-Content-Type request header.
+Request ID: 2cb81ec8f3daee7d4587a8bb61688a4b>
+```
+
+Here is how I'm initializing the client and instantiating the new entry object:
+
+```ruby
+client = Contentful::Management::Client.new(
+   '<access-token-here>',
+   http_proxy, # This comes from a private method. Can elaborate further if necessary.
+)
+source_entry = management_client.entries.find(entry_id)
+source_content_type = management_client.content_types.find(entry_content_type_id)
+dup_entry = source_content_type.entries.new
+# Here is where I have some application-specific code for calling the setters with the values
+# from `source_entry.fields_for_query`
+dup_entry.save # returns the bad request object
+```
+
+I was modeling my code after the [examples provided in the README](https:  github.com contentful contentful-management.rb#entries). Any insight into what might be happening here?",0,0,0,7
+contentful/contentful-management.rb,176,DynamicEntry does not inherit the environment_id from the ContentType,"Given two environments (master and staging). 
+
+```
+client = Contentful::Management::Client.new(<token>)
+content_type = client.content_types(<space_id>, 'staging').find(<content_type_id>)
+
+p content_type.environment_id 
+ => 'staging'
+p content_type.entries.new.environment_id 
+ => 'master'
+``` 
+
+That allows entries created this way to be stored in a different environment. I believe that is due environment_id is not passed to the DynamicEntry https:  github.com contentful contentful-management.rb blob master lib contentful management content_type_entry_methods_factory.rb#L42",0,0,0,3
+contentful/contentful-management.rb,175,Pagination for all entries returns duplicate entries,"Objective: make an automated change to a subset of fields of every entry of a specific content type, save, and publish the entry.
+
+From reading the documentation, I have to create a client, find an environment, and then call `env.entries.all`, which returns a paginated response. Then loop over the items in the page and call `next_page` to walk through all the pages.
+
+I wrote this script:
+
+```ruby
+entries = env.entries.all(content_type: 'post')
+
+i = 0
+while entries.count > 0
+  entries.each do |post|
+    i += 1
+
+    old_title = post.title
+    new_title = some_transformation_function(old_title)
+
+    # update post title
+    post.title = new_title
+    
+    # save & publish entry
+    post.save
+    post.publish
+
+    puts ""#{i},#{post.id},#{old_title},#{new_title}""
+  end
+
+  entries = entries.next_page
+end
+```
+
+I ran it without the actual updating and saving to see if the pagination logic worked, and it seemed to be ok. It ran exactly as many iterations as I have entries of that type, which I considered working (329 in my case).
+
+I ran the script a 2nd time (with the transformations this time) and it, too, ran for 329 iterations before exiting. After examining the log more closely, though, I noticed that there were 64 duplicate entries in my log output. I then checked CF itself and indeed, not every one of the entries was updated by the script.
+
+It started iterating and changing some entries, and then, later on, iterated over some of the entries _again_. Example log output (updated for readability):
+
+```
+…
+86,  id-foo-bar, old title, new title
+…
+184, id-foo-bar, new title, new title
+…
+```
+
+You can see that the 2nd time around the entry already has the new title as it was saved previously.
+
+Here’s the main question: What’s going on?
+
+- Am i paginating through the results incorrectly?
+- Why am I getting entries again, after they were already part of a previous page?
+- If not like this, how am I supposed to run such a workflow?
+
+Some wild speculation at the end: updating entries in such a loop changes their `updated_at` field (of course) and then the internal order of entries through which CF paginates changes and pushes entries to the next page, therefore they’re picked up again.
+
+Thank you for any pointers.",1,1,0,2
+contentful/contentful-management.rb,174,".total method negates skip and limit, bug or feature? (2.3.0)","Hi,
+
+I noticed something peculiar with how `.total` method works when combined with `skip` and `limit` parameters.
+
+This is how the client has been initialized in my code:
+
+```
+require ""contentful management""
+
+client = Contentful::Management::Client.new(""<TOKEN>"")
+space = client.spaces.find(""<SPACE-ID>"")
+environment = client.environments(""<SPACE-ID>"").find(""master"")
+```
+There is a total number of 5327 entries of the content type ""article"" in my space.
+
+```
+environment.entries.all(content_type: ""article"").total
+>> 5327
+```
+
+When I apply `skip` and or `limit` parameters, the returned number still remains the same.
+
+```
+environment.entries.all(content_type: ""article"", limit: 100, skip: 100).total
+>> 5327
+```
+
+However, when I use the `""sys.id[match]""` filter, the total amount is affected.
+
+```
+environment.entries.all(content_type: ""article"", ""sys.id[match]"" => ""XYZ123"").total
+>> DIFFERENT AMOUNT
+```
+
+Is this a working as intended, or is it a bug?",0,0,0,5
+contentful/contentful-management.rb,173,Add support for StructuredText field type,,0,0,0,0
+contentful/contentful-management.rb,172,Add parameters to UIExtension.extension,,0,0,0,0
+contentful/contentful-management.rb,171,Add Webhook Transformation and Filters,,0,0,0,0
+contentful/contentful-management.rb,170,Simplify asset creation,,0,0,0,0
+contentful/contentful-management.rb,169,Fix Space Memberships,,0,0,0,0
+contentful/contentful-management.rb,168,Fix users url generation,,0,0,0,0
+contentful/contentful-management.rb,167,Fix environment#reload,,0,0,0,0
+contentful/contentful-management.rb,166,Fix organizations url generation,,0,0,0,0
+contentful/contentful-management.rb,165,Remove localized field fallback read behaviour,Fixes #164 ,0,0,0,0
+contentful/contentful-management.rb,164,Localization: default locale returned for empty fields without fallback,"I have the following code:
+
+```ruby
+entry = environment.entries.find('ENTRY_ID')
+
+puts entry.title # prints English title
+entry.locale = 'de'
+puts entry.title # prints German title
+```
+
+So far so good.
+
+But when I change `locale=` to another locale code that exists in my space, for which no fallback locale has been specified and for which the entry in question has no value saved (the field is empty), it returns content in the default locale (English in this case). The same is true for literally any other string I set as `locale=` on the entry object.
+
+```ruby
+entry.locale = 'ru' # doesn’t exist in my space
+puts entry.title # prints English title
+
+entry.locale = 'literally anything'
+puts entry.title # prints English title
+```
+
+What am I missing here? I would expect an empty string to be returned. Is there a different way I should be querying for different locales? I am using the management API and not `contentful.rb` because the goal is to later on update the entries, but with no way of checking if a field is empty in a given locale that becomes very error prone.
+
+Thank you for any pointers.",1,1,0,4
+contentful/contentful-management.rb,163,Fix side-effect while creating new entries from a content type,,0,0,0,0
+contentful/contentful-management.rb,162,Add #save to EditorInterface,Fixes #155 ,0,0,0,0
+contentful/contentful-management.rb,161,Fix environment proxy not forwarding query parameters,Fixes #160 ,0,0,0,0
+contentful/contentful-management.rb,160,Problems with fetching entries by content type (bug?),"Hi,
+
+I've noticed some weird behaviour when attempting to fetch entries by content type like this:
+
+```
+require ""contentful management""
+
+client = Contentful::Management::Client.new(""<TOKEN>"")
+environment = client.environments(""<SPACE-ID>"").find(""master"")
+
+environment.entries.all(content_type: ""theme"", limit: 10).each do |theme|
+  puts theme.id
+end
+```
+
+I can determine from the entry IDs printed out, that the entries in question are of *ALL* content types, not of ""theme"" as requested. Furthermore, the limit is fixed to 100, no matter what I set as the `limit:` parameter value.
+
+Before environments where introduced, the comparable functionality would work just fine like this:
+
+`space.entries.all(content_type: ""theme"", limit: 10)`
+
+I can get it to work like this, but I didn't figure out how to set a limit.
+
+```
+environment.content_types.find(""theme"").entries.all.each do |theme|
+  puts theme.id
+end
+```
+
+Am I doing something wrong or is this a genuine bug?
+
+",0,0,0,4
+contentful/contentful-management.rb,159,Add Preview API Keys and Environments for API Keys,,0,0,0,0
+contentful/contentful-management.rb,158,409 Conflict while creating a new asset,"Hello, for some reason I am receiving a 409 Conflict when I go to publish an asset that the script itself is creating. There is no human modifying the record, and this code was working perfectly until yesterday. 
+
+I am using the Contentful Management gem for Ruby (raw, without Contentful Model) to do this. Code:
+
+```
+  def create_image_asset(url, title: nil, description: nil)
+    return nil unless url 
+
+    # Create an asset for the image 
+    cf_image = Contentful::Management::File.new 
+    content_type = if url.end_with?('.png')
+      'image png' 
+    elsif url.end_with?('.jpg')
+      'image jpeg'
+    else 
+      nil 
+    end 
+
+    raise ""Could not determine image format for URL '#{url}'"" unless content_type
+
+    filename = url.gsub( ^.*\  , '')
+    cf_image.properties[:contentType] = content_type 
+    cf_image.properties[:fileName] = filename
+    cf_image.properties[:upload] = url
+
+    title = filename unless title 
+    description = ""Imported by Platform from '#{url}'"" unless description 
+
+    asset = @space.assets.create(title: title, description: description, file: cf_image)
+
+    if asset.kind_of?(Contentful::Management::ServerError) 
+      raise ""Received error while publishing image to Contentful: #{e.inspect}""
+    end 
+
+    asset.process_file 
+    begin 
+      asset.publish
+    rescue StandardError => e
+      Rails.logger.error ""Failed to publish image asset. Asset had description '#{description}', title '#{title}', filename '#{filename}'""
+      asset = nil
+    end
+
+    return asset
+  end 
+```
+
+Why would this result in a 409 Conflict? Does @space.assets.create() return an existing object in some case? I used to re-raise after logging the failure, but this is running an ongoing content importer into Contentful and we're reliant on that content being imported into Contentful on a timely basis. For now our editors are going to have to manually find the thumbnail for the content, but we'd like to not have to do that. I have also filed a support request with the Contentful support team. ",0,0,0,1
+contentful/contentful-management.rb,157,Update Rubocop,,0,0,0,0
+contentful/contentful-management.rb,156,API errors are returned instead of thrown,"```ruby
+    @client = Contentful::Management::Client.new(...)
+    @space = @client.spaces.find(@space_id)
+    puts @space.class
+    # --> ::Contentful::Management::RateLimitExceeded
+```
+**Expected behavior:**
+Errors should always be thrown, never returned.
+
+**Actual behavior:**
+Upon rate limiting, `spaces.find()` is returning the error object.
+
+This behavior stems from the ResourceBuilder (resource_builder.rb, line 75):
+
+```ruby
+      # Starts the parsing process.
+      # @return [Contentful::Management::Resource, Contentful::Management::Error]
+      def run
+        if response.status == :ok
+          create_all_resources!
+        else
+          response.object
+        end
+      end
+```
+",0,0,0,4
+contentful/contentful-management.rb,155,Updating editor interface for single field resets editor interfaces and help text for other fields,"Hi,
+
+I used the following code to change the editor interface of a single field in a content type. It appears that in the process some of the editor interfaces settings of other fields in the same content type have been changed reset and the help texts have vanished.
+
+
+```
+client = Contentful::Management::Client.new(<TOKEN>)
+space = client.spaces.find(<SPACE-ID>)
+editor_interface = client.editor_interfaces.default(space_id, ""content_type_id"")
+
+editor_interface.controls = [
+  {
+    fieldId: ""fieldName"",
+    widgetId: ""dropdown"",
+    settings: {
+      helpText: ""Here is some help text.""
+    }
+  }
+]
+
+editor_interface.update(controls: editor_interface.controls)
+```",0,0,0,13
+contentful/contentful-management.rb,154,Fix environment id fetching for environment aware resources,,0,0,0,0
+contentful/contentful-management.rb,153,Fix environments proxy find method,,0,0,0,0
+contentful/contentful-management.rb,152,OpenSSL::SSL::SSLError: SSL_connect SYSCALL returned=5 errno=0 state=SSLv3 TLS write client hello,"Occasionally, the management gem crashes on request to Contentful with this error. It's not readily reproducible, and happens during our content import process, so this is blocking us from fully moving to Contentful for our content solution.
+
+Information online is hard to find, but some indicate this may be due to a misconfiguration on Contentful's servers, which would make sense if only a few of the CMA servers have the misconfiguration (since the problem is not consistent). 
+
+Any guidance?
+
+
+```
+OpenSSL::SSL::SSLError: SSL_connect SYSCALL returned=5 errno=0 state=SSLv3 TLS write client hello
+project-gemset gems http-2.2.2 lib http timeout null.rb:26:in `connect'
+project-gemset gems http-2.2.2 lib http timeout null.rb:26:in `connect_ssl'
+project-gemset gems http-2.2.2 lib http timeout null.rb:35:in `start_tls'
+project-gemset gems http-2.2.2 lib http connection.rb:158:in `start_tls'
+project-gemset gems http-2.2.2 lib http connection.rb:44:in `initialize'
+project-gemset gems http-2.2.2 lib http client.rb:60:in `new'
+project-gemset gems http-2.2.2 lib http client.rb:60:in `perform'
+project-gemset gems http-2.2.2 lib http client.rb:41:in `request'
+project-gemset gems http-2.2.2 lib http chainable.rb:19:in `get'
+project-gemset gems contentful-management-1.10.1 lib contentful management client.rb:453:in `public_send'
+project-gemset gems contentful-management-1.10.1 lib contentful management client.rb:453:in `http_send'
+project-gemset gems contentful-management-1.10.1 lib contentful management client.rb:399:in `block in get'
+project-gemset gems contentful-management-1.10.1 lib contentful management client.rb:343:in `execute_request'
+project-gemset gems contentful-management-1.10.1 lib contentful management client.rb:398:in `get'
+project-gemset gems contentful-management-1.10.1 lib contentful management request.rb:41:in `get'
+project-gemset gems contentful-management-1.10.1 lib contentful management resource_requester.rb:69:in `get'
+project-gemset gems contentful-management-1.10.1 lib contentful management resource_requester.rb:15:in `all'
+project-gemset gems contentful-management-1.10.1 lib contentful management resource.rb:186:in `all'
+project-gemset gems contentful-management-1.10.1 lib contentful management content_type_entry_methods_factory.rb:26:in `all'
+(our code has control below here)
+```",0,0,0,10
+contentful/contentful-management.rb,151,JSON dependency on Ruby >2.4,Is there a way to eliminate forced dependency with json 1.8 or at least one way to get compatibility with Ruby 2.4?,1,1,0,4
+contentful/contentful-management.rb,150,Add environments,,0,0,0,2
+contentful/contentful-management.rb,149,Add fallback code property,,0,0,0,0
+contentful/contentful-management.rb,148,Add fallback locale property for read purposes,,0,0,0,0
+contentful/contentful-management.rb,147,Fix locale creation,,0,0,0,0
+contentful/contentful-management.rb,146,Possible to resolve users from snapshots?,"For a given Entry I'd like to enumerate all snapshots and display the name of the person who made the change as well as the timestamp. I can get the timestamp easily enough, but users show up as #<Contentful::Management::Link: @sys={:type=>""Link"", :linkType=>""User"", :id=>""23hkj6hkjs809sd""}>
+
+It's not clear from the docs if there's a way to fetch or inflate that user. Ideas?",0,0,0,1
+contentful/contentful-management.rb,145,Fixes error on Array#next_page,Fixes #143 ,0,0,0,0
+contentful/contentful-management.rb,144,Gem is not thread safe,"Doesn't look like this gem is thread safe. Using https:  github.com grosser parallel with `in_threads` I get the following errors when iterating over entries:
+
+```
+ Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems contentful-management-1.10.0 lib contentful management request.rb:13:in `initialize': undefined method `version=' for nil:NilClass (NoMethodError)
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems contentful-management-1.10.0 lib contentful management resource_requester.rb:84:in `new'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems contentful-management-1.10.0 lib contentful management resource_requester.rb:84:in `delete'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems contentful-management-1.10.0 lib contentful management resource_requester.rb:51:in `unarchive'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems contentful-management-1.10.0 lib contentful management resource publisher.rb:21:in `unpublish'
+        from entry.rb:38:in `block (3 levels) in <main>'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby 2.3.0 benchmark.rb:308:in `realtime'
+        from entry.rb:37:in `block (2 levels) in <main>'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems parallel-1.12.1 lib parallel.rb:486:in `call_with_index'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems parallel-1.12.1 lib parallel.rb:342:in `block (2 levels) in work_in_threads'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems parallel-1.12.1 lib parallel.rb:495:in `with_instrumentation'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems parallel-1.12.1 lib parallel.rb:341:in `block in work_in_threads'
+        from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems parallel-1.12.1 lib parallel.rb:206:in `block (2 levels) in in_threads'
+```
+
+The script I was running:
+
+```ruby
+require 'benchmark'
+require 'optparse'
+require 'parallel'
+require 'contentful management'
+require 'pry'
+
+STDOUT.sync = true
+logger = Logger.new(STDOUT)
+
+options = {}
+
+OptionParser.new do |parser|
+  parser.on(""-t"", ""--token KEY"", ""Contentful management access token"") do |v|
+    options[:token] = v
+  end
+  parser.on(""-s"", ""--space-id SPACEID"", ""Contentful space ID"") do |v|
+    options[:space_id] = v
+  end
+  parser.on(""-p"", ""--type CONTENT_MODEL"", ""Contentful type to delete ID"") do |v|
+    options[:type] = v
+  end
+  parser.on(""-c"", ""--command COMMAND"", ""Contentful command like publish, unpublish or destroy"") do |v|
+    options[:command] = v
+  end
+end.parse!
+
+client = Contentful::Management::Client.new(options[:token], log_level: Logger::DEBUG)
+space = client.spaces.find(options[:space_id])
+content_type = space.content_types.find(options[:type])
+entries = content_type.entries.all(limit: 100, order: 'sys.id')
+
+loop do
+  break if entries.count == 0
+
+  # entries.each do |entry|
+  Parallel.each(entries, in_threads: 5) do |entry|
+    t = Benchmark.realtime do
+      entry.send(options[:command])
+    end
+
+    logger.info({ duration: ""#{t * 1000}ms"", action: ""entry.#{options[:command]}"" }.to_json)
+  end
+
+  entries = entries.next_page
+end
+```
+
+Seems to be some shared state across threads in the gem but haven't a chance to look. Using `in_processes` works though.",0,0,0,2
+contentful/contentful-management.rb,143,Pagination on assets doesn't work without first calling limit,"If I do
+
+```ruby
+client = Contentful::Management::Client.new(ENV['CONTENTFUL_MANAGEMENT_ACCESS_TOKEN'], logger: Rails.logger, log_level: Logger::DEBUG, max_rate_limit_wait: 10)
+space = client.spaces.find(ENV['CONTENTFUL_SPACE_ID'])
+assets = space.assets.all
+assets = assets.next_page
+```
+
+The query hash on the request isn't instantiated:
+
+```
+NoMethodError: undefined method `[]=' for nil:NilClass
+from  Users cchow .rbenv versions 2.3.4 lib ruby gems 2.3.0 gems contentful-management-1.10.0 lib contentful management array.rb:27:in `next_page'
+```
+
+Calling `space.assets.all(limit: 100)` works with `next_page` though.
+
+This doesn't seem to affect entries (don't need to call `limit` first).",0,0,0,2
+contentful/contentful-management.rb,142,No errors for locale validation,"I'm using Contentful Model gem but thought I'd raise the issue here as it seems more to do with Management.
+
+Tried doing this in `seeds.rb`:
+```ruby
+Root::Model::Index::Jumbotron::CallbackForm.create({
+  :title_text => ""Get Your Free Quote"",
+  :footer_text => ""and we'll call to tell you\n\ncall us on 123 123 123 to get a quote now"",
+  :button_text => ""Get a callback""
+})
+```
+And got the following error:
+```
+Contentful::Management::UnprocessableEntity: HTTP status code: 422 Unprocessable Entity
+Message: Validation error
+Details:
+	* Name:  - Path: '' - Value: ''
+	* Name:  - Path: '' - Value: ''
+	* Name:  - Path: '' - Value: ''
+```
+Not sure how to interpret the error.",0,0,0,6
+contentful/contentful-management.rb,141,Example editor interface update code does not work,"I have been working on an integration with contentful and I have been having some issues getting the example code to work. The example below was taken from [here](https:  www.contentful.com developers docs references content-management-api # reference editor-interface editor-interface update-the-editor-interface console ruby)
+
+```ruby
+require 'contentful management'
+
+client = Contentful::Management::Client.new('<content_management_api_key>')
+
+editor_interface = client.editor_interfaces.default('<space_id>', '<content_type_id>')
+editor_interface.controls[0] = {
+  fieldId: 'title',
+  widgetId: 'singleLine'
+}
+editor_interface.save
+```
+
+The error that I am getting is 
+```ruby
+NoMethodError:
+       undefined method `save' for #<Contentful::Management::EditorInterface:0x00007f8e0140fe98>
+```
+
+I assume that the method I should be using is `update`? Something like the following perhaps?
+```
+require 'contentful management'
+
+client = Contentful::Management::Client.new('<content_management_api_key>')
+
+editor_interface = client.editor_interfaces.default('<space_id>', '<content_type_id>')
+editor_interface.controls[0] = {
+  fieldId: 'title',
+  widgetId: 'singleLine'
+}
+editor_interface.update(controls: editor_interface.controls)
+```",0,0,0,3
+contentful/contentful-management.rb,140,Getting Contentful::Link rather than Contentful::Entry for nested objects,"My migrations:
+```ruby
+# root_callback_form_content_type.rb
+class RootCallbackFormContentType < ActiveRecord::Migration[5.1]
+  include ContentfulModel::Migrations::Migration
+
+  def up
+    create_content_type(""Root::CallbackForm"") do |content_type|
+      content_type.id(""root_callbackForm"")
+      content_type.field(""Title Text"", :symbol)
+      content_type.field(""Footer Text"", :text)
+      content_type.field(""Button Text"", :symbol)
+    end.publish
+  end
+end
+
+# jumbotron_content_type.rb
+class JumbotronContentType < ActiveRecord::Migration[5.1]
+  include ContentfulModel::Migrations::Migration
+
+  def up
+    create_content_type(""Root::Jumbotron"") do |content_type|
+      content_type.id(""root_jumbotron"")
+      content_type.field(""Text"", :text)
+      content_type.field(""Callback Form"", :entry_link).validations = [
+        Contentful::Management::Validation.new.tap do |validation|
+          validation.link_content_type = [""root_callbackForm""]
+        end
+      ]
+    end.publish
+  end
+end
+
+# root_index_content_type.rb
+class RootIndexContentType < ActiveRecord::Migration[5.1]
+  include ContentfulModel::Migrations::Migration
+
+  def up
+    create_content_type(""Root::Index"") do |content_type|
+      content_type.id(""root_index"")
+      content_type.field(""Jumbotron"", :entry_link).validations = [
+        Contentful::Management::Validation.new.tap do |validation|
+          validation.link_content_type = [""root_jumbotron""]
+        end
+      ]
+    end.publish
+  end
+end
+```
+In a console:
+```ruby
+irb> Root::Index.first.jumbotron.callback_form
+=> <Contentful::Link id='1qugwa3L7CUIiEA2si2wmE'>
+```
+If I try and access a property, I get:
+```ruby
+NoMethodError: undefined method `title_text' for <Contentful::Link id='1qugwa3L7CUIiEA2si2wmE'>:Contentful::Link
+```
+When I try and access Jumbotron it works as expected, not sure what the difference is. Any ideas?
+",0,0,0,1
+contentful/contentful-management.rb,139,Localized fields brake entry creation,"I'm trying to create a page type entry with localized fields and some not, using ruby sdk.
+In my space, ""en-US"" is the default_language, but i want to create entry localized in ""it-IT""
+
+FIELDS NOT LOCALIZED: code, url, metaTitle
+LOCALIZED FIElDS: title, body
+
+```
+content_type_page = client.content_types.find(space_id, 'page')
+ 
+page = content_type_page.entries.create(
+     code:            ""abc"",
+     url:             ""abc def"",
+     title:           ""Hello World!"",
+     metaTitle:       ""fffggghhh,
+     body:            ""Bacon is Healty!"",
+     locale:          ""it-IT""
+)
+
+```
+
+The page created with this code has only localized fields and not the others, but if i use locale: ""en-US"" the fields are all.
+
+How can i fix the problem?
+",0,0,0,4
+contentful/contentful-management.rb,138,Improve error handling,Fixes #95 ,0,0,0,0
+contentful/contentful-management.rb,137,Add Personal Access Tokens Endpoints,,0,0,0,0
+contentful/contentful-management.rb,136,Add User Endpoint,,0,0,0,0
+contentful/contentful-management.rb,135,Add Organizations Endpoint,,0,0,0,0
+contentful/contentful-management.rb,134,Refactor HTTP layer,,0,0,0,0
+contentful/contentful-management.rb,133,Add Content Type Snapshots,,0,0,0,0
+contentful/contentful-management.rb,132,Add missing webhook health docs and new helper methods,,0,0,0,0
+contentful/contentful-management.rb,131,Add Webhook Health Endpoint,,0,0,0,0
+contentful/contentful-management.rb,130,Add Webhook Calls Endpoint,,0,0,0,0
+contentful/contentful-management.rb,129,Add Memberships and fix README,,0,0,0,0
+contentful/contentful-management.rb,128,Add UI Extensions Endpoint,,0,0,0,0
+contentful/contentful-management.rb,127,Add option to disable content type caching,,0,0,0,1
+contentful/contentful-management.rb,126,Unable to add a link to an entry,"I have a mapping between diseases and genes
+My disease id is 4ygut0Dm2c8SGw8oEwOKoY
+I am trying to add a link to an existing gene (with id 5zIJxwfys80uIMcmAcaMkm) to this disease's entry.
+
+Code is as follows:
+
+```
+new_link = ""{ 'sys' => { 'id' => '5zIJxwfys80uIMcmAcaMkm', 'linkType' => 'Entry', 'type' => 'Link' } }""
+
+entry = client.entries.find(space_id, '4ygut0Dm2c8SGw8oEwOKoY')
+puts entry.fields[:associatedGenes]
+entry.fields[:associatedGenes].push(new_link)
+entry.save
+entry.publish
+```
+
+I was able to see the following error but I am not quite sure how to solve this.
+
+```
+{
+  ""sys"": {
+    ""type"": ""Error"",
+    ""id"": ""InvalidEntry""
+  },
+  ""message"": ""Validation error"",
+  ""details"": {
+    ""errors"": [
+      {
+        ""name"": ""type"",
+        ""value"": null,
+        ""type"": ""Object"",
+        ""details"": ""The type of \""value\"" is incorrect, expected type: Object"",
+        ""path"": [
+          ""fields"",
+          ""associatedGenes"",
+          ""en-US"",
+          1
+        ]
+      }
+    ]
+  },
+  ""requestId"": ""f62423c0ca4b3ea4907d86b8d34709a8""
+}
+```
+Could you please tell me what I am doing wrong?",0,0,0,1
+contentful/contentful-management.rb,125,Dont set content-length header to 0,"Fixes https:  github.com contentful contentful-management.rb issues 124
+
+This was causing uploads to the uploads API to be rejected as the endpoint enforces that the value for the `content-length` header is greater than 0:
+
+```
+curl -i -X POST \
+-H ""Content-Type: application octet-stream"" \
+-H ""Authorization: Bearer $CMA_TOKEN_PROD"" \
+--data-binary ""@ path to image.png"" \
+-H ""Content-Length: 0"" \
+https:  upload.contentful.com spaces <space_id> uploads
+
+HTTP 1.1 400 Bad Request
+Access-Control-Allow-Headers: Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Etag
+cache-control: no-cache
+Content-Type: text html; charset=utf-8
+Date: Fri, 28 Jul 2017 14:47:42 GMT
+Server: Contentful
+Strict-Transport-Security: max-age=15768000
+vary: accept-encoding
+X-Content-Type-Options: nosniff
+X-Contentful-Request-Id: f0426ee583f94a825089b6b669ed7336
+Content-Length: 131
+Connection: keep-alive
+
+{
+  ""sys"": {
+    ""type"": ""Error"",
+    ""id"": ""BadRequest""
+  },
+  ""message"": ""The \""Content-Length\"" header must be greater than 0""
+}%
+```
+ Aside from that, there's no need to manually set this header since it's handled by the underlying HTTP library.
+
+We should also handle this error more gracefully like other client requests. I'll try submit a PR over the weekend
+
+
+",0,0,0,0
+contentful/contentful-management.rb,124,Upload causes crash,"Rvm: 2.4.1
+contentful-management: 1.8.1
+
+My script:
+
+```
+#! usr bin ruby
+
+require 'contentful management'
+
+access_token = ENV['PERSONAL_CMA_TOKEN']
+client = Contentful::Management::Client.new(access_token)
+
+my_space = client.spaces.find(ENV['MY_SPACE_ID'])
+space_id = my_space.id
+
+## Upload
+upload = client.uploads.create(space_id, '. test-image.png')
+```
+
+causes the following output:
+
+```
+ Users jpwright .rvm rubies ruby-2.4.1 lib ruby 2.4.0 openssl buffering.rb:325:in `syswrite': Broken pipe (Errno::EPIPE)
+	from  Users jpwright .rvm rubies ruby-2.4.1 lib ruby 2.4.0 openssl buffering.rb:325:in `do_write'
+	from  Users jpwright .rvm rubies ruby-2.4.1 lib ruby 2.4.0 openssl buffering.rb:343:in `write'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http timeout null.rb:51:in `write'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http request writer.rb:99:in `write'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http request writer.rb:82:in `send_request'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http request writer.rb:42:in `stream'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http request.rb:113:in `stream'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http connection.rb:74:in `send_request'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http client.rb:63:in `perform'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http client.rb:41:in `request'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems http-2.2.2 lib http chainable.rb:26:in `post'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management http_client.rb:85:in `public_send'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management http_client.rb:85:in `http_send'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management http_client.rb:30:in `post_http'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management client.rb:315:in `block in post'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management client.rb:252:in `execute_request'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management client.rb:314:in `post'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management request.rb:47:in `post'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management resource_requester.rb:31:in `create'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management resource.rb:209:in `create'
+	from  Users jpwright .rvm gems ruby-2.4.1 gems contentful-management-1.8.1 lib contentful management client_association_methods_factory.rb:37:in `create'
+	from test-upload.rb:17:in `<main>'
+```
+
+What might the issue be?
+
+
+Additionally, I've noticed that acceptance tests in `spec lib contentful management ` only test that the returned object is of type `Contentful::Management::Upload` but does not test that any of the relevant properties have correct value
+",0,0,0,1
+contentful/contentful-management.rb,123,Add `require` statement to readme Usage section,,0,0,0,0
+contentful/contentful-management.rb,122,Error in FieldAware,"I have been successfully using contentful-management for a while now, and it has worked like a charm. Recently, I tried to use an import script that I wrote and my script bombs in field_aware.rb with the following error:
+` home devon .rbenv versions 2.3.0 lib ruby gems 2.3.0 gems contentful-management-1.6.0 lib contentful management resource field_aware.rb:25:in 'block (2 levels) in create_getter': wrong number of arguments (given 1, expected 0) (ArgumentError) from  home devon .rbenv versions 2.3.0 lib ruby gems 2.3.0 gems contentful-management-1.6.0 lib contentful management entry.rb:94:in 'save' from import_language_to_contentful.rb:78:in 'block in <main>' from  home devon .rbenv versions 2.3.0 lib ruby 2.3.0 csv.rb:1748:in 'each' from  home devon .rbenv versions 2.3.0 lib ruby 2.3.0 csv.rb:1131:in 'block in foreach' from  home devon .rbenv versions 2.3.0 lib ruby 2.3.0 csv.rb:1282:in 'open' from  home devon .rbenv versions 2.3.0 lib ruby 2.3.0 csv.rb:1130:in 'foreach' from import_language_to_contentful.rb:42:in '<main>'`
+
+I've narrowed it down to only one new contentful content type (all the others work as they used to), but I can't figure out why the new one shouldn't work. In fact, if I just do:
+`require 'contentful management' require ""csv"" client = Contentful::Management::Client.new('my_num') space = client.spaces.find('another_num') e_that_exists = space.entries.find('an_existing_id') e_that_exists.save`
+I get the error.
+
+Any ideas?",0,0,0,3
+contentful/contentful-management.rb,121,"Add missing ""assetImageDimensions"" property to validation",,0,0,0,3
+contentful/contentful-management.rb,120,Add X-Contentful-User-Agent Header,,0,0,0,0
+contentful/contentful-management.rb,119,Add (optional) assetFileSize validation,"This was causing #118, tested my repro against it and it did not error.",0,0,0,1
+contentful/contentful-management.rb,118,Media type validations not serialized deserialized correctly?,"## Problem
+
+Unable to add new fields to existing content types with media fields having size validations.
+
+Trying to do so throws a validation error.
+
+From looking at the request response patterns, it seems `assetFileSize` (and maybe others) might not be properly deserialized or serialized.
+
+## Reproducing 
+
+I was able to reproduce this after creating a new content type:
+
+```json
+{
+  ""name"": ""BugTest"",
+  ""description"": """",
+  ""fields"": [
+    {
+      ""name"": ""test"",
+      ""id"": ""test"",
+      ""type"": ""Link"",
+      ""linkType"": ""Asset"",
+      ""validations"": [
+        {
+          ""assetFileSize"": {
+            ""max"": 307200
+          }
+        }
+      ],
+      ""localized"": false,
+      ""required"": false,
+      ""disabled"": false,
+      ""omitted"": false
+    }
+  ],
+  ""sys"": {
+    ""id"": ""bugTest"",
+    ""type"": ""ContentType"",
+    ""createdAt"": ""2017-05-18T11:49:06.669Z"",
+    ""createdBy"": {
+      ""sys"": {
+        ""type"": ""Link"",
+        ""linkType"": ""User"",
+        ""id"": ""17UVH9Mjx0q9zlEC0v0EuY""
+      }
+    },
+    ""space"": {
+      ""sys"": {
+        ""type"": ""Link"",
+        ""linkType"": ""Space"",
+        ""id"": ""c12nbik873vl""
+      }
+    },
+    ""firstPublishedAt"": ""2017-05-18T11:49:07.297Z"",
+    ""publishedCounter"": 2,
+    ""publishedAt"": ""2017-05-18T11:51:43.831Z"",
+    ""publishedBy"": {
+      ""sys"": {
+        ""type"": ""Link"",
+        ""linkType"": ""User"",
+        ""id"": ""17UVH9Mjx0q9zlEC0v0EuY""
+      }
+    },
+    ""publishedVersion"": 3,
+    ""version"": 4,
+    ""updatedAt"": ""2017-05-18T11:51:43.844Z"",
+    ""updatedBy"": {
+      ""sys"": {
+        ""type"": ""Link"",
+        ""linkType"": ""User"",
+        ""id"": ""17UVH9Mjx0q9zlEC0v0EuY""
+      }
+    }
+  }
+}
+```
+
+On this content type I was able to run the following code:
+
+```ruby
+require 'contentful management'
+
+client = Contentful::Management::Client.new(ENV['CONTENTFUL_MANAGEMENT_TOKEN'], raise_errors: true)
+space = client.spaces.find(SPACE_ID)
+content_type = space.content_types.find('bugTest')
+
+field = Contentful::Management::Field.new
+field.type = 'Symbol'
+field.id = 'newfield'
+field.name = ""TestNewField""
+
+# This throws an validation error
+content_type.fields.add(field)
+```
+
+The request was the following:
+```
+[2] pry(#<Contentful::Management::Client>)> request.query
+=> {:name=>""BugTest"",
+ :description=>"""",
+ :fields=>
+  [{:id=>""test"",
+    :name=>""test"",
+    :type=>""Link"",
+    :linkType=>""Asset"",
+    :items=>nil,
+    :required=>nil,
+    :localized=>nil,
+    :validations=>[{}],
+    :disabled=>nil,
+    :omitted=>nil},
+   {:type=>""Symbol"", :id=>""newfield"", :name=>""TestNewField""}]}
+```
+
+Response:
+```
+[4] pry(#<Contentful::Management::Client>)> puts raw_response.body.to_s
+{
+  ""sys"": {
+    ""type"": ""Error"",
+    ""id"": ""ValidationFailed""
+  },
+  ""message"": ""Validation error"",
+  ""details"": {
+    ""errors"": [
+      {
+        ""name"": ""type"",
+        ""type"": ""Validation"",
+        ""value"": {},
+        ""details"": ""The property undefined isn't  a recognized validation type"",
+        ""path"": [
+          ""fields"",
+          0,
+          ""validations"",
+          0
+        ]
+      }
+    ]
+  },
+  ""requestId"": ""e59262f3b98f35740d374c5f04684672""
+}
+```",0,0,0,0
+contentful/contentful-management.rb,117,adds unique validation,"Hi guys,
+
+I noticed ```unique``` was missing from validation, so I've created a this pull request to fix it 👍 
+
+I recorded the vcr cassette against my own account and space, so feel try to re-record it to the standard one.
+
+🍐 @allanpope
+
+Cheers!",0,0,0,0
+contentful/contentful-management.rb,116,Add missing docs and refactor to match style guide,,0,0,0,0
+contentful/contentful-management.rb,115,Add Upload API,Fixes https:  github.com contentful contentful.rb issues 123,0,0,0,2
+contentful/contentful-management.rb,114,Add Snapshot API Support,Fixes #111 ,0,0,0,1
+contentful/contentful-management.rb,113,Update references to Apiary docs,@dlitvakb ,0,0,0,0
+contentful/contentful-management.rb,112,Add missing docs and fix yard warnings,,0,0,0,0
+contentful/contentful-management.rb,111,Getting snapshots?,"The developers api supports getting all the snapshots of an entry or getting a snapshot by ID, wondering if this is something that can be included in the management client as well?",0,0,0,5
+contentful/contentful-management.rb,110,Add Select Operator Support,,0,0,0,0
+contentful/contentful-management.rb,109,Add support for Fallback Locales,,0,0,0,2
+contentful/contentful-management.rb,108,Add Rate Limit Header handling,,0,0,0,1
+contentful/contentful-management.rb,107,Simple typo correction to the correct host name,"Similarly, there are a bunch of incorrect names for Contenful all over this gem. If I get a chance I'll go ahead and submit another PR if it's working.
+",0,0,0,1
+contentful/contentful-management.rb,106,"Erroneously reporting 'Service Unavailable, contenful.com API seems to be down'","Using the following code:
+
+```
+require 'contentful management'
+
+TOKEN_FILE_PATH = "". data .oauth.token""
+SPACE_ID = ""pzben22qc4sf""
+
+def get_access_token
+  # check for the existence of the  data .oauth.token file
+  if File.exists? TOKEN_FILE_PATH
+    open(TOKEN_FILE_PATH).read
+  else
+    raise ""Please authenticate the application before using this tool""
+  end
+end
+
+puts ""ACCESS TOKEN: #{get_access_token}""
+puts ""SPACE_ID: #{SPACE_ID}""
+
+client = Contentful::Management::Client.new(get_access_token)
+puts client
+space = client.spaces.find(SPACE_ID)
+puts space
+space.assets.all
+```
+
+We get the following output:
+
+```
+#<Contentful::Management::Client:0x007fc192162500>
+Service Unavailable, contenful.com API seems to be down
+test.rb:22:in `<main>': undefined method `assets' for #<Contentful::Management::ServiceUnavailable:0x007fc1921a8960> (NoMethodError)
+```
+
+Using the same space, same accessToken in Node, everything runs fine and nothing reports as a 503 (because everything is operational and online).
+
+This recently just caused us a couple of days of issues because we assumed that the bridge was down, and it clearly isn't.
+
+Looking at the code, it looks like maybe there's a condition that's not getting handled or getting mapped to an error hash that isn't entirely right.
+",0,0,0,8
+contentful/contentful-management.rb,105,Mitigate for people using contentful.rb to create references,"Should fix https:  github.com contentful contentful_model issues 36
+
+I know it is a bit hacky, but the `class.ancestors`-thing was the only way to keep the `contentful.rb`-dependency out of there.
+",0,0,0,4
+contentful/contentful-management.rb,104,File uploads are processing forever,"I'm uploading files via the Management API, but they're never done processing. I'm trying to add secondary locales to existing files. My code works for the entries, so I think I have all the locale stuff working correctly. I can `update` with the new `file`, which is a `Contentful:Management::File` with its `contentType`, `fileName`, and `upload` set to the MIME type, file name with extension, and publicly available URL of the file, respectively. Looks like what [the API wants](http:  docs.contentfulcma.apiary.io #reference assets asset create update-an-asset?console=1).
+
+I have verified that I can paste the URL into the file picker UI and have it work. But when I use the API (via this library), the file is stuck in processing forever (or at least longer than 10 minutes, when it takes less than a second via the file picker). The asset title, file name, and file type appear correctly in the web UI. Any thoughts?
+
+Code boils down to this:
+
+``` ruby
+Contentful::Management::File.new.tap do |file|
+    file.properties[:contentType] = 'image png'
+    file.properties[:fileName] = 'cool-picture.png'
+    file.properties[:upload] = 'https:  example.com cool-picture.png'
+end
+```
+
+I can confirm that everything is set before using `update` on the parent asset.
+
+I'm on v0.7.3.
+",0,0,0,13
+contentful/contentful-management.rb,103,Bump HTTP gem to ~v1.0,"We're in need of access to the Twitter gem, which uses ~v1.0 of the HTTP gem.
+
+We've looked at http's changelog and noticed that they've only removed functionality ([here](https:  github.com httprb http blob master CHANGES.md#100-2015-12-25) and [here](https:  github.com httprb http blob master CHANGES.md#090-2015-07-23)). but that they aren't implemented features in this gem.
+",0,0,0,0
+contentful/contentful-management.rb,102,Client methods undefined,"Some of the`Client` methods aren't available. Weirdly, it looks like all the `attr`s and the methods marked `# @private` are defined, but the public ones are not. My testing code below:
+
+``` ruby
+require 'contentful management'
+
+client = Contentful::Management::Client.new('<ACCESS_TOKEN>')
+puts client            # exists, everything is cool
+client.access_token    # this exists
+client.api_version     # works
+spaces = client.spaces # 💥
+```
+
+``` ruby
+puts client.methods
+
+delete
+configuration
+version
+version=
+post
+user_agent
+get
+put
+protocol
+default_locale
+access_token
+request_headers
+logger
+base_url
+organization_id
+zero_length
+content_type_id
+dynamic_entry_cache
+api_version
+gzip_encoded
+default_configuration
+setup_logger
+update_dynamic_entry_cache_for_spaces!
+update_dynamic_entry_cache_for_space!
+update_dynamic_entry_cache!
+register_dynamic_entry
+execute_request
+clear_headers
+content_type_id=
+organization_id=
+authentication_header
+api_version_header
+organization_header
+version_header
+content_type_header
+zero_length_header
+accept_encoding_header
+zero_length=
+dynamic_entry_cache=
+# regular Object methods
+# ...
+```
+",0,0,0,2
+contentful/contentful-management.rb,101,Add optional property to Locale,,0,0,0,0
+contentful/contentful-management.rb,100,Add :omitted property to Content Type Fields,,0,0,0,1
+contentful/contentful-management.rb,99,Add EditorInterfaces and reorder Readme,,0,0,0,5
+contentful/contentful-management.rb,98,fields create bug,,0,0,0,0
+contentful/contentful-management.rb,97,"Add Custom Headers, Topics and Name to Webhooks",,0,0,0,1
+contentful/contentful-management.rb,96,Add Roles and Permissions,,0,0,0,1
+contentful/contentful-management.rb,95,show more verbose errors,"Right now, it is really hard to find out, why an api call is failing. For example when I try to create an entry with
+
+```
+content_type.entries.create(title: 'Test Title')
+=> #<Contentful::Management::UnprocessableEntity: Validation error>
+```
+
+to really see what is actually not validating I just found this way:
+
+```
+e = content_type.entries.create(title: 'Test Title')
+=> #<Contentful::Management::UnprocessableEntity: Validation error>
+puts e.response.raw.body.to_s
+=> <showing the full response body with the error>
+```
+
+Would be nice to have the error message(s) in an instance var or something like that in the exception.
+",14,14,0,0
+contentful/contentful-management.rb,94,gracefully accept stringified keys,"```
+content_type.fields.create(name: ""Layout"", id: ""layout"", type: ""Symbol"")
+=> #works
+content_type.fields.create(""name""=>""Layout"", ""id""=>""layout"", ""type""=>""Symbol"")
+=> #<Contentful::Management::UnprocessableEntity: Validation error>
+```
+",0,0,0,0
+contentful/contentful-management.rb,93,Add deprecation warnings to entries and assets all_published methods,,0,0,0,1
+contentful/contentful-management.rb,92,Changed Locale prioritization for fields,"Fixes #91 
+",0,0,0,0
+contentful/contentful-management.rb,91,`#{field}_with_locales=` Not working properly,"Since `v1.0` - Fields with Locales is not working properly
+
+Test should be added for testing assignment properly
+
+``` ruby
+entry.fields_for_query
+# => {:test=>{""en-US""=>""asdasd"", ""es""=>""gfsdsad""}, :b=>{""en-US""=>""asdasd"", ""es""=>nil}}
+entry.b = 'blah'
+# => ""blah""
+entry.fields_for_query
+# => {:test=>{""en-US""=>""asdasd"", ""es""=>""gfsdsad""}, :b=>{""en-US""=>""blah"", ""es""=>nil}}
+entry.b_with_locales = {'en-US' => 'foo', 'es' => 'bar'}
+# => {""en-US""=>""foo"", ""es""=>""bar""}
+entry.fields_for_query
+# => {:test=>{""en-US""=>""asdasd"", ""es""=>""gfsdsad""}, :b=>{""en-US""=>""foo"", ""es""=>nil}}
+```
+",0,0,0,0
+contentful/contentful-management.rb,90,codebeat badge,"Is it fine to add codebeat badge to README? 
+
+codebeat is automated code review tool for Swift,Ruby,Go & Python that helps get instant feedback on code quality. 
+
+""Quick wins"" suggested by codebeat could be a nice candidate for a pull request and help other developers become contributors.
+
+FYI. To be fully open and honest. I'm co-founder of codebeat.
+",0,0,0,1
+contentful/contentful-management.rb,89,Add Proxy Support,"Fixes #88 
+",0,0,0,2
+contentful/contentful-management.rb,88,Unable to set proxy server for callouts,"When using the management gem I see no way to set a proxy server. I do see the http gem is being used. Can you add support to configure callouts using a proxy server? Documentation for using a proxy server with the http gem is here:
+
+https:  github.com httprb http wiki Proxy-Support
+
+If I can find some time I may be able to submit a pull requests.
+",0,0,0,3
+contentful/contentful-management.rb,87,Posting a Resource with Circular References breaks when Application also includes ActiveSupport,"When your app requires `ActiveSupport` and you have a resource with circular references.
+
+As `ActiveSupport` patches `HTTP::Client` to call `ActiveSupport#to_json` on `#post` and `#put`.
+
+This causes a never-ending loop that will halt any other operations. This affects specifically `Entry#save` in the case of circular references.
+
+Fix required is very simple:
+
+``` ruby
+module Contentful
+  module Management
+    class Entry
+      alias_method :to_json, :fields_for_query
+    end
+  end
+end
+```
+",0,0,0,0
+contentful/contentful-management.rb,86,Deduplicate FieldAware code,"Fixes #78 
+",0,0,0,3
+contentful/contentful-management.rb,85,Remove Client Singleton,"Fixes #75 
+",0,0,0,1
+contentful/contentful-management.rb,84,Update Docs to YARD and Fix Rubocop,,0,0,0,8
+contentful/contentful-management.rb,83,Add '.all_published' methods,,0,0,0,0
+contentful/contentful-management.rb,82,Add ApiKey API,,0,0,0,3
+contentful/contentful-management.rb,81,Add missing operations to Locale,,0,0,0,0
+contentful/contentful-management.rb,80,Fix :description field of Content Types,"Fixes #79 
+",0,0,0,1
+contentful/contentful-management.rb,79,Fix Content Types to respect new Validation Schema,,0,0,0,0
+contentful/contentful-management.rb,78,De-Duplicate FieldAware code,"FieldAware code should be reused inside DynamicEntry
+",0,0,0,0
+contentful/contentful-management.rb,77,Add Specs for Assignment Methods,"Adds specs related to #61
+
+@neonichu Can you reach out to whom made the request to see if these specs cover their use-case?
+",0,0,0,2
+contentful/contentful-management.rb,76,Add Specs for Issue 73,,0,0,0,0
+contentful/contentful-management.rb,75,De-Singleton Client from Resources (Multi-Locale Handling),"After discussion with @neonichu,
+#67 Solved the problem of spaces being aware of their default locale
+
+But with #73, the problem of `:default_locale` being handled globally for requests other than Space came up.
+
+Therefore, it's required that the Client is removed from being a Singleton, though still the Shared Instance could be used, but only as a ""Token Accessor"" and clones of said Client should then be used inside the resources, which will allow each resource to adjust Locale and other configuration per Resource
+
+cc @grncdr 
+",0,0,0,0
+contentful/contentful-management.rb,74,Added Guard and Spec for issue 73,"Fixes #73 
+",0,0,0,1
+contentful/contentful-management.rb,73,Cannot update entries assets when en-US does not exist in the space,"I have tried every combination that I can but it seems that the api is unable to create entries assets properly (with localization) when en-US doesn't exist in the Space as a locale. We have en-GB and es-ES
+
+I have a content type in the variable `jo` and that type has a Name `name` (a string) and a Value `value` (a json obejct) field. The Value field has localization enabled, the Name field does not.
+
+```
+new_entry = jo.entries.create(:id => 'hello-world')
+```
+
+I now have a `new_entry` with id `hello-world`
+
+Now I try to set attributes (I have tried this on the create call above to, but it doesn't work)
+
+```
+new_entry.name = ""Hello World""
+new_entry.locale = 'en-GB'
+new_entry.value_with_locales = {'en-GB'=>{""1""=>""2""}, 'es-ES'=>{""3"":""4""}}
+res = new_entry.save
+JSON.parse(new_entry.error[:details])['details'] #{""errors""=>[{""message""=>""Invalid field locale code \""en-US\"", has to be one of \""en-GB\"", \""es-ES\"""", ""details""=>""The property \""en-US\"" is not allowed here.""}]}
+```
+
+It appears that the locale is defaulting to en-US even though it isn't even active in the Space.
+",0,0,0,4
+contentful/contentful-management.rb,72,Fix creation of entries with just an id,,0,0,0,6
+contentful/contentful-management.rb,71,Add fix for locales with different fields and ordering,"Fixes #70 
+",0,0,0,1
+contentful/contentful-management.rb,70,fields_for_query has buggy order-dependent logic,"This comes from ZenDesk, and appears to be a bug on [this line](https:  github.com contentful contentful-management.rb blob fcadb13e8096a75c7dd7d1e959023d310c0af55e lib contentful management entry.rb#L195).
+
+If the first `(locale, fields)` tuple in `raw_fields` does not contain every field name, then the result of `fields_for_query` can entirely skip fields that _do_ have defined values in other locales.
+",0,0,0,4
+contentful/contentful-management.rb,69,Update Documentation,"There are outdated links on class comments and some comments are oudated as well
+",0,0,0,1
+contentful/contentful-management.rb,68,Removes unintended nested validation,"Fixes #49 
+",0,0,0,1
+contentful/contentful-management.rb,67,Adds handling for spaces with already existing default locales,"Fixes #60 
+
+``` ruby
+[1] pry(main)> require 'contentful management'
+=> true
+[2] pry(main)> client = Contentful::Management::Client.new(""your_token"")
+=> #<Contentful::Management::Client:0x007ff89c9d8b08
+ @access_token=""your_token"",
+ @configuration=
+  {:api_url=>""api.contentful.com"",
+   :api_version=>""1"",
+   :secure=>true,
+   :default_locale=>""en-US"",
+   :gzip_encoded=>false,
+   :logger=>false,
+   :log_level=>1,
+   :raise_errors=>false},
+ @dynamic_entry_cache={},
+ @logger=false>
+[3] pry(main)> Contentful::Management::Space.all.each do |space|
+[3] pry(main)*   puts space.default_locale
+[3] pry(main)* end
+en-US
+de-DE
+```
+",0,0,0,2
+contentful/contentful-management.rb,66,Ensure that Validation.type returns correct value,"Fixes #59
+",0,0,0,0
+contentful/contentful-management.rb,65,Fix NULL nil handling for entries,,0,0,0,2
+contentful/contentful-management.rb,64,`fields_for_query` should only skip `nil` values,"Currently it skips all falsy values.
+
+Fixes #63
+",0,0,0,0
+contentful/contentful-management.rb,63,Bool fields set to `false` are not saved correctly,"Current behaviour:
+
+``` ruby
+q = content_type.entries.new
+q.name = ""Hello World""
+q.yolo = false
+puts q.fields # {:name=>""Hello World"", :yolo=>false}
+q.save
+
+p = space.entries.find(q.id)
+puts p.fields # {:name=>""Hello World""}
+```
+
+but `q.fields` should be == `p.fields` 
+",0,0,0,0
+contentful/contentful-management.rb,62,Reinstate support for simple assignments to fields,"Fixes #61
+",0,0,0,1
+contentful/contentful-management.rb,61,Using a simple field assignment does not work,"``` ruby
+q = content_type.entries.new
+q.name = ""Hello World""
+puts q.fields
+# => {}
+```
+
+This should result in `fields` being set to `{:name=>""Hello World""}`.
+
+Using `q.name_with_locales = { ""en-US"" => ""Hello World"" }` works as intended, though.
+",0,0,0,1
+contentful/contentful-management.rb,60,Use default locale for existing spaces,"Currently, the default locale for all operations is the one set in the `Client` or `en-US` if nothing was set. 
+
+This is a sensible default when creating new Spaces, but when dealing with an existing Space, we should query the user's default locale and use that.
+",0,0,0,0
+contentful/contentful-management.rb,59,Validation type is incorrect,"I'm using the Product template on a new space. The Brand Website field is validated by regex. contentful-management says the type is 'Present'
+
+``` ruby
+(byebug) field.validations.first.type
+:present
+```
+
+It seems to be the test on this line:
+https:  github.com contentful contentful-management.rb blob master lib contentful management validation.rb#L28
+
+checking for nil, but present and linkField are booleans and are set to false, not nil.
+",0,0,0,0
+contentful/contentful-management.rb,58,Merge values for default locale and current locale,"This creates a behaviour more in line with the delivery API. This seems to be more what people expect.
+
+Example of old behaviour:
+
+``` ruby
+cat = space.entries.find('nyancat')
+puts cat.fields
+# {:name=>""Nyan Cat"", :likes=>[""rainbows"", ""fish""], :color=>""rainbow"", :bestFriend=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""happycat""}}, :birthday=>#<DateTime: 2011-04-04T22:00:00+00:00 ((2455656j,79200s,0n),+0s,2299161j)>, :lives=>1337, :image=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Asset"", ""id""=>""nyancat""}}}
+cat.locale = 'tlh'
+puts cat.fields
+# {:name=>""Nyan vIghro'"", :color=>""yolo""}
+```
+
+Example of new behaviour:
+
+``` ruby
+cat = space.entries.find('nyancat')
+puts cat.fields
+# {:name=>""Nyan Cat"", :likes=>[""rainbows"", ""fish""], :color=>""rainbow"", :bestFriend=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""happycat""}}, :birthday=>#<DateTime: 2011-04-04T22:00:00+00:00 ((2455656j,79200s,0n),+0s,2299161j)>, :lives=>1337, :image=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Asset"", ""id""=>""nyancat""}}}
+cat.locale = 'tlh'
+puts cat.fields
+# {:name=>""Nyan vIghro'"", :likes=>[""rainbows"", ""fish""], :color=>""yolo"", :bestFriend=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Entry"", ""id""=>""happycat""}}, :birthday=>#<DateTime: 2011-04-04T22:00:00+00:00 ((2455656j,79200s,0n),+0s,2299161j)>, :lives=>1337, :image=>{""sys""=>{""type""=>""Link"", ""linkType""=>""Asset"", ""id""=>""nyancat""}}}
+```
+
+I'm unsure which one is ""better"", @pxlpnk @grncdr what do you think?
+",0,0,0,7
+contentful/contentful-management.rb,57,Update http.rb to v0.8.0,,0,0,0,0
+contentful/contentful-management.rb,56,"""NoMethodError: undefined method `version=' for nil:NilClass"" after `Contentful::Management::Space.all`","```
+> Contentful::Management::Space.all
+NoMethodError: undefined method `version=' for nil:NilClass
+    from  Library Ruby Gems 2.0.0 gems contentful-management-0.6.1 lib contentful management request.rb:13:in `initialize'
+    from  Library Ruby Gems 2.0.0 gems contentful-management-0.6.1 lib contentful management space.rb:29:in `new'
+    from  Library Ruby Gems 2.0.0 gems contentful-management-0.6.1 lib contentful management space.rb:29:in `all'
+```
+",0,0,0,4
+contentful/contentful-management.rb,55,Add disable property to fields,"Fixes #50
+",0,0,0,0
+contentful/contentful-management.rb,54,Explicitly set displayField to nil when not existing,"This is a POC to fix #53. 
+I am not happy with the code by far but it seems to work.
+
+Creating a content type with one field that is not the title, then update the name 
+and trying to activate it worked with this code.
+
+We explicitly set the displayField property to nil when it was neither passed in
+as an attribute or was already set.
+
+This needs to be refactored to something nicer than this right now.
+",0,0,0,4
+contentful/contentful-management.rb,53,displayField causing validation errors when not set,"This related to pull request #52.
+
+So i just upgraded to 0.6.1 and in doing so I hit a validation error in the case where a display field is not defined on a content type. Digging here's what I think might be happening:
+
+`:displayField` is a string property. When I load up a content type without a displayField being set, the nil or missing value is being coerced into a blank string i.e. `""""`. On a subsequent update to that content type, the displayField is now being explicitly passed in the request as displayField: """" (that is instead of dispalyField: null). This works, but when the content type is activated a validation error is thrown:
+
+``` json
+{
+  ""sys"": {
+    ""type"": ""Error"",
+    ""id"": ""ValidationFailed""
+  },
+  ""message"": ""Validation error"",
+  ""details"": {
+    ""errors"": [
+      {
+        ""name"": ""referencesFieldId"",
+        ""details"": ""Attribute displayField must reference a field's id"",
+        ""displayFieldValue"": """",
+        ""allowedValues"": [
+          ""productName"",
+          ""headling"",
+          ""description"",
+          ""bullets"",
+          ""pdpSketch"",
+          ""relatedContent"",
+          ""lifestyleImages""
+        ]
+      }
+    ]
+  }
+}
+```
+
+Not sure the best way to solve, but you might need to check if `display_field.blank?` and then explicitly set `:displayField` to nil if so, as opposed to letting the `""""` value slip through.
+
+We're holding off on 0.6.1 in the meantime.
+
+Many thanks!
+",0,0,0,1
+contentful/contentful-management.rb,52,Do not lose displayField on update when not set,"The displayField attribute was reset on calling update without a set
+displayField.
+
+This fixes #51
+",0,0,0,0
+contentful/contentful-management.rb,51,Implement :displayField property on ContentType,"This one appears to be a bug, because if content_type.update() gets called without explicitly setting `:displayField` as an attribute, then the displayField that was set previously on the content type is lost subsequently.
+
+The fix for this would be to add a :displayProperty field to ContentType, since that field is already included in the response from the API and the API respects it when it's included. The update() method would also need to be updated to merge that property into the parameters hash.
+",0,0,0,0
+contentful/contentful-management.rb,50,Implement :disabled property on Field class,"I ran into an issue trying to do `content_types.fields.destroy()` ... from what I can tell, Contentful is very unhappy when a field goes missing entirely. Although it will allow the update to proceed, future attempts to activate the content type will fail (through the admin and through the API) with the error ""Error activating ""Product"": Previously published fields are missing or invalid"". Note I emailed support@contentful.ccom with details about this.
+
+As I looked to resolve for my own use of the API, it occurred to me that the admin itself does not support ""deleting"" fields, it only supports disabling them. The API also supports disabling fields with the boolean :disabled which is returned from the API as true when the field is disabled. If the flag is passed to the API it is respected.
+
+So a feature request would be to add the property :disabled to the Field class.
+
+Presumably an additional beneficial feature would be to either reimplement `destroy` to only disable instead of removing, or to add a separate implementation of `disable` to content_type.fields that disabled the field.
+
+I've resorted to adding the property to Field via class_eval for my purposes and it suffices.
+
+Thanks!
+
+(Side note: Sorry to bug you guys with all these issues, but the implementation I'm working on is putting this API through its paces, so I'm just logging any issues or shortcomings I'm uncovering. I have one or two more issues to log in addition to this).
+",0,0,0,2
+contentful/contentful-management.rb,49,Error when updating content type with validations,"I'm getting an IOError when attempting to update an existing content type that has fields with validation on it. The error is emanating from pretty deep within HTTP::Client, when the parameters are being coerced as json. It appears that during the process of converting properties to a hash, the :validations property of the Validation object has an extra Validation on it which is getting missed.
+
+So let me see if I can explain. This is what `fields` looks like on an example content type I'm building at the create step:
+
+``` ruby
+[#<Contentful::Management::Field: @properties={
+:id=>""featuredImage"", 
+:name=>""Featured Image"", 
+:type=>""Link"", 
+:linkType=>""Asset"", 
+:validations=>
+[#<Contentful::Management::Validation: @properties={:linkMimetypeGroup=>""image""}>]}>]
+```
+
+After the object is created, if I re-retrieve the content type and attempt to update it, this is what `fields` looks like:
+
+``` ruby
+[#<Contentful::Management::Field: @properties={
+ :id=>""featuredImage"", 
+ :name=>""Featured Image"", 
+ :type=>""Link"", 
+ :linkType=>""Asset"", 
+ :items=>#<Contentful::Management::Field:>, 
+ :required=>false, 
+ :localized=>false, 
+ :validations=>[
+                <Contentful::Management::Validation: @properties={:in=>nil, :size=>nil, :present=>false, 
+                :validations=>#<Contentful::Management::Validation:>, :regexp=>nil, :linkContentType=>nil, :range=>nil, 
+                :linkMimetypeGroup=>""image"", :linkField=>false}>
+                ]}>
+]
+```
+
+The biggest difference is the existence of the `:validations` property on the `Validation` object itself, which gets left in place and cannot be coerced into json.
+
+It looks like some special handling needs to be added to account for this property, akin to the way those other properties are handled in the `parse_value` of the `Field` class.
+
+Let me know if the above makes sense or you have any questions. I'm going to attempt to work around this issue in the meantime.
+",0,0,0,9
+contentful/contentful-management.rb,48,Add a better error handling for the 503 error,,0,0,0,0
+contentful/contentful-management.rb,47,Fix access to space default_locale instance variable,,0,0,0,0
+contentful/contentful-management.rb,46,Add support for semantic errors to Error object. Add support for 429 [RateLimitExceeded] error.,,0,0,0,0
+contentful/contentful-management.rb,45,get error types via Contentful::Management::Error response,"Hey there,
+
+We are currently using Contentful::Management::Error to rescue any exceptions, however there are really few exceptions that the Contentful Error class is handling and we wanted to create our own class that catch more error types from responses returned. In the Management JS API we are able to get the full response with the name of the error returned from Contentful. Can we get the same thing via the Contentful::Management::Error response (or really if there are other ways, feel free to recommend)? The response we got only had headers, the request and few other details, however I couldn't get from it the same details I got from the management js api json response.
+
+Thanks, and your help is highly appreciated.
+
+Rana 
+",0,0,0,6
+contentful/contentful-management.rb,44,Create an asset with default client locale,,0,0,0,0
+contentful/contentful-management.rb,43,Add possibility to create space with default locale,,0,0,0,0
+contentful/contentful-management.rb,42,Return an Error object with specific error message.,,0,0,0,0
+contentful/contentful-management.rb,41,multiple `Field#create` calls on a content type lose validations,"When calling `fields.create` with validations multiple times, the validations are not being sent to the api and therefore result in an invalid content type.
+
+Called like this:
+
+``` ruby
+content_type.fields.create id: 'tag', name: 'Tag', type: 'Symbol', validations: [validations_in] 
+content_type.fields.create id: 'slug', name: 'Slug', type: 'Symbol', validations: [validation_regex] 
+```
+",0,0,0,1
+contentful/contentful-management.rb,40,Fix description of range validation,,0,0,0,0
+contentful/contentful-management.rb,39,Add support for 409 (Conflict) errors,,0,0,0,0
+contentful/contentful-management.rb,38,Add raise_errors option to Client configuration,,0,0,0,0
+contentful/contentful-management.rb,37,bug when adding fields to freshly generated content_type,"It turned out there is a bug when creating or adding fields to a freshly generated content_type.
+",0,0,0,5
+contentful/contentful-management.rb,36,Fix creation of content type fields with Array type,"This commit fixes issue #35
+",0,0,0,1
+contentful/contentful-management.rb,35,Items are nil when creating an array field for a content type,"``` ruby
+require 'contentful management'
+require 'logger'
+
+def link_field 
+  field = Contentful::Management::Field.new 
+  field.type = 'Link' 
+  field.link_type = 'Entry' 
+  field 
+end
+
+logger = Logger.new(STDOUT)
+level = Logger::DEBUG
+client = Contentful::Management::Client.new('token', logger: logger, log_level: level)
+space = Contentful::Management::Space.find 'space'
+ct = space.content_types.find('content_type')
+```
+
+From the request
+
+``` ruby
+{:query=>{:name=>""content_Type"", :description=>"""", :fields=>[{:id=>""test_array_id"", :name=>""test_array"", :type=>""Array"", :items=>nil}]}}
+```
+
+It seems somewhere in here the items array gets lost:
+https:  github.com contentful contentful-management.rb blob master lib contentful management field.rb#L37
+",0,0,0,1
+contentful/contentful-management.rb,34,"Fix typo ""Contenful""",,0,0,0,1
+contentful/contentful-management.rb,33,! Keep attribute if it's already a hash,"Fixes a bug with updating entries with one to many associations.
+- Scenario:
+  - Collection that has many Entries and description
+  - I want to update the description via `entry.update`
+- What happens:
+  - `entry.fields[:entries]` array already includes the entries in the required hash format but is then parsed
+  - the parser checks the type of the attribute
+  - type is neither `Asset` nor `Entry`
+  - `nil` replaces entry that does not require parsing
+- Suggested solution:
+  - keep the entry in the array if it's already a hash 
+",0,0,0,4
+contentful/contentful-management.rb,32,Add support to create validations for content type fields,"Update the documentation.
+",0,0,0,1
+contentful/contentful-management.rb,31,Expose validation data in cma objects,"As it seems there is no validation data exposed on objects returned by the Gem. 
+It would be useful to be able to access this.
+",0,0,0,0
+contentful/contentful-management.rb,30,Add custom logger support. Refactor response error handling. Clean code to follow reek style guide.,,0,0,0,0
+contentful/contentful-management.rb,29,Fix rubocop style offences,,0,0,0,0
+contentful/contentful-management.rb,28,Fixed bug with array of symbols entry field,,0,0,0,0
+contentful/contentful-management.rb,27,Possible to copy entries between 2 spaces?,,0,0,0,4
+contentful/contentful-management.rb,26,Fixing bug with not updated fields after Asset reload #22,,0,0,0,0
+contentful/contentful-management.rb,25,Added support for gzip response content encoding,,0,0,0,0
+contentful/contentful-management.rb,24,"Fix bug - create entry with multiple locales, skip attributes for not localized fields in content type.","Create   update an entry for not localized fields, the object will be created correctly for localized fields, skip not localized one and avoid validation error.
+",0,0,0,0
+contentful/contentful-management.rb,23,Renamed an Asset process method to process_file. Updated documentation.,,0,0,0,0
+contentful/contentful-management.rb,22,Assets won't refresh its fields variable when using the #reload method,"If you reload an asset (`asset.reload`) its _properties_ and _sys_ instance variables get the new values but the _fields_ variable doesn't. This is because of a `is_a?` [check](https:  github.com contentful contentful-management.rb blob master lib contentful management resource refresher.rb#L20) performed on the resource.
+
+So if anyone wants to do a _real_ refresh he hast to use `assets.find(...)`
+
+Is there a reason for this?
+",0,0,0,0
+contentful/contentful-management.rb,21,Modifying nil bugfix,,0,0,0,1
+contentful/contentful-management.rb,20,Image url,,0,0,0,0
+contentful/contentful-management.rb,19,Clean code to follow Rubocop style guide.,,0,0,0,1
+contentful/contentful-management.rb,18,Added image url to asset,,0,0,0,1
+contentful/contentful-management.rb,17,Gem is modifying nil,"We've been using the gem lately in our project and we noticed that certain calls are modifying the nil object. Based on the history of the repo I know this library is very new but I wanted to open up an issue to discuss this and see if it would be possible to avoid modifying the nil object and adding methods to it.
+
+For instance: 
+https:  github.com contentful contentful-management.rb blob master lib contentful management space.rb#L92 
+
+Is there any particular reason nil is being used as opposed to any other random Ruby object? Why not just use Object.new or something similarly simple generic? Extending nil with methods, especially methods common in Ruby Rails apps like find all create, seems like a dangerous thing to do for consumers of the library. I'd be happy to submit a pull request as well if this change seems reasonable to you but I wasn't sure if that would be helpful with the library being new and under active development.
+",0,0,0,5
+contentful/contentful-management.rb,16,Add support for Webhooks. Extracted processing an asset file from create method into separate method.,,0,0,0,1
+contentful/contentful-management.rb,15,Added rspec tests for searching filters.,,0,0,0,1
+contentful/contentful-management.rb,14,Add update the current version of the object to the version on the system. Fix search filters and code clean up.,,0,0,0,0
+contentful/contentful-management.rb,13,Added support for service unavailable error,,0,0,0,0
+contentful/contentful-management.rb,12,"Fixed creation of entry with specified locale, fix bug with lost locale after update create.",,0,0,0,0
+contentful/contentful-management.rb,11,fixed next_page support for collections in context of space,,0,0,0,0
+contentful/contentful-management.rb,10,"Fix bug - create entry with specified locale, e.g content_type.entries.create(params, locale: 'de-DE')",,0,0,0,0
+contentful/contentful-management.rb,9,Fixed bug - Entry was not convert to DynamicEntry after create.,,0,0,0,1
+contentful/contentful-management.rb,8,Added support for entries filtering by content_type," and removed support for collection methods without .all e.g. space.locales - performance reasons
+",0,0,0,0
+contentful/contentful-management.rb,7,RDoc changes,,0,0,0,0
+contentful/contentful-management.rb,6,fixed serious bug in entry update,"Headers were not cleared with values set in shared client instance e.g. content_type_id
+",0,0,0,0
+contentful/contentful-management.rb,5,Fix creating an Entry with Custom ID,,0,0,0,1
+contentful/contentful-management.rb,4,Fix create an asset with Custom ID,,0,0,0,0
+contentful/contentful-management.rb,3,Fix asset versioning after processed file,,0,0,0,0
+contentful/contentful-management.rb,2,adding blog schema create script,,0,0,0,0
+contentful/contentful-management.rb,1,adding simple examples to understand the CMA api,"here are a set of a few examples that I used to understand the api a bit better.
+",0,0,0,0

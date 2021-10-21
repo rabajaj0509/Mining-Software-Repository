@@ -1,0 +1,1391 @@
+Repo,Issue-no,Issue-title,Issue-body,Issue-reaction-total-count,Issue-reaction-plus-one,Issue-reaction-minus-one,Issue-comments
+ivanperez-keera/Yampa,194,Fix travis deploy,"The travis file keeps trying to push the package to hackage. There are currently two related issues:
+- The package is being uploaded on commits to the master branch, but that may be too late.
+- There are two packages and travis doesn't know which one to upload.",0,0,0,0
+ivanperez-keera/Yampa,193,Release Yampa 0.13.3,"Just to keep track of changes that relate to the release itself.
+* Branch off develop.
+* Bump version number in yampa and yampa-test.
+* Document changes.
+* Hide expose-core flag.
+* Push to github.
+* Confirm compilation with Travis CI.
+* Fix issues, if any.
+* Merge into master.
+* Compile, test and cabal check locally.
+* Push, wait for successful upload.
+* Tag version.
+* Merge into develop.
+* Re-introduce expose-core flag.
+* Push all branches and tags.",0,0,0,0
+ivanperez-keera/Yampa,192,Documentation: Module indicator outside of haddock,"Some modules have the module, copyright, etc info before the module's documentation's haddock marker (i.e., `-- |`), which makes that information not be parsed or used by haddock.",0,0,0,0
+ivanperez-keera/Yampa,191,Code cleaning: consistent alignment of pragmas,Language pragmas used in each file should be listed alphabetically and aligned consistently.,0,0,0,0
+ivanperez-keera/Yampa,190,Code cleaning: lines should be limited to 80 characters,"As a way to standarize and clean all code, lines should be limited to 80 characters for all code.",0,0,0,0
+ivanperez-keera/Yampa,189,Remove note from README,"The note:
+
+```
+(Interactivity and FRP is the main topic of my (ongoing) work and research, so I'll keep working on this for some time. -- Ivan Perez)
+```
+
+is informal and doesn't add value. If can be removed from the README.",0,0,0,0
+ivanperez-keera/Yampa,188,Mention new games in README,"The README, in 'Use in production', only talks about Magic Cookies.
+
+Should Enpuzzled be mentioned as well?",0,0,0,2
+ivanperez-keera/Yampa,187,Install library with --lib in README,"The README mentions that the library can be installed with `cabal install Yampa`. While true, this will not give users of current versions of cabal access to it in their GHCi installations.
+
+A better solution would be to install with `--lib`",0,0,0,1
+ivanperez-keera/Yampa,186,Install library with --lib in README,"The README mentions that the library can be installed with `cabal install Yampa`. While true, this will not give users of current versions of cabal access to it in their GHCi installations.
+
+A better solution would be to install with `--lib`.",0,0,0,0
+ivanperez-keera/Yampa,185,Travis CI master branch build fails to upload packages,"The CI service is misconfigured and tries to upload to hackage, but it does not know which package to upload.
+
+This causes an error in the build that otherwise works perfectly, suggesting to visitors that something in wrong with Yampa when all is, in fact, correct.",0,0,0,0
+ivanperez-keera/Yampa,184,Re-structure documentation section,"The documentation section mentions how to build the haddock documentation.
+
+I believe that is no longer necessary, since it's all on hackage.
+
+Those details can be removed, leaving only the link to the hackage page and the wiki, and making papers a subsection.",0,0,0,0
+ivanperez-keera/Yampa,183,Make arrows less prominent in the descriptions,"The descriptions of Yampa in the README, the cabal file, and the main modules all make arrows core in Yampa.
+
+Although Yampa provides arrow instances and is very often used with arrows, they are not really necessary. One can also use the applicative interface, Applicative Do and (category theoretic) composition, plus all the combinators included with the library.
+
+I believe adoption would be higher if arrow combinators were not mentioned up-front.",0,0,0,0
+ivanperez-keera/Yampa,182,URLs in travis badge point to old travis-ci.org website,"### Reasoning
+
+The service Travis CI is migrating  open source projects from travis-ci.org to travis-ci.com. Yampa has been migrated among them.
+
+The README.md contains a badge at the top that includes the build status of this project. At present, that badge points to the old location on travis-ci.org. Both the link to the image and to travis itself must be updated.
+
+### Solution
+
+The image and destination URLs in the Travis badge at the top of the `README.md` file need to be updated to point to the corresponding paths on travis-ci.com.
+
+### Procedure
+
+- Modify the `README.md` file to update the URLs. Check that the new URLs exist (a simple substitution of the domain name will not do).
+- Commit with the following message:
+ ```
+Update Travis CI badge URLs in README. Refs #<this-issue-number>.
+
+The service Travis CI is migrating open source projects from travis-ci.org to
+travis-ci.com. Yampa has been migrated among them.
+
+The README.md contains a badge at the top that includes the build status of
+Yampa. At present, that badge points to the old location on travis-ci.org.
+
+This commit updates the image and the destination URLs to point to their
+new locations under the travis-ci.com domain.
+
+[ci skip]
+```
+
+### Notes
+- This is a great candidate issue for someone who wants to contribute to an open source library.
+- The first line gives a simple, one-line summary. The Refs at the end gives a quick link to this issue without having to go into the commit. Do not use `fix` or `close` followed by the issue number: we'll use that in the commit message of the merge.
+- The long description documents the issue and helps others review the change and understand both the reasoning and your solution.
+- The `[ci skip]` at the end makes the CI server not re-compile Yampa with this change: because it touches the `README.md` file only, the code has not changed and it will continue to compile and pass all tests if it did before.
+
+You can modify that message if you think other information is relevant or helpful, but please keep a similar structure.",0,0,0,0
+ivanperez-keera/Yampa,181,Modules missing from other-modules in Cabal file,"### Reasoning
+
+Compilation with tests enabled is reporting the following warning message:
+
+```
+<no location info>: warning: [-Wmissing-home-modules]
+    These modules are needed for compilation but not listed in your .cabal file's other-modules: 
+        AFRPTests
+        AFRPTestsAccum
+        AFRPTestsArr
+        AFRPTestsBasicSF
+        AFRPTestsCOC
+        AFRPTestsCommon
+        AFRPTestsComp
+        AFRPTestsDelay
+        AFRPTestsDer
+        AFRPTestsEmbed
+        AFRPTestsEvSrc
+        AFRPTestsFirstSecond
+        AFRPTestsKSwitch
+        AFRPTestsLaws
+        AFRPTestsLoop
+        AFRPTestsLoopIntegral
+        AFRPTestsLoopLaws
+        AFRPTestsLoopPre
+        AFRPTestsPSwitch
+        AFRPTestsPre
+        AFRPTestsRPSwitch
+        AFRPTestsRSwitch
+        AFRPTestsReact
+        AFRPTestsSscan
+        AFRPTestsSwitch
+        AFRPTestsTask
+        AFRPTestsUtils
+        AFRPTestsWFG
+ ```
+ 
+ For details, see https:  app.travis-ci.com github ivanperez-keera Yampa jobs 537473119
+ 
+A good aim would be to have a warning-free Yampa file. So, this does not break compilation, but it is desirable to fix.
+
+### Steps to reproduce
+
+Compile package with tests enabled and visualizing the output (`-j1`). The travis setup is running:
+```
+$ cabal install --enable-tests -fexamples -j1 yampa  yampa-test 
+```
+However, I believe the following ought to be sufficient:
+```
+$ cabal v1-install --enable-tests Yampa -j1
+```
+### Solution
+
+- Declare the modules in the `other-modules` field of the appropriate component in the cabal file.
+
+- Compile and check that it compiles without that warning as per the instructions above.
+
+- Commit with the following message:
+
+ ```
+Declare test modules in cabal component. Refs #<this-issue-number>.
+
+Some of the test modules are needed for compilation of the tests but not listed
+in the `other-modules:` field. Cabal reports a warning about this during
+compilation.
+
+This commit modifies the Cabal file to list all modules used by the tests in
+the appropriate components and fields. It has been tested with cabal-install
+<cabal-install-version-number-you-tried>.
+```
+
+### Notes
+- This is a great candidate issue for for someone who wants to contribute to an open source library.
+- The first line gives a simple, one-line summary. The Refs at the end gives a quick link to this issue without having to go into the commit. Do not use `fix` or `close` followed by the issue number: we'll use that in the commit message of the merge.
+- The long description documents the issue. It also helps others review the change and understand both the reasoning and your tests, if they need to replicate the status.
+
+You can modify that message if you think other information is relevant or helpful, but please keep a similar structure.",0,0,0,0
+ivanperez-keera/Yampa,180,Release Yampa 0.13.2,"Just to keep track of changes that relate to the release itself.
+* Branch off develop.
+* Bump version number in yampa and yampa-test.
+* Document changes.
+* Hide expose-core flag.
+* Push to github.
+* Confirm compilation with Travis CI.
+* Fix issues, if any.
+* Merge into master.
+* Compile, test and cabal check locally.
+* Push, wait for successful upload.
+* Tag version.
+* Merge into develop.
+* Re-introduce expose-core flag.
+* Push all branches and tags.",0,0,0,0
+ivanperez-keera/Yampa,179,Haddock contains broken links,In #176 the structure of the repo changed. The Haddock documentation contains link to the old repo structure that now lead nowhere.,0,0,0,0
+ivanperez-keera/Yampa,178,README contains broken link,In #176 the structure of the repo changed. The README contained a link to the yampa-test library that was left behind and now leads nowhere.,0,0,0,0
+ivanperez-keera/Yampa,177,Installation instructions are outdated,"The installation instructions mention a sandbox command that no longer exists in newer versions of Cabal.
+
+While users can still use `v1-sandbox` in cabal-install 3.2, that command is also gone in newer versions of cabal-install.",0,0,0,0
+ivanperez-keera/Yampa,176,Re-structure repo,Re-structure repo so all libraries are in separate top-level directories.,0,0,0,0
+ivanperez-keera/Yampa,175,Typo in FRP.Yampa haddock,"The text contains ""_possinly_ switching from one transformation to another"" when it should say ""_possibly_ switching from one transformation to another"".",0,0,0,0
+ivanperez-keera/Yampa,174,Space leak,"Hello! This code causes space leak:
+```haskell
+#! usr bin env stack
+-- stack runhaskell --package Yampa-0.13.1 --resolver lts-17.6
+
+{-# LANGUAGE TupleSections #-}
+
+import FRP.Yampa
+
+testSF :: SF () ()
+testSF = loopPre ((), ()) $ arr snd >>> arr fst >>> arr (,()) >>> arr ((),) >>> returnA
+
+main :: IO ()
+main = reactimate (pure ()) (\_ -> pure (0.1, Just ())) (\_ _ -> pure False) testSF
+```
+
+Unfortunately, I'm not much familiar with GHC profiling, so I'm still doing my research on that.",1,1,0,8
+ivanperez-keera/Yampa,173,IdentityList on hackage?,"Hey Ivan, Keeras,
+
+Have you considered turning the IdentityList into a standard hackage package, as it seems pervasive to various game projects written in FP-style style, arrowized FRP e.g. Yampa, Bearriver, etc.?
+
+![image](https:  user-images.githubusercontent.com 3270083 107157479-97e68a80-6984-11eb-8515-2ce3250d5daa.png)
+
+I would like to use this code, rather than re-inventing the wheel here, and the current copyright makes in unclear if I can use the code or whether I may get sued for using it in the future...  It would be nice to have a clear opensource solution.
+
+
+Cheers,
+Vlad",0,0,0,2
+ivanperez-keera/Yampa,172,n-body solver issues,"Hey guys,
+
+I am trying to make an n-body solver (a bunch of objects gravitationally attracted to each-other), the problem is that it seems that the inputs for the `gravity` function are read only once, as if it does not care that the input objects are updated. As a result, the objects are showing linear motion, as if only the very first configuration of forces ever existed. 
+Probably I am missing something simple:
+
+```haskell
+updateObjects :: [Object] -> SF () [Object]
+updateObjects objs =  parB . fmap (updateObject objs ) $ objs
+
+updateObject :: [Object] -> Object -> SF () Object
+updateObject objs obj0 =
+  proc () -> do
+    obj  <- gravity (objs, obj0) -< ()
+    returnA -< obj
+
+gravity :: ([Object], Object) -> SF () Object
+gravity (objs, obj0) =
+  proc () -> do
+    let
+      mtxs0 = view transforms obj0
+      mtx0 = mtxs0!!0
+
+      v0 = view velocity obj0
+      m0 = view mass obj0
+      ps = fmap (view (_w._xyz) . head . (view transforms)) objs :: [V3 Double]
+      ms = fmap (view mass) objs :: [Double]
+      
+      p0 = view (_w._xyz) mtx0
+      s  = 100000000000000.0
+      a0 = foldr1 (^+^) $ fmap ((s *^) . gravity' p0 m0) $ zip ps ms :: V3 Double
+
+    acc  <- ((view velocity obj0) ^+^) ^<< integral -< a0
+
+    let mtx =
+          mkTransformationMat
+            rot
+            tr
+            where
+              rot = (view _m33 mtx0)
+              tr  = acc
+              
+    returnA -< obj0 { _transforms = [mtx] }
+
+g = 6.673**(-11.0) :: Double    
+  
+gravity' :: V3 Double -> Double -> (V3 Double, Double) -> V3 Double
+gravity' p0 m0 (p1, m1) = acc
+  where
+    dir  = p1 ^-^ p0                 :: V3 Double
+    dist = 0.01 + norm (DT.trace (""dir :"" ++ show dir) $ dir)                  :: Double
+    f    = g * m0 * m1   dist**2.0   :: Double
+    acc  = (f   m1) *^ (dir ^  dist) :: V3 Double
+-- | F = G*@mass*m2 (dist^2);          Newton's gravity equation
+-- | a += (F @mass)*normalize(dir);    Acceleration
+```
+
+Do you see any obvious mistake that would lead to such behavior?
+
+Cheers,
+Vlad",1,1,0,7
+ivanperez-keera/Yampa,171,Sampling frequency of mouse motion events.,"Hey guys,  is there a way to control the frequency at which mouse motion is being sampled in Yampa or Bear River?
+
+It feels like the event stream is too dense, when I move the mouse and I could easily have less events, as the app is reacting to the relative mouse motion.
+
+Just to clarify: when I rotate the camera with the keyboard cursor keys, it behaves as expected, but when I move the mouse, it almost feels like the app is trying to react too detailed to every position change of the mouse motion, it feels like it's lagging trying to process too many samples.
+
+
+Does it sound familiar?  Can I fix it by controlling the sampling frequency? 
+
+Cheers, 
+Vlad",0,0,0,5
+ivanperez-keera/Yampa,170,Typo in haddoc,,0,0,0,1
+ivanperez-keera/Yampa,169,Update gitignore wrt. the gitignore project. Refs #158,"Update gitignore wrt. the gitignore project. Refs #158
+
+### Problem
+The file https:  raw.githubusercontent.com github gitignore master Haskell.gitignore contains many more entries than the `.gitignore` file in the top dir.
+
+This has recently started being a problem because new versions of cabal (?) generate additional files not included in that `.gitignore`.
+
+### Solution
+Updated the `.gitignore` file to merge the records taken from the gitignore project (under `Taken from the gitignore project`) with the preexisting ones (under `Others`)",0,0,0,2
+ivanperez-keera/Yampa,168,Update gitignore wrt. the gitignore project. Refs #158,"Update gitignore wrt. the gitignore project. Refs #158
+
+### Problem
+The file https:  raw.githubusercontent.com github gitignore master Haskell.gitignore contains many more entries than the `.gitignore` file in the top dir.
+
+This has recently started being a problem because new versions of cabal (?) generate additional files not included in that `.gitignore`.
+
+### Solution
+Updated the `.gitignore` file to merge the records taken from the gitignore project (under `Taken from the gitignore project`) with the preexisting ones (under `Others`)",0,0,0,1
+ivanperez-keera/Yampa,167,Create benchmark,"One of the main reasons for Yampa to have changed very little, and for so many PRs to take so long to integrate, is trying to make sure that we do not seriously impact performance or break the API when we do that.
+
+We need a series of benchmarks for Yampa that allow us to 1) measure performance, and 2) compare performance, both to prior implementations and, potentially, to other FRP implementations. Of course, if they are very different, that may be really hard and need to be addressed separately.
+
+I'm creating this issue to document this line of work and have a way to track progress in this direction.
+
+This is also relevant for: https:  github.com ivanperez-keera dunai issues 233",2,2,0,3
+ivanperez-keera/Yampa,166,Is it possible to create a state snapshot?,"I'm making a multiplayer game and I want to be able to create a state snapshot so that I can go back in time and reapply input deltas to handle lag, client side prediction etc...
+
+Is it possible to make a copy   snapshot of `ReactHandle` and then later rewrite the original `ReactHandle` with an older snapshot?
+
+I've heard there was a function in previous versions of Yampa called `age` or something which would allow for such shenanigans, but I can't find anything like it in the current version.",0,0,0,11
+ivanperez-keera/Yampa,165,Fixed pang-a-lambda link. Closes #162,,0,0,0,1
+ivanperez-keera/Yampa,164,Notice in readme about LaneWars,"[Lane Wars](https:  github.com Mattiemus LaneWars) is a multiplayer MOBA written using Haskell, Yampa, and SDL. This seems to fit the bill perfectly to be added to the readme as an example on how to do multiplayer in yampa.",2,2,0,0
+ivanperez-keera/Yampa,163,Added notice to README about LaneWars,I found this game while browsing around and thought it would be a useful learning resource to put here,0,0,0,4
+ivanperez-keera/Yampa,162,pang-a-lambda in readme on github,"Hi! I have been looking at `pang-a-lambda` for the last week and it's taught me a lot, so thanks a lot for writing it! But it's only available on hackage right now, the github link in the yampa readme is dead. I assume this is because it doesn't build any more, but maybe we could just make the link point to hackage instead, or maybe have a archived github repo with it in.",0,0,0,2
+ivanperez-keera/Yampa,161,Rename Prop to SP,"The Prop name in Yampa-test is partly inaccurate, since it is a quantified propostion, or predicate. So a different name might be better (e.g., `SP` for signal predicate).",0,0,0,0
+ivanperez-keera/Yampa,160,Adding the bearriver arcade to readme,"In https:  github.com ivanperez-keera dunai issues 223, @walseb announced a series of examples built on top of bearriver, making them also Yampa compatible.
+
+These could be added to Yampa's README.",0,0,0,0
+ivanperez-keera/Yampa,159,Provide Yampa in Stackage?,I checked both https:  www.stackage.org lts-15.14 and https:  www.stackage.org nightly-2020-05-26 and Yampa is in neither. Is there a reason why? I built Yampa for myself just fine using `stack` with LTS-15.14.,0,0,0,1
+ivanperez-keera/Yampa,158,Update gitignore wrt. the gitignore project,"The file https:  raw.githubusercontent.com github gitignore master Haskell.gitignore contains many more entries than the `.gitignore` file in the top dir.
+
+This has recently started being a problem because new versions of cabal (?) generate additional  files not included in that `.gitignore`.
+",0,0,0,5
+ivanperez-keera/Yampa,157,Added notice to readme about the bearriver arcade,https:  github.com ivanperez-keera dunai issues 223,0,0,0,5
+ivanperez-keera/Yampa,156,Version of GHC 8.8 used by travis is outdated,"The travis build uses 8.8.1, but 8.8.3 is out.",0,0,0,0
+ivanperez-keera/Yampa,155,Added notice about implementing vector space using linear,"As discussed ivanperez-keera Yampa#132
+I wasn't sure where to put it in `Yampa.hs` so I just put it after the only mention of `integral`",0,0,0,1
+ivanperez-keera/Yampa,154,Support GHC 8.10,"GHC 8.10 is out, so it would be appropriate to add it to the battery of tests in the travis file.
+
+If the travis build fails, it would be necessary to fix the errors before the pull request can be accepted.
+
+This is a simple issue, so I'm listing it for beginners so that someone new can make their first contribution. If you do so, I ask you to, please, document your change well also in the commit message so that, even if we move out of github in the future or a new maintainer comes in, things are properly documented :)",0,0,0,0
+ivanperez-keera/Yampa,153,List dunai in related projects,"Dunai, and more so bearriver, is very related to Yampa, and it could be helpful to list it in the README as one of the related projects.
+
+This is a simple issue, so I'm listing it for beginners so that someone new can make their first contribution. If you do so, I ask you to, please, document your change well also in the commit message (including why dunai and bearriver are related to Yampa) so that, even if we move out of github in the future or a new maintainer comes in, things are properly documented :)",0,0,0,0
+ivanperez-keera/Yampa,152,Example in README contains error,"The example I just introduced in the readme contains a minor error.
+
+The output function should return `False` to continue forever.",0,0,0,0
+ivanperez-keera/Yampa,151,Document Hello Yampa in README,"Yampa is surprisingly simple to get going, and yet we do not have any sensible explanation for newcomers.
+
+We should have something in the README that helps people get something running in no time.",0,0,0,0
+ivanperez-keera/Yampa,150,Creating and destroying objects,"Hey guys,
+
+I am thinking of adding a feature to create and destroy objects.  Just conceptualizing here.  I've got the game-state described as the following:
+```haskell
+data Game =
+     Game
+     {
+       _options  :: Options
+     , _gStg     :: Stage
+     , _objects  :: [Object]
+     , _camera   :: Camera
+     } deriving Show
+```
+I would like to be able to change the number of objects at run-time, as a response to some event.  Is not it simply the matter of switching to a game-state copy with a different number of objects, possibly copying a subset of objects from the original game-state to the new state?  Or is it more complicated than that?
+
+I see the problem discussed in ""Functional Reactive Programming, Refactored"", I wonder how does it work in Yampa? 
+
+
+Thanks,
+Vlad",0,0,0,3
+ivanperez-keera/Yampa,149,Tags file not being ingored,"To navigate the codebase, it is useful to have a `tags` file around.
+
+This file, however, should not be tracked by git.",0,0,0,0
+ivanperez-keera/Yampa,148,Release yampa-test 0.2,Release version using tasty for testing.,0,0,0,0
+ivanperez-keera/Yampa,147,Release Yampa 0.13.1,"Yampa has seen improvements recently in terms of simplified testing and better support for GHC 8.8.
+
+As noted by @RyanGlScott in #143 , it would be useful to release a new version without delay.",0,0,0,1
+ivanperez-keera/Yampa,146,Use tasty in yampa-test,This allows us to get rid of the `cabal-test-quickcheck` dependency. See the discussion starting at https:  github.com ivanperez-keera Yampa pull 143#issuecomment-539100674.,0,0,0,0
+ivanperez-keera/Yampa,145,Should travis allow the GHC 8.6 case to fail?,"The `.travis.yml` file currently states that the test with GHC 8.6 is allowed to fail. But should it be?
+
+Since 8.6 was initially included in `.travis.yml`, the compiler has matured and even 8.8 has been released now. Compilation seems to consistently succeed for that version: https:  travis-ci.org ivanperez-keera Yampa builds 594563304
+
+I believe compilation should no longer be allowed to fail with 8.6, and perhaps it should be with 8.8 (#141), as per https:  github.com ivanperez-keera Yampa pull 143#issuecomment-539100674.",0,0,0,0
+ivanperez-keera/Yampa,144,Configures Travis to test with GHC 8.6.5,Resolves: https:  github.com ivanperez-keera Yampa issues 142,0,0,0,0
+ivanperez-keera/Yampa,143,Configure Travis to test with GHC 8.8.1,"If I understand correctly, this addresses:
+
+https:  github.com ivanperez-keera Yampa issues 141",0,0,0,14
+ivanperez-keera/Yampa,142,Travis compiles against old (minor) versions of GHC,"The travis file is set up to compile Yampa with GHC 8.6.1, but there's 8.6.5 already.
+
+This should be replaced.",0,0,0,0
+ivanperez-keera/Yampa,141,Travis does not compile Yampa with GHC 8.8,"GHC 8.8 is out, and Yampa works fine with it, but travis does not check that yet.",0,0,0,0
+ivanperez-keera/Yampa,140,Allow building with GHC 8.8,"`Yampa` needs some slight tweaking to adapt to the `MonadFail` proposal, which was completed in `base-4.13`.",0,0,0,2
+ivanperez-keera/Yampa,139,Peoplemon image is too small,"The Peoplemon image introduced in #136 is a bit too small, but could be as big as haskanoid's.",0,0,0,0
+ivanperez-keera/Yampa,138,Going backwards in time,"Hey guys,
+
+Is it possible to make time go backwards with Yampa?  An example of that would be running a simulation and then playing backwards in time.  Or a game that could ""go backwards"" in order to replay a moment.  Any ideas where to start with something like that?
+
+
+Cheers,
+Vlad",0,0,0,3
+ivanperez-keera/Yampa,137,Cannot make elevator example work,"I'm having a problem compiling the elevator example.
+
+This is what I get:
+```
+$ cabal exec -- ghci TestElevatorMain.hs
+Warning: The exec command is a part of the legacy v1 style of cabal usage.
+
+Please switch to using either the new project style and the new-exec command
+or the legacy v1-exec alias as new-style projects will become the default in
+the next version of cabal-install. Please file a bug if you cannot replicate a
+working v1- use case with the new-style commands.
+
+For more information, see: https:  wiki.haskell.org Cabal NewBuild
+
+GHCi, version 8.6.5: http:  www.haskell.org ghc   :? for help
+[1 of 2] Compiling Elevator         ( Elevator.hs, interpreted )
+
+Elevator.hs:21:1: error:
+    Could not find module ‘FRP.Yampa.Utilities’
+    Use -v to see a list of the files searched for.
+   |
+21 | import FRP.Yampa.Utilities -- ((^<<), dHold)
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Failed, no modules loaded.
+```
+
+What should I do?",0,0,0,1
+ivanperez-keera/Yampa,136,Link to peoplemon,"Alex Stuart recently released a new game that is pretty cool:
+
+https:  linearity.itch.io peoplemon
+
+This is a great example of Yampa, and should be linked to from the README, possibly together with a screen capture in GIF.",1,1,0,0
+ivanperez-keera/Yampa,135,How is the state of Yampa ? ,"Hi, I'm considering introducing a FRP library in the company I'm working for. Latest commit is 729d730  on Nov 14, 2018 (almost a year without changes), are you still under active development ?",0,0,0,2
+ivanperez-keera/Yampa,134,3D camera example,"Hey guys,
+
+I am struggling implementing interactive 3D camera controls.  Is there an example of it somewhere?
+
+
+Thanks,
+Vlad",0,0,0,7
+ivanperez-keera/Yampa,133,Simultaneous key events?,"Hey, guys
+
+So far I have come up with the following piece of code that's supposed to register and combine simultaneous key events:
+
+```haskell
+updateTransform :: M44 Double -> V4 Double -> Keys -> SF AppInput (M44 Double)
+updateTransform mtx0 vel0 keys0 =
+  -- | foldrWith mtx0 keys - for every key apply a folding transform to mtx0
+  -- | in case of keypress event - update the set of keys and call new fold ^
+  switch sf cont
+    where
+      sf = proc input -> do
+        mtx'<- fromKeys mtx0 keys0 -< ()
+        tr  <- --DT.trace (""tr   :"" ++ show (view translation (mtx0)) ++ ""\n"") $
+               --DT.trace (""mtx0 :"" ++ show (transpose mtx0) ++ ""\n"") $
+               ((view translation mtx0) ^+^) ^<< integral -< (view translation mtx')
+
+        let mtx = mkTransformationMat (identity::M33 Double) (tr) --(V3 0 0.5 0) --(view translation mtx')
+
+        keyWp     <- key SDL.ScancodeW     ""Pressed""  -< input
+        keyWr     <- key SDL.ScancodeW     ""Released"" -< input
+        keySp     <- key SDL.ScancodeS     ""Pressed""  -< input
+        keySr     <- key SDL.ScancodeS     ""Released"" -< input
+        keyAp     <- key SDL.ScancodeA     ""Pressed""  -< input
+        keyAr     <- key SDL.ScancodeA     ""Released"" -< input
+        keyDp     <- key SDL.ScancodeD     ""Pressed""  -< input
+        keyDr     <- key SDL.ScancodeD     ""Released"" -< input
+                                                      
+        keyQp     <- key SDL.ScancodeQ     ""Pressed""  -< input
+        keyQr     <- key SDL.ScancodeQ     ""Released"" -< input
+        keyEp     <- key SDL.ScancodeE     ""Pressed""  -< input
+        keyEr     <- key SDL.ScancodeE     ""Released"" -< input
+        keyZp     <- key SDL.ScancodeZ     ""Pressed""  -< input
+        keyZr     <- key SDL.ScancodeZ     ""Released"" -< input
+        keyXp     <- key SDL.ScancodeX     ""Pressed""  -< input
+        keyXr     <- key SDL.ScancodeX     ""Released"" -< input
+        
+        keyUpP    <- key SDL.ScancodeUp    ""Pressed""  -< input
+        keyUpR    <- key SDL.ScancodeUp    ""Released"" -< input
+        keyDownP  <- key SDL.ScancodeDown  ""Pressed""  -< input
+        keyDownR  <- key SDL.ScancodeDown  ""Released"" -< input
+        keyLeftP  <- key SDL.ScancodeLeft  ""Pressed""  -< input
+        keyLeftR  <- key SDL.ScancodeLeft  ""Released"" -< input
+        keyRightP <- key SDL.ScancodeRight ""Pressed""  -< input
+        keyRightR <- key SDL.ScancodeRight ""Released"" -< input
+        
+        let result = ( mtx
+                  , Keys
+                    ( keyEvent keyWp      keyWr     )
+                    ( keyEvent keySp      keySr     )
+                    ( keyEvent keyAp      keyAr     )
+                    ( keyEvent keyDp      keyDr     )
+                    ( keyEvent keyQp      keyQr     )
+                    ( keyEvent keyEp      keyEr     )
+                    ( keyEvent keyZp      keyZr     )
+                    ( keyEvent keyXp      keyXr     )
+                    ( keyEvent keyUpP     keyUpR    )
+                    ( keyEvent keyDownP   keyDownR  )
+                    ( keyEvent keyLeftP   keyLeftR  )
+                    ( keyEvent keyRightP  keyRightR ) )
+
+        returnA -< ( mtx
+                   , mergeEvents -- catEvents - seems to make no difference...
+                     [ keyWp,     keyWr
+                     , keySp,     keySr
+                     , keyAp,     keyAr
+                     , keyDp,     keyDr
+                     , keyQp,     keyQr
+                     , keyEp,     keyEr 
+                     , keyZp,     keyZr 
+                     , keyXp,     keyXr
+                     , keyUpP,    keyUpR
+                     , keyDownP,  keyDownR
+                     , keyLeftP,  keyLeftR
+                     , keyRightP, keyRightR ]
+                     `tag` result) -- :: (M44 Double, Event (M44 Double))
+                     --`tag` (DT.trace (""result: "" ++ show result)) result) -- :: (M44 Double, Event (M44 Double))
+
+      cont (mtx, keys) = updateTransform mtx vel0 keys -- undefined --fromKeys mtx keys
+
+```
+[actual code](https:  github.com madjestic e1337 blob master app Main.hs#L137)
+
+The problem is that though I can support many keys this way, simultaneous key presses do not work - the system always registers a single key-press.
+
+Whenever I trace the `Key ...` record from`result` from the last 2 lines of the code-snippet above, the record never has more than 1 `True` entries, even though I expect that 
+```haskell
+let result = ( mtx
+                  , Keys
+                    ( keyEvent keyWp      keyWr     )
+                    ( keyEvent keySp      keySr     )
+                    ( keyEvent keyAp      keyAr     )
+...
+```
+should make the `Key ...` record from `result` include as many `True` entries as there are keys pressed respectively. 
+
+How can I make multiple key-presses work?
+
+P.S. I used `xev` software to find out that my system supports up to 4 key presses at once.
+
+
+Thanks,
+Vlad",0,0,0,5
+ivanperez-keera/Yampa,132,combining Yampa with Linear and other questions,"Hey guys,
+
+I decided to try `linear` as a library for matrexy vectory stuff because it is using unboxed values which promises a better performance, but now I have to jump loops to integrate it into Yampa - they use same names for operators (e.g. `^+^`) and others, so I have to think what I need to hide and what to expose and how to compose...
+
+How do you usually do that?  Do you combine yampa with 3rd party libs, or do you use yampa itself for mathy business like that?  How is the performance?  Does yampa use unboxed values?  Does it matter and why?
+
+So many questions, but, basically, what's the rule of the thumb here?
+
+
+Cheers,
+Vlad",0,0,0,11
+ivanperez-keera/Yampa,131,key press events if case idiom?,"Hey guys,
+
+I am working on a piece of code, that is supposed to update the transformation matrix, based on a number of key-events.  Such as, pressing 'A' should offset the matrix along negative x-axis, 'D' - the opposite, etc.
+
+At the moment I've got the following piece of code:
+```haskell
+            cont (x, keyW, keyS, keyA, keyD, keyQ, keyE, keyUp, keyDown, keyLeft, keyRight) =
+        if | isEvent keyW -> translateMatrix x (V4 ( 0.0) ( 0.0) ( 0.1) ( 0.0)) -- forwards
+           | isEvent keyS -> translateMatrix x (V4 ( 0.0) ( 0.0) (-0.1) ( 0.0)) -- backwards
+           | isEvent keyA -> translateMatrix x (V4 (-0.1) ( 0.0) ( 0.0) ( 0.0)) -- str.left
+           | isEvent keyD -> translateMatrix x (V4 ( 0.1) ( 0.0) ( 0.0) ( 0.0)) -- str.right
+           | isEvent keyQ     -> rotateMatrix x (Quaternion ( 0.1) (V3 ( 0.0) ( 0.0) ( 1.0))) -- roll left
+           | isEvent keyE     -> rotateMatrix x (Quaternion (-0.1) (V3 ( 0.0) ( 0.0) ( 1.0))) -- roll right
+           | isEvent keyUp    -> rotateMatrix x (Quaternion (-0.1) (V3 ( 1.0) ( 0.0) ( 0.0))) -- pitch up
+           | isEvent keyDown  -> rotateMatrix x (Quaternion ( 0.1) (V3 ( 1.0) ( 0.0) ( 0.0))) -- pitch down
+           | isEvent keyLeft  -> rotateMatrix x (Quaternion ( 0.1) (V3 ( 0.0) ( 1.0) ( 0.0))) -- yaw left
+           | isEvent keyRight -> rotateMatrix x (Quaternion (-0.1) (V3 ( 0.0) ( 1.0) ( 0.0))) -- yaw right
+           | otherwise    -> translateMatrix x (V4 ( 0.0) ( 0.0) ( 0.0) ( 0.0)) -- nothing
+
+```
+
+I wonder if this is an ok way to do it, or, perhaps, there's a better idiom to use for similar cases?
+
+Thanks,
+Vlad",0,0,0,3
+ivanperez-keera/Yampa,130,Is Yampa parallel?,"I have implemented a small program which uses Yampa. I build it using stack with additional ghc-options of ""-threaded -with-rtsopts=-N"" (amongst others). When I execute the program (also using stack), then I see that CPU usage is between 300 and 400%. Thus it seems that my program is utilizing all 4 cores. The funny thing is: I am not using any of the parallel features of Haskell, which leaves the only option that Yampa is doing it. The relevant functions I am using are dpSwitch and embed. I had a quick look at their implementations and they also seem not to use any parallel features. Am I missing something?",0,0,0,3
+ivanperez-keera/Yampa,129,Update stack dependencies,"Make stack understand new dependency, and move to latest LTS from stackage builds with 8.4.4. If you want to have CI CD for multiple GHC versions than you'll need to have multiple stack files with appropriate resolver set. ",0,0,0,1
+ivanperez-keera/Yampa,128,Merge master into develop-games,"With the latest releases (0.13), the current `develop-games` branch is outdated, it needs to merge the most recent changes in `master`.
+
+There are 8 merge conflicts. I will start and try to solve them.",0,0,0,1
+ivanperez-keera/Yampa,127,Release 0.13,"Just to keep track of changes that relate to the release itself.
+* Branch off develop.
+* Document changes.
+* Bump version number.
+* Hide expose-core flag.
+* Push to github.
+* Confirm compilation with Travis CI.
+* Fix issues, if any.
+* Merge into master.
+* Compile, test and cabal check locally.
+* Push, wait for successful upload.
+* Tag version.
+* Merge into develop.
+* Re-introduce expose-core flag.
+* Push all branches and tags.",0,0,0,0
+ivanperez-keera/Yampa,126,Merge master into develop-games,"I think, that with the latest releases, the current `develop-games` is outdated, it needs to merge the most recent changes in `master`.
+
+There is only one merge conflict, that can be solved easily. If wanted I think I can merge.",0,0,0,0
+ivanperez-keera/Yampa,125,Depend on released simple-affine-space,"The sublibrary simple-affine-space has been released on hackage, and we can now depend on it.",0,0,0,0
+ivanperez-keera/Yampa,124,Document the existence of a Keera Hails backend,"The library Hails includes a connection that allows one to connect FRP SFs to discrete reactive systems.
+
+This should be documented in the readme with a link to the project folder.",0,0,0,0
+ivanperez-keera/Yampa,123,Submit HCAR 2018-11,Prepare and submit the next HCAR,0,0,0,0
+ivanperez-keera/Yampa,122,Support GHC 8.6,"A new GHC, version 8.6.1, is out. While this seems to be marked unstable for the time being, it would be useful to start supporting it (including it in the travis file and modifying the cabal and stack files accordingly).",0,0,0,1
+ivanperez-keera/Yampa,121,Adapt stack file to include new dependency,"Yampa now includes a new dependency, simple-affine-space, to be published on hackage.
+
+Should the stack file reflect this change?",0,0,0,10
+ivanperez-keera/Yampa,120,Move FRP.Yampa.Core out,"The Core module is very informative, but is serves no functional purpose. It simply re-exports definitions.
+
+It could be moved into examples or extensions.",0,0,0,0
+ivanperez-keera/Yampa,119,Replace maintainer,Henrik remains as maintainer of some source files. It should be replaced everywhere.,0,0,0,0
+ivanperez-keera/Yampa,118,Fix broken tests,The test suite will be broken until the monadic combinators are included in a new release of IfElse.,0,0,0,0
+ivanperez-keera/Yampa,117,Build hotfix-* and develop-* branches on Travis,"It would be very useful to have Travis check branches before they are merged without sending a PR.
+
+Since some branches are already checked, we'd only need to check develop-* and hotfix-* on top of what's already there.",0,0,0,0
+ivanperez-keera/Yampa,116,Simplily FRP.Yampa.Miscellany,"The miscellany module has a name that does not help.
+
+It also has functions that may be written with a simpler, functorial interface.",0,0,0,0
+ivanperez-keera/Yampa,115,Deprecate monad-generic functions in FRP.Yampa.Task,"The module FRP.Yampa.Task contains several functions (e.g., `forEver`) defined in Control.Monad or Control.Monad.IfElse. They should be marked as deprecated and or removed.",0,0,0,0
+ivanperez-keera/Yampa,114,Move sampleWindow into a different module.,"The function sampleWindow, which is an FRP construct, is in a module called Utilities, which seems like a very bad name.
+
+This module is also incorrectly marked as old legacy code.
+
+The function should be moved and the module removed.",0,0,0,0
+ivanperez-keera/Yampa,113,Hide FRP.Yampa.Diagnostics,"The module FRP.Yampa.Diagnostics contains helper functions for error reporting, but this is not part of Yampa's main ""objective"" and should not be part of Yampa's API.",0,0,0,0
+ivanperez-keera/Yampa,112,Remove deprecated constructs in Miscellany,"There are multiple deprecated definitions in FRP.Yampa.Miscellany that were deprecated long ago.
+
+They can be removed now.",0,0,0,0
+ivanperez-keera/Yampa,111,Remove FRP.Yampa.Internals,"This module was present in Yampa's original implementation, but it no longer makes sense. For a long time now it has just re-exported an existing definition.
+
+It can be removed.",0,0,0,0
+ivanperez-keera/Yampa,110,Cleaning and documenting.,General cleaning and documenting tasks.,0,0,0,0
+ivanperez-keera/Yampa,109,Publish yampa-test-0.1.1,Publish version with hotfix due to #108 .,0,0,0,0
+ivanperez-keera/Yampa,108,yampa-test: incomplete pattern for evalT in LTLFuture,The function [`evalT` in Yampa extensions testing src FRP Yampa LTLFuture.hs (Line 41)](https:  github.com ivanperez-keera Yampa blob 6bb754c542ad0ac34b1629aa9718e2e2d6558df5 extensions testing src FRP Yampa LTLFuture.hs#L41) does not match on the `TPred` `Not`.,0,0,0,0
+ivanperez-keera/Yampa,107,Update ghc version to 8.4.4,"Found this through the Hacktoberfest label and figured this was an easy thing to do. I also changed the condition on line 25, even though it was not mentioned in issue #106, but it seemed logical to do so as well.",0,0,0,1
+ivanperez-keera/Yampa,106,Update ghc-version in travis file,"The [travis file](https:  github.com ivanperez-keera Yampa blob develop .travis.yml) can be updated:
+
+ - 8.4.1 should be 8.4.4
+- The [condition in line 40](https:  github.com ivanperez-keera Yampa blob 7f6024699aa29886d9f6b56a7e05793206d2bdfc .travis.yml#L40) should be updated with respect to the change above.",0,0,0,0
+ivanperez-keera/Yampa,105,Release Yampa 0.12,"Just to keep track of changes that relate to the release itself.
+* Branch off develop.
+* Document changes.
+* Bump version number.
+* Hide expose-core flag.
+* Push to github.
+* Confirm compilation with Travis CI.
+* Fix issues, if any.
+* Merge into master.
+* Compile, test and cabal check locally.
+* Push, wait for successful upload.
+* Tag version.
+* Merge into develop.
+* Re-introduce expose-core flag.
+* Push all branches and tags.",0,0,0,1
+ivanperez-keera/Yampa,104,Document testing library before release,"* Document cabal file.
+* Add documentation to the main README.",0,0,0,0
+ivanperez-keera/Yampa,103,Include quickcheck-based testing facilities ,"The 2017 ICFP paper ""Testing and Debugging Functional Reactive Programming"" describes a number of testing facilities that were never pushed to the public Yampa master branch.
+
+These should be included.",0,0,0,0
+ivanperez-keera/Yampa,102,Develop testing,"* Adds a project in examples with all the testing facilities described in the 2017 ICFP paper.
+* Publishes the necessary parts of the API to make everything work.",0,0,0,0
+ivanperez-keera/Yampa,101,Is the evaluation of `Eventually` correct? (testing: LTLFuture.hs),"Hi,
+
+while I was using [evalT](https:  github.com ivanperez-keera Yampa blob adb0331df756a9ace8db3df55d7b6873c0fe4f5b examples testing src FRP Yampa LTLFuture.hs#L44-L65), I came up with the following problem:
+
+# Problem
+
+```
+check :: Bool
+check = evalT myTPred (1,[])
+
+myTPred :: TPred Int
+myTPred = Eventually (Prop dummySF)
+
+dummySF :: SF Int Bool
+dummySF = proc i -> returnA -< (i `mod` 2 == 0)
+```
+Expectation: `check == False` since there is no even number in the stream.
+Actual:  `check == True`
+
+See below 'Quick evaluation' or skip to 'Result   Question'
+
+# Quick evaluation
+```
+evalT (Eventaully (Prop dummySF)) (1,[])
+
+{ apply evalT }
+(\stream -> evalT (Prop dummySF) stream || evalT (Next (Eventually (Prop dummySF)) stream)) (1, [])
+
+{ apply \stream }
+evalT (Prop dummySF) (1,[]) || evalT (Next (Eventually (Prop dummySF)) (1, []))
+
+{ apply first evalT }
+(\stream -> firstSample $ fst $ evalSF dummySF stream) (1,[]) || evalT (Next (Eventually (Prop dummySF)) (1, []))
+
+{ apply \stream }
+(firstSample $ fst $ evalSF dummySF (1,[])) || evalT (Next (Eventually (Prop dummySF)) (1, []))
+
+{ skip evaluation of first argument of 'or' --- result received via terminal }
+(False) || evalT (Next (Eventually (Prop dummySF)) (1, []))
+
+{ if the first argument of the 'or' is False, then the result only depends on the second argument }
+evalT (Next (Eventually (Prop dummySF)) (1, []))
+
+{ apply evalT }
+(\stream -> case stream of
+           (a, []) -> True
+           [...]
+) (1, [])
+
+{ apply \stream and apply case, that is the first case holds (since the list is empty) }
+True
+```
+
+# Result   Question
+
+What's going on in the implementation of [evalT for 'Next' in Line 57](https:  github.com ivanperez-keera Yampa blob adb0331df756a9ace8db3df55d7b6873c0fe4f5b examples testing src FRP Yampa LTLFuture.hs#L56-L65).
+Isn't it `False` for `Eventually`   does it need to check the property for the last sample?
+
+Best,
+Christina
+",0,0,0,0
+ivanperez-keera/Yampa,100,Having own cabal file for examples,"Hi, 
+
+Is it possible to simplify the content of `Yampa.cabal` file to just contain Yampa and its test suite? From my pov, I think if we move the executable (examples) into `yampa-example.cabal` inside examples folder, then we can have much clearer cabal file. With this separation, it will be easier to setup installation procedure wrt #99.
+
+Thanks,
+R
+
+",0,0,0,3
+ivanperez-keera/Yampa,99,Adding Installation step into readme file,"Hi,
+
+As you know that right now, haskell community has 3 ways of installing haskell package.
+1. Stack
+2. Cabal (with its new-build feature)
+3. Nix
+
+Is it possible to address the number 2 and 3 in the above list? By adding `cabal.project` and `default.nix + shell.nix`.
+
+For  cabal with `new-build` feature we can simply add the `cabal.project` file, so people will just need to for and do `cabal new-build`. I think I have share the benefit of this new feature.
+
+For nix, we can have `default.nix` and `shell.nix`. In short, `shell.nix` will wrapped us into sandbox environment which contain ghc and or ghcjs, together with Yampa library. So we can play with Yampa and its examples without having to install it into our global system for further explanation [here](https:  nixos.org nix manual #idm140737318496752).
+
+Despite of those 2 files can be added manually after cloning Yampa, I think it will be easier for Yampa to have it in its repo.",0,0,0,5
+ivanperez-keera/Yampa,98,How to play background music?,"I would like to add some simple background music to a game - how can I do that?  Any code examples?
+
+Thanks,
+Vlad",0,0,0,3
+ivanperez-keera/Yampa,97,Merge master into develop-games,"With the latest releases, the current `develop-games` is outdated, it needs to merge the most recent changes in `master`.",0,0,0,0
+ivanperez-keera/Yampa,96,Fixes (stylistic) typos and improves README,Closes #95 .,0,0,0,0
+ivanperez-keera/Yampa,95,(Stylistic) typos and improvement in README,"In the 'Papers and technical reports' section of the README are some stylistic typos and an improvement can be made.
+
+- Titles should be in upper case, but are in lower case letters.
+- In 'The Yampa Arcade' contains a comma that should be a semi-colon.
+- The third point of 'See also:' should be
+    - [First Year PhD Report](http:  www.cs.nott.ac.uk ~psxip1 papers 2014-Perez
+      -1st-year-report.pdf) (Ivan Perez, 2014), chapter 3 includes a review of
+      FRP and outlines some existing issues.
+",0,0,0,0
+ivanperez-keera/Yampa,94,multiple continuation function,"Hey guys,
+
+Some time ago Ivan was explaining to me how to do multiple continuation functions in Yampa.  That can be useful for adding menus to a game for example:
+
+(a snippet from Ivan:)
+```
+{-# LANGUAGE MultiWayIf  #-}
+{-# LANGUAGE Arrows #-}
+import FRP.Yampa
+
+sfTest :: Double -> SF AppInput Double
+sfTest k0 = switch sf cont
+  where
+
+    sf = proc input -> do
+      pressHoldSpaceE <- pressHoldSpace -< input
+      pressHoldLeftE  <- pressHoldLeft  -< input
+      let res :: (Double, Event (), Event ())
+          res = (k0, pressHoldSpaceE, pressHoldLeftE)
+      returnA -< (k0, pressHoldSpaceE `tag` res)
+
+    cont (x,phse, phle) = if | isEvent phse -> contSF1 (x)
+                             | isEvent phle -> contSF2 (x)
+                             | otherwise    -> contSF3 (x)
+
+sfTest' :: Double -> SF AppInput Double
+sfTest' k0 = proc input -> do
+  pressHoldSpaceE <- pressHoldSpace -< input
+  pressHoldLeftE  <- pressHoldLeft  -< input
+  case (pressHoldSpaceE, pressHoldLeftE) of
+    (Event (), _)        -> contSF1 k0 -< input
+    (_,        Event ()) -> contSF2 k0 -< input
+    _                    -> returnA    -< k0
+
+data AppInput = AppInput
+
+pressHoldSpace = undefined
+pressHoldLeft = undefined
+contSF1 = undefined
+contSF2 = undefined
+contSF3 = undefined
+```
+(a comment from Ivan:)
+They have different behaviour, and different memory requirements.
+
+When you switch, the initial SF is lost, and a new continuation started.
+
+When you use case if (ArrowChoice), all SF are kept in memory, and the choice is made dynamically based on the condition.
+
+Imagine that you have an SF that determines which part of the game you need to be in.
+
+```
+-- Predefined
+gamePlay :: SF (Controller, GameState) GameState
+gameFinished :: SF (Controller, GameState) GameState
+gameMenu :: SF (Controller, GameState) GameState
+
+data GameStage = GamePlaying | GameFinished | GameMenu
+gameStage :: GameState -> GameStage
+
+-- Main SF you write
+mainGame :: SF Controller GameState
+mainGame = loopPre defaultGameState $
+  proc (controller, lastGameState) -> do
+    gs <- case gameStage lastGameState of
+            GamePlaying  -> gamePlay     -< controller
+            GameFinished -> gameFinished -< controller
+            GameMenu     -> gameMenu     -< controller
+    returnA -< (gs, gs)
+```
+
+The idea is that each SF progresses the game from the last state to the next one, and each implements one stage phase: playing, menus, etc.
+
+Now, imagine that you gave several menus: main menu, start, character selection, track selection. The idea being that you start in the first menu and go from one to the next. This is implemented by gameMenu, so it simply lets you move across the whole menu system. You don't know which submenu you are in in mainGame, but gameMenu knows, locally, which menu you were last in.
+
+Now, the first time you transition from menu to play, you start the gamePlay SF from scratch. But if you go back to menu, you resume from the last menu you were in because gameMenu is not restarted, but simply turned back on from where it was (with its own internal state).
+
+If you had used switch, then gameMenu would be started again from scratch, so you'd go back to the main menu every time.
+
+So, using ArrowChoice does not restart the SFs, and consumes more memory.
+
+Hope this helps
+
+",0,0,0,4
+ivanperez-keera/Yampa,93,Leak in ArrowChoice implementation,"The current implementation of `ArrowChoice` leaks.
+
+It is implemented by overloading `left`, but the default implementation of `<+++>` based on this is very inefficient.
+
+This makes programs that use `case` or `if` inside blocks leak (not always, but often).",0,0,0,0
+ivanperez-keera/Yampa,92,List publications related to Yampa #85,"issue #85 
+To fix this issue I modified the following section: https:  github.com tresormuta Yampa#documentation-and-tutorials of README.md file by listing papers about Yampa  and their direct download link.
+In this list, papers are sorted by date from most recent to least recent, and are associated to their authors. ",0,0,0,0
+ivanperez-keera/Yampa,91,How to preserve state throughout the iterations?,"Following the advice that @ivanperez-keera gave me in #90 , I've managed to setup something that works:
+
+![ezgif-2-c078ba9b2f](https:  user-images.githubusercontent.com 7448243 42405075-622a49ea-8188-11e8-91bb-80c543e2c8f1.gif)
+
+What I'm trying to achieve is that with the press of each key, the triangle would rotate **without going back to the initial position**.
+
+What happens is that the state is not preserved throughout the iterations because my main `SF` is
+
+```haskell
+type Game = ObjectInput ~> GameState   -- (~>) is SF
+
+game' :: GameState -> Game
+game' gs = proc objectInput -> do
+    newObjectStates <- parB initialObjects -< objectInput
+    returnA -< gs
+        { gameStateEntities = map objectOutputState newObjectStates
+        }
+  where
+    initialObjectStates :: [ObjectState]
+    initialObjectStates = gs^.entities
+
+    initialObjects :: [Object]
+    initialObjects = fmap Game.behave initialObjectStates
+```
+
+And I'm calling reactimate like this:
+
+```haskell
+    reactimate
+        -- Initial action
+        ...
+        -- Input sensing action
+        ...
+        -- Output processing action
+        ...
+        -- Signal function
+        (game' gs)
+```
+
+In my opinion it makes sense what is happening, but I have no clue on how to make it properly preserve state.
+
+Of course I could create a `SF (ObjectInput, GameState) GameState`, but it wouldn't make sense, as this is not the Yampa way of doing stuff, is it?
+
+I already tried using the `ArrowLoop` instance, but I would have to make an `SF (Objectinput, GameState) (GameState, GameState)` so I think it doesn't make any sense either.
+
+What would be the best way of handling this situation? :smile: ",0,0,0,22
+ivanperez-keera/Yampa,90,Question: Best way of managing objects in a game?,"I'm currently starting to write a game. After having a simple loop using `IO` I'm gravitating towards Yampa. My main struggle currently is the fact that I don't know how to handle multiple objects.
+
+I've defined an object in my game as:
+
+```haskell
+data ObjectState
+    = CameraState Camera.State
+    | MeshState Mesh.State
+
+data ObjectInput = ObjectInput
+    { objectInputGameInput :: YampaSDL.AppInput
+    }
+
+data ObjectOutput = ObjectOutput
+    { objectOutputState :: ObjectState
+    }
+
+type Object = ObjectInput ~> ObjectOutput
+```
+
+(where `~>` is `SF` according to #87)
+
+Everything is fine for single objects, as I've defined behaviour functions for them. For example, a `Mesh` is always static:
+
+```haskell
+module Mesh where
+
+behave :: State -> Object
+behave cs = proc gameInput ->
+    returnA -< ObjectOutput $ MeshState cs
+```
+
+And the `Camera` reacts to the player input:
+
+```haskell
+module Camera where
+
+behave :: State -> Object
+behave cs = proc objectInput -> do
+    let input = objectInput^.gameInput
+    key <- YampaSDL.anyKeyActive -< input
+    returnA -< ObjectOutput . CameraState $
+        event cs (applyEventToCamera cs) key
+
+applyEventToCamera :: State -> [SDL.Scancode] -> State
+applyEventToCamera cs scanCodes
+    | any dKeyIsPressed scanCodes = cs&rotation%~ (+ 1)
+    | any aKeyIsPressed scanCodes = cs&rotation%~ (+ -1)
+    | otherwise                   = cs
+
+dKeyIsPressed :: SDL.Scancode -> Bool
+dKeyIsPressed SDL.ScancodeD = True
+dKeyIsPressed _ = False
+
+aKeyIsPressed :: SDL.Scancode -> Bool
+aKeyIsPressed SDL.ScancodeA = True
+aKeyIsPressed _ = False
+```
+
+The problem comes when I try to manage all the objects together, I've defined all the stuff related to a `Game` like:
+
+```haskell
+module Game where
+
+data GameInput = GameInput
+    { gameInputInput :: YampaSDL.AppInput
+    }
+
+data GameState = GameState
+    { gameStateEntities :: [ObjectState]
+    , gameStateShouldQuit :: Bool
+    }
+
+type Game   = GameInput ~> GameState
+
+behave :: ObjectState -> Object
+behave (CameraState s) = Camera.behave s
+behave (MeshState s) = Mesh.behave s
+```
+
+Of course, when I try to update the list of `ObjectState`, it is not possible, as `behave` returns an `SF` and not a new state, so doing this, is not feasible:
+
+```haskell
+game' :: GameState -> Game
+game' gs = proc gameInput -> do
+    let newEntities = map (_ . Game.behave) (gs^.entities)
+    returnA -< gs
+        { gameStateEntities = newEntities
+        }
+```
+
+The compiler infers the type `Object -> ObjectState` which is impossible, as `Object` is an `SF`.
+
+What would be the approach here? Am I missing something?
+
+Thanks in advance :smile: 
+
+EDIT: Added module names",0,0,0,3
+ivanperez-keera/Yampa,89, typos of line 128 in src FRP Yampa Simulation.hs  fixed,,0,0,0,1
+ivanperez-keera/Yampa,88,Typos in FRP-Yampa-Simulation documentation,"The hackage documentation for [FRP-Yampa-Simulation](https:  hackage.haskell.org package Yampa-0.11 docs FRP-Yampa-Simulation.html) contains at least two typos.
+
+@tresormuta can you please:
+- Fork the [FRP-Yampa-repository](https:  github.com ivanperez-keera Yampa) 
+- Fix at least the following two typos in `src FRP Yampa Simulation.hs`
+
+   https:  github.com ivanperez-keera Yampa blob master src FRP Yampa Simulation.hs#L128
+   'Actuaction' should be 'Actuation'
+
+   https:  github.com ivanperez-keera Yampa blob master src FRP Yampa Simulation.hs#L20
+   'putput' should be 'output'
+
+- Create a pull request with your fixes.
+
+If you have any questions (regarding forking the repository---which sometimes seems tricky---, changing the documentation, pull request, ...), please write me an e-mail (chriz@keera.co.uk).
+",0,0,0,0
+ivanperez-keera/Yampa,87,Implications of introducing a type-level operator for SF?,"I'm currently learning Yampa and I was wondering what would be the cons of adding a type level operator like `~>`.
+
+I think it would give better mind-mapping for newcomers like me to quickly see that `SF` is actually just a ""special"" function.
+
+So code like this:
+
+```haskell
+alarmSF :: SF SimbotInput (Event ())
+alarmSF ...
+```
+
+would be written like
+
+```haskell
+alarmSF :: SimbotInput ~> Event ()
+alarmSF ...
+```
+
+which gives a better notion of a function in my opinion.
+
+What are your thoughts @ivanperez-keera ? :smile: ",0,0,0,4
+ivanperez-keera/Yampa,86,Fixing typo in Documentation,,0,0,0,0
+ivanperez-keera/Yampa,85,List publications related to Yampa,"We don't have a manual yet, but there's been many papers about Yampa. A great way to get started is to read those papers. They should be listed.
+
+Sources:
+- Henrik Nilsson's website.
+- My Nottingham website.
+- Possibly Antony Courtney's website.
+- Conal Elliott's publications on AFRP.
+- Paul Hudak's publications on AFRP, if any.
+
+Include papers and slides (PDF PPT).",0,0,0,1
+ivanperez-keera/Yampa,84,switch function question,"I've got the following piece of code:
+
+```
+-- fallingBall pos0 vel0
+-- ball with initial position and velocity.
+fallingBall :: Pos2 -> Vel2 -> SF () (Pos2, Vel2)
+fallingBall p0 v0 = proc () -> do
+  v <- (v0 ^+^) ^<< integral -< gee defPhysics
+  p <- (p0 ^+^) ^<< integral -< v
+  returnA -< (p,v)
+
+-- fallingBall' pos0 vel0 ground
+-- This time around, we detect for collisions with the ground given by 'ground',
+-- and record the position, velocity, and the direction normal to the
+-- at the location of the collision.
+-- Carries out a check for each of the four bounds
+fallingBall' :: Pos2 -> Vel2 -> Radius -> Bounds ->
+                SF () ((Pos2, Vel2), Event (Dir2,(Pos2,Vel2)))
+fallingBall' p0 v0 rad bounds = proc () -> do
+  pv@(p,v) <- fallingBall p0 v0 -< ()
+  hitXMin  <- edgeTag (1, 0) -< fst p <= xMin bounds + rad
+  hitYMin  <- edgeTag (0, 1) -< snd p <= yMin bounds + rad
+  hitXMax  <- edgeTag (-1,0) -< fst p >= xMax bounds - rad
+  hitYMax  <- edgeTag (0,-1) -< snd p >= yMax bounds - rad
+  let hitInfo = foldr1 (mergeBy mergeHits) [hitXMin,hitYMin,hitXMax,hitYMax]
+  returnA -< (pv, hitInfo `attach` pv)
+  where
+    mergeHits = (^+^) -- simply add the two collision directions together.
+
+
+-- We use the extra collision information as given by fallingBall' to compute
+-- the new bouncing ball's velocity.
+-- Bounces off all four sides of the screen!
+bouncingBall :: Pos2 -> Vel2 -> COR -> Radius -> Bounds -> SF () (Pos2,Vel2)
+bouncingBall p0 v0 cor rad bounds =
+  bouncingBall' p0 v0
+    where
+      bouncingBall' p0 v0 =
+        switch (fallingBall' p0 v0 rad bounds) $
+          \(dir,(p,v)) -> bouncingBall' p (reflect dir ((-cor) *^ v))
+      reflect l v = (2*(v `dot` l) (l `dot` l)) *^ l ^-^ v
+```
+
+Is it possible to re-write the function ```bouncingBall``` in terms of more canonical (?) 
+```
+switch sf cont
+  where
+    sf  = ...
+      returnA -< ()
+    cont =
+```
+?     
+I feel confused that ```fallingBall :: ... -> SF () ((Pos2, Vel2), Event (Dir2,(Pos2,Vel2)))``` (called by ```bouncingBall```) returns type ```((Pos2, Vel2), Event (Dir2,(Pos2,Vel2)))``` - it has both data and also an event, I do not know how to deal with that inside ``` switch sf cont ``` context.
+
+Any tips?
+Thanks,
+Vlad",0,0,0,3
+ivanperez-keera/Yampa,83,Fix mandelbrot link #81,[Fix mandelbrot link #81](https:  github.com ivanperez-keera Yampa issues 81),0,0,0,1
+ivanperez-keera/Yampa,82,Updates mandelbrot link,,0,0,0,2
+ivanperez-keera/Yampa,81,Fix mandelbrot link,"Reported by @madjestic.
+
+The link to the SDL2 + FRP example points to:
+
+https:  github.com madjestic Haskell-OpenGL-Tutorial tree master Mandelbrot-FRP-io-sdl2
+
+When it should point to:
+
+https:  github.com madjestic Haskell-OpenGL-Tutorial tree master MandelbrotYampa",0,0,0,2
+ivanperez-keera/Yampa,80,Publish new HCAR,The May HCAR needs to be included.,0,0,0,0
+ivanperez-keera/Yampa,79,adding cabal.project and OS in Yampa.cabal,"Refer to https:  github.com ivanperez-keera Yampa issues 78, I think we need to disable example program in the Yampa.cabal.
+
+I also add cabal.project in this PR so that we can use cabal new-* style.",0,0,0,3
+ivanperez-keera/Yampa,78,Failed build Examples on Windows,"When build using -f examples, all examples program are failed to build. It seems that SDL2 caused the problem and to install it we have to install sdl2 using this [guide[(http:  ariis.it link repos sdl-bindings hssdl WIN32) which subsequently need to install darcs.
+
+This will be hard for beginners who just want to try examples. So the perhaps we can make some simple program such as https:  github.com ivanperez-keera Yampa issues 34.",0,0,0,4
+ivanperez-keera/Yampa,77,Way of communication for beginner who want to try Yampa?,"I found Yampa is great and want to contribute more to this. However as a beginner, I found that Yampa is hard to learn not because of the FRP or its way of FRP implementation. But it is mostly about finding the right people to ask. 
+
+There are many channels described in https:  www.haskell.org community as a way to communicate. Even reflex has its own channel in IRC. I don't want to comparing Yampa to Reflex though, but because of that I am able to build my 3rd year project using reflex-dom.
+
+Now I have another project and see Yampa is quite challenging, so maybe by using it in my project I can somehow contribute to this Library more? The project itself is to create both desktop and web application.
+
+If it is possible, can we create some gitter channel and start announcing it so that beginner who wants to try Yampa can start the discussion there?
+
+Thanks,
+Andika
+",0,0,0,7
+ivanperez-keera/Yampa,76,Test pre-release branches,"Currently, Yampa is only tested in the master and the develop branches.
+
+Release branches, named `release-*`, should also be tested, to be sure that everything works right before releasing.",0,0,0,0
+ivanperez-keera/Yampa,75,Tests import Event from FRP.Yampa.Event instead of FRP.Yampa.Internals,"Hey Ivan,
+
+This is for Issue 74.
+
+Saw your pre-release announcement in the Facebook group.  Looks like you're offering Haskell beginners a chance to get their feet wet. I'm still working through the book, but this was an easy one.
+
+Nice to ""meet"" you!",0,0,0,1
+ivanperez-keera/Yampa,74,Tests should not use module FRP.Yampa.Internals,"The definition of `Event`, which used to be in `FRP.Yampa.Internals`, is now in `FRP.Yampa.Event`. The former module has been deprecated, which triggers lots of warnings.",0,0,0,0
+ivanperez-keera/Yampa,73,Test against GHC 8.2 and 8.4 on travis,"The travis file should test against the latest GHC versions, and release only for commits to master when running the newest GHC version available.",0,0,0,0
+ivanperez-keera/Yampa,72,Haddock reports < 100% coverage,"Even though all functions, definitions and modules are documented, haddock reports that documentation is missing. In particular, we cannot document `loop` in the `ArrowLoop` instance.
+
+This is a known limitation of haddock: https:  github.com haskell haddock issues 123
+
+In this case, it happens there because the method `loop` in the definition of the type class is not documented:
+https:  hackage.haskell.org package base-4.11.0.0 docs src Control.Arrow.html#loop
+
+Any of the following would help us close this issue:
+- Address this issue: https:  github.com haskell haddock issues 123
+- Add documentation for loop in the base package.
+
+EDIT: Grammar",0,0,0,1
+ivanperez-keera/Yampa,71,Documentation: ReactState,"I'm getting a warning in the documentation related to `ReactState`, which is used by the type synonym `ReactHandle`.
+
+One conflicting definition is here: https:  github.com ivanperez-keera Yampa blob 68e149c5b668b61e73c87725492879416c3aad7f src FRP Yampa Simulation.hs#L142
+
+Haddock would like to link to `ReactState` in the documentation for `ReactHandle`, but it can't because the former is not exported. So, people don't know where it comes from (and they may guess it's from Yampa, but they can't be sure unless they inspect the source code).
+
+Now, I'd like to make `ReactHandle` a newtype, so that only the type constructor is exported (but not the value constructor), values can be passed around, but it cannot be inspected. So far it's an `IORef`, which I believe is also bad, for other reasons.
+
+Are there any reasons why this would get in anybody's way? Maybe people who've played with backends know more?",0,0,0,4
+ivanperez-keera/Yampa,70,Release 0.10.8,"Final cleaning, and release on Hackage.",0,0,0,0
+ivanperez-keera/Yampa,69,Documentation: Clean documentation in FRP.Yampa.Utilities,The module includes some TODO notes that should be hidden.,0,0,0,0
+ivanperez-keera/Yampa,68,Document Yampa in the wild,"Please, comment below and list Yampa projects, and also whether they are maintained (you can tag the maintainer by using their github handle, for example, mine is @ivanperez-keera).",0,0,0,8
+ivanperez-keera/Yampa,67,Compile a list of Yampa diagrams,"A while back, @lambdor kindly put on his website a list of Yampa diagrams, with sources: http:  lambdor.net ?author=1
+
+Over time and after writing several articles, these kinds of diagrams have become pretty useful. However, in order to use them, we need to also be able to credit them properly.
+
+I think it would be great to have a list table with the images, a link to the svg, and a caption bibtex entry that credits @lambdor properly.
+
+Henrik Nilsson and Antony Courtney also have some diagrams in dia (what I have been using, mostly), which could also be added.",0,0,0,2
+ivanperez-keera/Yampa,66,use newtype in SF declaration,I believe newtype may be used here instead of data.,0,0,0,14
+ivanperez-keera/Yampa,65,Documentation: FRP.Yampa.Core,Document the module `FRP.Yampa.Core`.,0,0,0,0
+ivanperez-keera/Yampa,64,Documentation: FRP.Yampa.Task,Document the module `FRP.Yampa.Task`.,0,0,0,0
+ivanperez-keera/Yampa,63,Documentation: FRP.Yampa.Vector2,Document the module `FRP.Yampa.Vector2`.,0,0,0,0
+ivanperez-keera/Yampa,62,Documentation: FRP.Yampa.AffineSpace,Document the module `FRP.Yampa.AffineSpace`.,0,0,0,1
+ivanperez-keera/Yampa,61,Documentation: FRP.Yampa.Integration,Document the module `FRP.Yampa.Integration`.,0,0,0,0
+ivanperez-keera/Yampa,60,Documentation: FRP.Yampa.VectorSpace,Document the module `FRP.Yampa.VectorSpace`.,0,0,0,0
+ivanperez-keera/Yampa,59,Documentation: FRP.Yampa.EventS,Document the module `FRP.Yampa.EventS`.,0,0,0,0
+ivanperez-keera/Yampa,58,Documentation: FRP.Yampa.Switches,"Document the module `FRP.Yampa.Switches`.
+
+This one might be hard.",0,0,0,0
+ivanperez-keera/Yampa,57,Documentation: FRP.Yampa.Scan,Document the module `FRP.Yampa.Scan`.,0,0,0,0
+ivanperez-keera/Yampa,56,Documentation: FRP.Yampa.Random,Document the module `FRP.Yampa.Random`.,0,0,0,0
+ivanperez-keera/Yampa,55,Documentation: FRP.Yampa.InternalCore,Document the module `FRP.Yampa.InternalCore`.,0,0,0,0
+ivanperez-keera/Yampa,54,Documentation: FRP.Yampa.Miscellany,Document the module: `FRP.Yampa.Miscellany`.,0,0,0,0
+ivanperez-keera/Yampa,53,Documentation: FRP.Yampa.Diagnostics,Document the module `FRP.Yampa.Diagnostics`.,0,0,0,0
+ivanperez-keera/Yampa,52,Documentation: FRP.Yampa.MergeableRecord,Document the module `FRP.Yampa.MergeableRecord`.,0,0,0,4
+ivanperez-keera/Yampa,51,Documentation: FRP.Yampa.Hybrid,Document the module: `FRP.Yampa.Hybrid`.,0,0,0,0
+ivanperez-keera/Yampa,50,Documentation: FRP.Yampa.Vector3,Document the module `FRP.Yampa.Vector3`.,0,0,0,0
+ivanperez-keera/Yampa,49,Documentation: FRP.Yampa.Point2,Document the module `FRP.Yampa.Point2`.,0,0,0,0
+ivanperez-keera/Yampa,48,Documentation: FRP.Yampa.Point3,Document the module `FRP.Yampa.Point3`.,0,0,0,0
+ivanperez-keera/Yampa,47,Documentation: FRP.Yampa.Conditional,Document `FRP.Yampa.Conditional`.,0,0,0,0
+ivanperez-keera/Yampa,46,Documentation: FRP.Yampa.Core,Document module `FRP.Yampa.Core` fully with haddock.,0,0,0,0
+ivanperez-keera/Yampa,45,Simplify travis file.,"Travis now uses the standard building image for Haskell.
+
+Closes #44.",0,0,0,2
+ivanperez-keera/Yampa,44,Simplify Travis file with default Haskell image,"As a reference see:
+
+https:  docs.travis-ci.com user languages haskell 
+and
+https:  github.com ivanperez-keera dunai blob develop .travis.yml
+
+That is, use the standard building image for Haskell (""ghc"" variable, remove install section, etc.).",0,0,0,2
+ivanperez-keera/Yampa,43,Develop games float,Line 14 should be explaining in comments what does variables refer to Sink a d m ,0,0,0,3
+ivanperez-keera/Yampa,42, Add a hello world example of diagrams + Yampa,"It would be great to have some trivial examples of good Yampa that can help people get started.
+
+The ideal diagrams project would be either a Yampa program that outputs an animation (maybe in SVG?), or one that draws the animation using cairo gtk.",0,0,0,0
+ivanperez-keera/Yampa,41,Add a hello world example of gloss + Yampa,"It would be great to have some trivial examples of good Yampa that can help people get started.
+
+There's a project called Yampa 2048 that uses gloss. Factorizing the code logic out might give a reasonable *hello gloss*.",0,0,0,6
+ivanperez-keera/Yampa,40,Add count to Yampa's main export list,"Somewhere during the module restructuring, I left the function `count` out. This should probably be exported by `FRP.Yampa` (it actually broke some projects, apparently).
+
+It's currently with the Integration stuff.",0,0,0,2
+ivanperez-keera/Yampa,39,Added descriptions for flags,Added description fields for all flags.,0,0,0,0
+ivanperez-keera/Yampa,38,Add description to flags in cabal file,"The flags in the cabal file accept a description field that explains what they do.
+
+These could be added and would be shown on the package's hackage page.",0,0,0,1
+ivanperez-keera/Yampa,37,Haddock documentation for FRP.Yampa.Integration.count,"Many functions lack documentation.
+
+One such function is `count`, which _produces a signal carrying an Event with the number of times the input signal was holding an Event_.
+
+It would be great if that could be documented ;)",0,0,0,0
+ivanperez-keera/Yampa,36,Haddock documentation for parC and parZ,"A lot of Yampa remains undocumented.
+
+The functions `parC` and `parZ` should be pretty easy to document.
+
+https:  hackage.haskell.org package Yampa-0.10.6.2 docs FRP-Yampa-Switches.html",0,0,0,0
+ivanperez-keera/Yampa,35,Made some changes,,0,0,0,2
+ivanperez-keera/Yampa,34,Create helloworld combining HTML generation and Yampa,"Idea: create a Yampa program that generates an HTML file that changes (for instance, a text box that always shows the current mouse coordinate).
+
+Prior knowledge of `blaze-html` or some other library to generate HTML would be useful.",0,0,0,7
+ivanperez-keera/Yampa,33,Pull request to fix Issue #32,,0,0,0,0
+ivanperez-keera/Yampa,32,Add link to Haskelloids,"A link to the following project should be added as the last item in the list in the section **Other examples**.
+
+https:  github.com keera-studios Haskelloids",0,0,0,2
+ivanperez-keera/Yampa,31,Added maybeToEvent to export list,Fixes #28,0,0,0,1
+ivanperez-keera/Yampa,30,Ensure that strip command is present when using nix,When run with the `--nix` flag this ensures that the `strip` command is present in the used `nix-shell`,0,0,0,1
+ivanperez-keera/Yampa,29,Should FRP.Yampa re-export all modules,"The module `FRP.Yampa` re-exports individual functions and types. Maybe it should just re-export all modules.
+
+It would be important to check that the API does not change. I don't know if there is an automatic or systematic way of doing this. Maybe browse with ghci, sort the output, and diff?",0,0,0,2
+ivanperez-keera/Yampa,28,maybeToEvent not exported,The function maybeToEvent which is described and implemented in the Event Module https:  hackage.haskell.org package Yampa-0.10.6.2 docs FRP-Yampa-Event.html is not exported in the library. Solution: add to export of Yampa.hs.,0,0,0,3
+ivanperez-keera/Yampa,27,adding an example to the README.md,#24 ,0,0,0,0
+ivanperez-keera/Yampa,26,Add YampaSDL to other-modules,Fixes #25.,0,0,0,0
+ivanperez-keera/Yampa,25,Unable to build examples bundled with Yampa-0.10.6.1,"This is with GHC 8.2.1, if that's significant:
+
+```
+$ cabal get Yampa-0.10.6.1
+Unpacking to Yampa-0.10.6.1 
+$ cd Yampa-0.10.6.1 
+$ cabal configure -fexamples
+Resolving dependencies...
+Configuring Yampa-0.10.6.1...
+$ cabal build
+Preprocessing library for Yampa-0.10.6.1..
+Building library for Yampa-0.10.6.1..
+<build output elided>
+Preprocessing executable 'yampa-examples-sdl-bouncingbox' for Yampa-0.10.6.1..
+Building executable 'yampa-examples-sdl-bouncingbox' for Yampa-0.10.6.1..
+[1 of 1] Compiling Main             ( examples yampa-game MainBouncingBox.hs, dist build yampa-examples-sdl-bouncingbox yampa-examples-sdl-bouncingbox-tmp Main.o )
+
+examples yampa-game MainBouncingBox.hs:8:1: error:
+    Could not find module ‘YampaSDL’
+    Use -v to see a list of the files searched for.
+  |
+8 | import YampaSDL
+  | ^^^^^^^^^^^^^^^
+```",0,0,0,0
+ivanperez-keera/Yampa,24,Create SDL2 demo,"It would be nice to add an SDL2 demo so that people know where to start :)
+
+",0,0,0,4
+ivanperez-keera/Yampa,23,Provide stack.yaml,This project has never been adapted to be used with stack.,0,0,0,5
+ivanperez-keera/Yampa,22,Infinite Loop When using (d)pSwitchB,"I'm having issues using pSwitchB. I've made a simple program below that demonstrates the issue. When the switch occurs (input value is 3), this goes into an infinite loop, presumably because each time the switch occurs, a new one is immediately triggered. I though using dpSwitchB would solve this problem, but it only delays the issue till the next sample. Am I using (d)pSwitchB incorrectly?
+
+```
+module Main where
+
+import FRP.Yampa
+
+eventAt3 :: SF Integer (Event ())
+eventAt3 = arr $ \t -> if t == 3
+                        then Event ()
+                        else NoEvent
+
+swit :: [SF Integer (Event ())] -> SF Integer [Event ()]
+swit actors = pSwitchB
+        actors
+        (arr (\(_, es) -> () <$ catEvents es))
+        (\colSfs _ -> swit colSfs)
+
+main :: IO ()
+main = print $ embed (swit [eventAt3]) (0, [(1,Just 1),(1,Just 1),(1,Just 2),(1,Just 3),(1,Just 4)])
+```
+",0,0,0,3
+ivanperez-keera/Yampa,21,Remove some redundant codes,"As mentioned before in #20 and #17 
+",0,0,0,1
+ivanperez-keera/Yampa,20,Is it better to remove the needless language extention in some modules?,"It is found that in the Time module the extensions ({-# LANGUAGE GADTs, Rank2Types, CPP #-}) are not neccesary. And the same thing happened in the Integration module.
+
+I am not certain the pros or cons of adding ample extensions. Maybe being concise is better?
+",0,0,0,2
+ivanperez-keera/Yampa,19,Is it possible to replace the current vector-about modules with the outside one?,"I am wondering if it is a better choice for using `linear` rather than the current vector-about modules.
+
+As can be seen, in the yampa, there are a variety of modules dealing with vectors or vector space. It is obvious that the modules (AffineSpace, VectorSpace, Vector2, Geometry) are not neccesary, for main yampa functions do not closely rely on it.
+
+I have found that the only usage of this and that vector modules is in the Intergration module. If choosing `linear` as the replacement, the only thing to do is changing the constraints (VectorSpace a s) to the (Additive f, Num a).
+
+Acturely, the similar discussion (http:  mailman.cs.yale.edu pipermail yampa-users 2012-May ) happened 3 years ago. The main concern for the introduce of a third party vector library is the increase of dependency. Not only in yampa, but in other project the same argument (https:  github.com haskell-game sdl2 issues 3) existed.
+",0,0,0,5
+ivanperez-keera/Yampa,18,Remove trival def from IntermalCore.hs & Add some abstract descriptions(somehow realizations using function in Applicative&Foldable) to the comment in Event.hs,"Remove trival def from IntermalCore.hs & Add some abstract description(somehow realizations using function in Applicative&Foldable) to the comment in Event.
+",0,0,0,1
+ivanperez-keera/Yampa,17,Why not remove the useless import(Miscellany (dup)) from InternalCore.hs,"dup = (\a->(a,a)), a trival def imported from Miscellany, is only used once in line 456 in the file InternalCore.hs.
+I'm wondering if it's possible to remove the import in line 193 and substitude dup with (\a -> (a, a)) in line 456 which is the only place using dup.
+",0,0,0,1
+ivanperez-keera/Yampa,16,reactimate's type requirements seem contrived,"`reactimate` seems to have some redundancy in its type requirements, more specifically, the two Bool inputs required for the input and output actions.
+
+Is there a good reason to not introduce some wrapped functions which simplify this? For instance, I wrote a small module, which I've uploaded [in this gist](https:  gist.github.com rlupton20 0274a7eab045f248ee1d) (please forgive my naming), which I find I use rather than `reactimate` directly.
+
+(With regards to issue #15, `sReactimate` generalises to all monads with no changes, and `yampaMain` ~~should be~~ is fairly straightforward to adjust for `MonadIO` actions.)
+",0,0,0,8
+ivanperez-keera/Yampa,15,Switch from IO to MonadIO,"See http:  lambdor.net ?p=397. This is necessary when the output function needs to be run in a GPipe (OpenGL) context, for example.
+",0,0,0,10
+ivanperez-keera/Yampa,14,"Add Applicative and Alternative instances to Event, and make some functions more elegent by using the operator in Applicative and Functor","Add Applicative and Alternative instances to Event, same method as in
+Maybe, and make some
+functions more eligent by using the operator in Applicative anf
+Functor,such as tag lmerge mergeBy
+",0,0,0,1
+ivanperez-keera/Yampa,13,"Add Applicative and Alternative instances to Event, and make some functions more eligent by using the operator in Applicative anf Functor","Add Applicative and Alternative instances to Event, same method as in Maybe, and make some
+functions more eligent by using the operator in Applicative anf
+Functor,such as tag lmerge mergeBy
+",0,0,0,0
+ivanperez-keera/Yampa,12,Removes deprecated DatatypeContexts,"BTW. Fixes TailgatingDetector example.
+",0,0,0,1
+ivanperez-keera/Yampa,11,DatatypeContexts is deprecated,"I find that DatatypeContexts appear several times in this project.
+(i.e. Point2 3, Vector2 3 and MergeableRecord)
+
+According to this proposal: https:  ghc.haskell.org trac haskell-prime wiki NoDatatypeContexts
+DatatypeContexts is deprecated.
+It was widely considered a misfeature, and has been removed from the Haskell language.
+Although cabal-install makes Yampa buildable even in the latest GHC(by turning the flag on automatically).
+
+Instead, we should use ExistentialQuantification(or GADTs) to add constraints on constructors.
+For typeclass deriving, we could enable the StandaloneDeriving for convenience.
+
+Well, actually I'm not sure if DatatypeContexts was necessary in this case.
+I'll apologize if I misunderstood the usage here.
+",0,0,0,1
+ivanperez-keera/Yampa,10,Yampa-0.10.1 test suite failure,"Please see http:  hydra.cryp.to build 795273 nixlog 1 raw for a complete build log.
+",0,0,0,7
+ivanperez-keera/Yampa,9,Make Vector2 and Vector3 non-abstract,"This is needed in order to allow pattern matching and to stay consistent
+with `Point2` `Point3`.
+
+I couldn't find a reason for which Vector{2,3} should remain abstract.
+If there is such, I would highly appreciate an explanation.
+",0,0,0,4
+ivanperez-keera/Yampa,8,Make `imIntegral` comment recognizable by haddock,,0,0,0,3
+ivanperez-keera/Yampa,7,Yampa does not build on GHC 7.10,"(via Neil Sculthorpe):
+
+Yampa won't install because of the lack of an Applicative instance for Task.  (A consequence of the Applicative Monad proposal.)  This is using the latest Hackage version.
+
+> [16 of 16] Compiling FRP.Yampa.Task   ( src FRP Yampa Task.hs,
+> dist build FRP Yampa Task.o )
+> 
+> src FRP Yampa Task.hs:95:10:
+>     No instance for (Applicative (Task a b))
+>       arising from the superclasses of an instance declaration
+>     In the instance declaration for ‘Monad (Task a b)’
+> Failed to install Yampa-0.9.6
+",0,0,0,3
+ivanperez-keera/Yampa,6,Main Yampa module is too large,"It has over 2K lines. It should be split in conceptual units.
+",0,0,0,3
+ivanperez-keera/Yampa,5,Review Eliminate Forceable,"Yampa defines a `Forceable` type class that implements one-level-deep NF evaluation. Default implementations are given for tuples and lists.
+
+Instances are also given for `Event` and other types but, afaict, the main class function `force` is not used anywhere.
+
+Maybe it should be removed? There's other, more interesting forms of forcing (namely, deepseq).
+",0,0,0,4
+ivanperez-keera/Yampa,4,Add top-level documentation,"Documentation should be added to the main page. There's tons of it, plus games. This project doesn't even have a README.
+",0,0,0,1
+ivanperez-keera/Yampa,3,Review Eliminate MergeableRecord,"`MergeableRecord` is not used by any other module. It's an implementation of update operations on records by using type classes. Given the existing work on extensible records & lenses, plus the fact that it's not used, I think it would be best to remove it.
+
+Note: It's exported, so it makes Yampa _not_ backwards compatible.
+",0,0,0,3
+ivanperez-keera/Yampa,2,Fix build for GHC 7.10,"In order to get `Yampa` to build without any warnings or errors on GHC 7.10, I had to make the following changes:
+- Since `-fwarn-tabs` is switched on with `-Wall`, I converted all tabs to spaces.
+- Since `Applicative` is now a superclass of `Monad`, I added `Functor` and `Applicative` instances for `Task`.
+",0,0,0,6
+ivanperez-keera/Yampa,1,Code is poorly documented,"There's a lot of info about Yampa around (papers, haskell's wiki, blogs) but this is not centralised. Since the code is not documented (not using haddock), it's quite daunting to understand the semantics of each function and how to use them.
+",0,0,0,5
